@@ -2,5 +2,7 @@
 {
     public interface ILogger
     {
+        void LogGame(IGame game);
+        void LogSpecialSquare(ISquare squareHit);
     }
 }
