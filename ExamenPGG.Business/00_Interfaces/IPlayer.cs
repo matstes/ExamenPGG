@@ -11,10 +11,10 @@
         int PositionY { get; set; }
         int PreviousSquare { get; set; }
 
-        int MovePlayer(int moveAmount);
+        int MovePlayerAsync(int moveAmount);
 
         int TurnAmount { get; set; }
 
-        int InActiveTurns   { get; set; }
+        int InActiveTurns { get; set; }
     }
 }
