@@ -2,7 +2,7 @@
 
 namespace ExamenPGG.Business._01_Classes
 {
-    internal class Game : IGame
+    public class Game : IGame
     {
         public List<IPlayer> PlayerList { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public IPlayer CurrentPlayer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

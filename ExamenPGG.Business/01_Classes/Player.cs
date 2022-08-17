@@ -2,7 +2,7 @@
 
 namespace ExamenPGG.Business._01_Classes
 {
-    internal class Player : IPlayer
+    public class Player : IPlayer
     {
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string IconPath { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
