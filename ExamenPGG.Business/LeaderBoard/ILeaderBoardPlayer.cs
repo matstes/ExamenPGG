@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExamenPGG.Business._00_Interfaces
+namespace ExamenPGG.Business.LeaderBoard
 {
     public interface ILeaderBoardPlayer
     {

@@ -11,8 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="01_Classes\" />
-    <Folder Include="02_Assets\" />
+    <Folder Include="Assets\" />
   </ItemGroup>
 
 </Project>

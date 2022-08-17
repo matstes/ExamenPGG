@@ -1,6 +1,7 @@
-﻿using ExamenPGG.Business._00_Interfaces;
+﻿using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.Player;
 
-namespace ExamenPGG.Business._01_Classes
+namespace ExamenPGG.Business.Game
 {
     public class Game : IGame
     {

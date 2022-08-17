@@ -1,5 +1,4 @@
-﻿using ExamenPGG.Business._00_Interfaces;
-using ExamenPGG.Business._01_Classes;
+﻿using ExamenPGG.Business._01_Classes;
 
 namespace ExamenPGG.Business.Tests
 {
