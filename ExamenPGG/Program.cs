@@ -1,10 +1,9 @@
-﻿using ExamenPGG.Business._00_Interfaces;
-using ExamenPGG.Business._01_Classes;
-
+﻿using ExamenPGG.Business;
+using ExamenPGG.Business.Game;
+using ExamenPGG.Business.Squares;
 
 ISquareFactory squareFactory = new SquareFactory();
 IGameBoard gameBoard = new GameBoard(squareFactory);
-gameBoard.Squares = gameBoard.FillBoard();
 IDice dice = new Dice();
 
 foreach (var square in gameBoard.Squares)

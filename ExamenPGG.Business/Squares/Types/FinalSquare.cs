@@ -1,16 +1,16 @@
-﻿using ExamenPGG.Business._00_Interfaces;
-using ExamenPGG.Business._03_Enums;
+﻿using ExamenPGG.Business.Player;
 
-namespace ExamenPGG.Business._01_Classes._01_Squares
+namespace ExamenPGG.Business.Squares
 {
-    internal class FinalSquare : ISquare
+    public class FinalSquare : ISquare
     {
         public int ID { get; set; }
         public SquareType SquareType { get; set; }
 
-        public FinalSquare()
+        public FinalSquare(int id)
         {
-            this.SquareType = SquareType.FinalSquare;
+            ID = id;
+            SquareType = SquareType.Final;
         }
 
         public void HandlePlayer(IPlayer player)

@@ -1,6 +1,4 @@
-﻿using ExamenPGG.Business._00_Interfaces;
-
-namespace ExamenPGG.Business._01_Classes
+﻿namespace ExamenPGG.Business.LeaderBoard
 {
     internal class LeaderBoard : ILeaderBoard
     {
