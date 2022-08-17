@@ -1,28 +1,48 @@
-﻿using ExamenPGG.Business.Logging;
+﻿using ExamenPGG.Business.Game;
+using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Player;
 
-namespace ExamenPGG.Business.Game
+namespace ExamenPGG.Business._01_Classes
 {
-    public class Game : IGame
+    internal class Game : IGame
     {
-        public List<IPlayer> PlayerList { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IPlayer CurrentPlayer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IPlayer WinningPlayer { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime StartTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime EndTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int RoundNumber { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IGameBoard GameBoard { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public ILogger Logger { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IDice Dice { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public bool CanPlayerMove()
+        public List<IPlayer> PlayerList { get; set; }
+        public IPlayer CurrentPlayer { get; set; }
+        public IPlayer WinningPlayer { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public int RoundNumber { get; set; }
+        public IGameBoard GameBoard { get; set; }
+        public ILogger Logger { get; set; }
+        public IDice Dice { get; set; }
+        public Game(List<IPlayer> playerList, IPlayer currentPlayer, DateTime startTime, int roundNumber, IGameBoard gameBoard, ILogger logger, IDice dice)
         {
-            throw new NotImplementedException();
+            PlayerList = playerList;
+            CurrentPlayer = PlayerList[0];
+            StartTime = DateTime.Now;
+            RoundNumber = 1;
+            GameBoard = gameBoard;
+            Logger = logger;
+            Dice = dice;
         }
 
-        public void ChangeCurrentPlayer()
+        public bool CanPlayerMove(IPlayer currentPlayer)
         {
-            throw new NotImplementedException();
+            if (currentPlayer.InActiveTurns == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void ChangeCurrentPlayer(List<IPlayer> playerList)
+        {
+            IPlayer temp = playerList[0];
+
+            playerList.Remove(playerList[0]);
+            playerList.Insert(playerList.Count, temp);
+
+            CurrentPlayer = PlayerList[0];
         }
 
         public void EndGame()

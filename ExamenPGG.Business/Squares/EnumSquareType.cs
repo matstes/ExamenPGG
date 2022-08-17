@@ -1,6 +1,6 @@
 ﻿namespace ExamenPGG.Business.Squares
 {
-    public enum EnumSquareType
+    public enum SquareType
     {
         Start,
         Standard,

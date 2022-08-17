@@ -4,10 +4,8 @@ namespace ExamenPGG.Business.Game
 {
     public interface IGameBoard
     {
-        List<ISquare> Squares { get; set; }
+        IList<ISquare> Squares { get; }
 
-        ISquareFactory SquareFactory { get; set; }
-
-        List<ISquare> FillBoard();
+        ISquare GetSquare(int id);
     }
 }
