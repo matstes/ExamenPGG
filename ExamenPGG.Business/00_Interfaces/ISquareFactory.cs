@@ -4,6 +4,6 @@ namespace ExamenPGG.Business._00_Interfaces
 {
     public interface ISquareFactory
     {
-        ISquare CreateSquare(int ID, EnumSquareType SquareType);
+        ISquare CreateSquare(int ID, SquareType SquareType);
     }
 }
