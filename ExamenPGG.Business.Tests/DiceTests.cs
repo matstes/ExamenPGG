@@ -1,6 +1,4 @@
-﻿using ExamenPGG.Business._01_Classes;
-
-namespace ExamenPGG.Business.Tests
+﻿namespace ExamenPGG.Business.Tests
 {
     public class DiceTests
     {
