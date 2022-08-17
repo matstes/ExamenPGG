@@ -18,9 +18,9 @@
 
         void PerformTurn();
 
-        bool CanPlayerMove();
+        bool CanPlayerMove(IPlayer currentPlayer);
 
-        void ChangeCurrentPlayer();
+        void ChangeCurrentPlayer(List<IPlayer> playerList);
 
         void IncrementScore();
 

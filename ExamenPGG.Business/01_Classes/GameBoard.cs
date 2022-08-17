@@ -12,6 +12,7 @@ namespace ExamenPGG.Business._01_Classes
         {
             SquareFactory = squareFactory;
             Squares = new List<ISquare>();
+            // FillBoard Method in Costructor???
         }
 
         public List<ISquare> FillBoard()
