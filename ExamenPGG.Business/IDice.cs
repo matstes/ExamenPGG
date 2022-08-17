@@ -1,4 +1,4 @@
-﻿namespace ExamenPGG.Business._00_Interfaces
+﻿namespace ExamenPGG.Business
 {
     public interface IDice
     {

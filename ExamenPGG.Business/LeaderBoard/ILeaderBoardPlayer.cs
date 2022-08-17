@@ -1,4 +1,10 @@
-﻿namespace ExamenPGG.Business._00_Interfaces
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ExamenPGG.Business.LeaderBoard
 {
     public interface ILeaderBoardPlayer
     {

@@ -1,4 +1,7 @@
-﻿namespace ExamenPGG.Business._00_Interfaces
+﻿using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.Player;
+
+namespace ExamenPGG.Business.Game
 {
     public interface IGame
     {

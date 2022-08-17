@@ -1,4 +1,4 @@
-﻿namespace ExamenPGG.Business._00_Interfaces
+﻿namespace ExamenPGG.Business.Player
 {
     public interface IPlayer
     {
@@ -11,7 +11,7 @@
         int PositionY { get; set; }
         int PreviousSquare { get; set; }
 
-        int MovePlayerAsync(int moveAmount);
+        int MovePlayer(int moveAmount);
 
         int TurnAmount { get; set; }
 

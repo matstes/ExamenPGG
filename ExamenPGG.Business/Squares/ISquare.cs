@@ -1,6 +1,6 @@
-﻿using ExamenPGG.Business._03_Enums;
+﻿using ExamenPGG.Business.Player;
 
-namespace ExamenPGG.Business._00_Interfaces
+namespace ExamenPGG.Business.Squares
 {
     public interface ISquare
     {
