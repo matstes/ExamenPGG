@@ -1,4 +1,4 @@
-﻿namespace ExamenPGG.Business._00_Interfaces
+﻿namespace ExamenPGG.Business.Player
 {
     public interface IPlayer
     {
@@ -15,6 +15,6 @@
 
         int TurnAmount { get; set; }
 
-        int InActiveTurns   { get; set; }
+        int InActiveTurns { get; set; }
     }
 }

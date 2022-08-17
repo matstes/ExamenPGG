@@ -1,4 +1,6 @@
-﻿namespace ExamenPGG.Business._00_Interfaces
+﻿using ExamenPGG.Business.Squares;
+
+namespace ExamenPGG.Business.Game
 {
     public interface IGameBoard
     {

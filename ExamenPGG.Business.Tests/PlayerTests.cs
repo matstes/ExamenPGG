@@ -1,5 +1,4 @@
-﻿using ExamenPGG.Business._00_Interfaces;
-using ExamenPGG.Business._01_Classes;
+﻿using ExamenPGG.Business.Player;
 
 namespace ExamenPGG.Business.Tests
 {
@@ -10,7 +9,7 @@ namespace ExamenPGG.Business.Tests
         [SetUp]
         public void Setup()
         {
-            player = new Player();
+            player = new Player.Player();
         }
 
         [TestCase(5, 5, 10)]
@@ -24,7 +23,7 @@ namespace ExamenPGG.Business.Tests
             player.CurrentSquare = startPosition;
 
             // Act
-            int result = player.MovePlayerAsync(moveAmount);
+            int result = player.MovePlayer(moveAmount);
 
             // Assert
             Assert.That(result, Is.EqualTo(expectedResult));
@@ -41,7 +40,7 @@ namespace ExamenPGG.Business.Tests
             player.CurrentSquare = startPosition;
 
             // Act
-            int result = player.MovePlayerAsync(moveAmount);
+            int result = player.MovePlayer(moveAmount);
 
             // Assert
             Assert.That(result, Is.Not.EqualTo(expectedResult));

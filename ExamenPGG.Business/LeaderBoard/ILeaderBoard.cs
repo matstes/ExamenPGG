@@ -1,4 +1,4 @@
-﻿namespace ExamenPGG.Business._00_Interfaces
+﻿namespace ExamenPGG.Business.LeaderBoard
 {
     public interface ILeaderBoard
     {

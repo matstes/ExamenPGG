@@ -1,6 +1,4 @@
-﻿using ExamenPGG.Business.Squares;
-
-namespace ExamenPGG.Business._00_Interfaces
+﻿namespace ExamenPGG.Business.Squares
 {
     public interface ISquareFactory
     {
