@@ -1,15 +1,19 @@
-﻿using ExamenPGG.Business.Player;
+﻿using ExamenPGG.Business.Game;
+using ExamenPGG.Business.Player;
+using ExamenPGG.Business.Squares;
 
 namespace ExamenPGG.Business.Tests
 {
     public class PlayerTests
     {
         private IPlayer player;
+        private IGameBoard notABoaringBoard;
 
         [SetUp]
         public void Setup()
         {
             player = new Player.Player();
+            notABoaringBoard = GameBoard.GetInstance();
         }
 
         [TestCase(5, 5, 10)]
@@ -20,13 +24,13 @@ namespace ExamenPGG.Business.Tests
         public void MovePlayerAsync_EqualTest(int startPosition, int moveAmount, int expectedResult)
         {
             // Arrange
-            player.CurrentSquare = startPosition;
+            player.MoveToSquare(startPosition);
 
             // Act
-            int result = player.MovePlayer(moveAmount);
+            ISquare square = player.MovePlayer(moveAmount);
 
             // Assert
-            Assert.That(result, Is.EqualTo(expectedResult));
+            Assert.That(square.ID, Is.EqualTo(expectedResult));
         }
 
         [TestCase(5, 12, 7)]
@@ -37,13 +41,28 @@ namespace ExamenPGG.Business.Tests
         public void MovePlayerAsync_NotEqualTest(int startPosition, int moveAmount, int expectedResult)
         {
             // Arrange
-            player.CurrentSquare = startPosition;
+            player.MoveToSquare(startPosition);
 
             // Act
-            int result = player.MovePlayer(moveAmount);
+            ISquare square = player.MovePlayer(moveAmount);
 
             // Assert
-            Assert.That(result, Is.Not.EqualTo(expectedResult));
+            Assert.That(square.ID, Is.Not.EqualTo(expectedResult));
+        }
+
+        [Test]
+        public void MovePlayer_WhenPlayerStopsOnMaze_SendBackPlayer3Squares()
+        {
+            //arrange
+            player.MoveToSquare(38);
+
+            //act
+            ISquare square = player.MovePlayer(4);
+
+            //Assert
+            Assert.That(square.ID, Is.EqualTo(39));
+            Assert.That(player.CurrentSquare.ID, Is.EqualTo(39));
+            Assert.That(player.PreviousSquare, Is.InstanceOf<MazeSquare>());
         }
     }
 }

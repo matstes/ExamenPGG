@@ -4,6 +4,7 @@
     {
         Start,
         Standard,
-        Final,
+        Maze,
+        Final
     }
 }

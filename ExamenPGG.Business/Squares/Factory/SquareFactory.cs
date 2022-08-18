@@ -15,6 +15,9 @@
                 case SquareType.Standard:
                     return new StandardSquare(id);
 
+                case SquareType.Maze:
+                    return new MazeSquare(id);
+
                 default:
                     throw new ArgumentOutOfRangeException($"No valid square type: {nameof(SquareType)}");
             }

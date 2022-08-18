@@ -1,20 +1,19 @@
-﻿namespace ExamenPGG.Business.Player
+﻿using ExamenPGG.Business.Squares;
+
+namespace ExamenPGG.Business.Player
 {
     public interface IPlayer
     {
-        string Name { get; set; }
-
+        ISquare CurrentSquare { get; }
         string IconPath { get; set; }
-
-        int CurrentSquare { get; set; }
+        int InActiveTurns { get; set; }
+        string Name { get; set; }
         int PositionX { get; set; }
         int PositionY { get; set; }
-        int PreviousSquare { get; set; }
-
-        int MovePlayer(int moveAmount);
-
+        ISquare PreviousSquare { get; set; }
         int TurnAmount { get; set; }
 
-        int InActiveTurns { get; set; }
+        ISquare MovePlayer(int moveAmount);
+        ISquare MoveToSquare(int squareID);
     }
 }

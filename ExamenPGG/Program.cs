@@ -2,8 +2,8 @@
 using ExamenPGG.Business.Game;
 using ExamenPGG.Business.Squares;
 
-ISquareFactory squareFactory = new SquareFactory();
-IGameBoard gameBoard = new GameBoard(squareFactory);
+
+IGameBoard gameBoard = GameBoard.GetInstance();
 IDice dice = new Dice();
 
 foreach (var square in gameBoard.Squares)
