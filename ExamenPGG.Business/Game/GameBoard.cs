@@ -6,7 +6,7 @@ namespace ExamenPGG.Business.Game
     {
         private static GameBoard _instance;
 
-        private GameBoard()
+        public GameBoard()
         {
             _squareFactory = new SquareFactory();
             FillBoard(63);

@@ -1,4 +1,5 @@
-﻿namespace ExamenPGG.Business.Bootup
+﻿
+namespace ExamenPGG.Business.Bootup
 {
     public class Bootup : IBootup
     {
@@ -6,8 +7,10 @@
 
         public int playerNumber = -1;
         private string inputPlayerNumber = "0";
-        private string playerName = "Computer";
+        private string computerName = "Computer";
         private string wrongInput = "Please input correct numbers only.";
+
+        public List<string> activePlayers = new List<string>();
 
         public string AskPlayerNumber()
         {
@@ -38,8 +41,8 @@
             string askPlayerName = "";
             if (playerNumber == 0)
             {
-                askPlayerName = "Simulated game. Player is named Computer.";
-                playerName = "Computer";
+                askPlayerName = $"Simulated game. Player is named {computerName}.";
+                activePlayers.Add(computerName);
                 isReady = true;
             }
             else
@@ -51,11 +54,10 @@
 
         public void InputPlayerNames()
         {
-            List<string> bootNameList = new List<string>(playerNumber);
             for (int i = 0; i < playerNumber; i++)
             {
                 Console.WriteLine($"Input name for player {i+1}:");
-                bootNameList.Add(Console.ReadLine());
+                activePlayers.Add(Console.ReadLine());
             }
             Console.WriteLine("Setup complete. Press ANY KEY to start game.");
 
