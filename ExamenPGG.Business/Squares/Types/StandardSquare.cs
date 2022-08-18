@@ -3,7 +3,7 @@ using ExamenPGG.Business.Player;
 
 namespace ExamenPGG.Business.Squares
 {
-    internal class StandardSquare : ISquare
+    public class StandardSquare : ISquare
     {
         public int ID { get; set; }
         public SquareType SquareType { get; set; }
