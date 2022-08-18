@@ -1,5 +1,5 @@
-﻿using ExamenPGG.Business.Game;
-using ExamenPGG.Business.Player;
+﻿using ExamenPGG.Business.GameObject;
+using ExamenPGG.Business.PlayerObject;
 using ExamenPGG.Business.Squares;
 
 namespace ExamenPGG.Business.Tests
@@ -12,7 +12,7 @@ namespace ExamenPGG.Business.Tests
         [SetUp]
         public void Setup()
         {
-            player = new Player.Player();
+            player = new Player();
             notABoringBoard = GameBoard.GetInstance();
         }
 

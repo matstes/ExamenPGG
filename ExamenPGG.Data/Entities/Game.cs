@@ -8,6 +8,5 @@
         public int ThrowsToWin { get; set; }
         public Player Winner { get; set; }
         public IList<Player> PlayerList { get; set; }
-
     }
 }

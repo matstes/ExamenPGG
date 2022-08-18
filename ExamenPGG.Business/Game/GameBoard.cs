@@ -1,12 +1,12 @@
 ﻿using ExamenPGG.Business.Squares;
 
-namespace ExamenPGG.Business.Game
+namespace ExamenPGG.Business.GameObject
 {
     public class GameBoard : IGameBoard
     {
         private static GameBoard _instance;
 
-        public GameBoard()
+        private GameBoard()
         {
             _squareFactory = new SquareFactory();
             FillBoard(63);

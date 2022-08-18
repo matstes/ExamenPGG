@@ -1,7 +1,7 @@
 ﻿using ExamenPGG.Business.Logging;
-using ExamenPGG.Business.Player;
+using ExamenPGG.Business.PlayerObject;
 
-namespace ExamenPGG.Business.Game
+namespace ExamenPGG.Business.GameObject
 {
     public interface IGame
     {

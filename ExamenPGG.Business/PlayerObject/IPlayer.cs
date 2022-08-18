@@ -1,6 +1,6 @@
 ﻿using ExamenPGG.Business.Squares;
 
-namespace ExamenPGG.Business.Player
+namespace ExamenPGG.Business.PlayerObject
 {
     public interface IPlayer
     {
@@ -14,6 +14,7 @@ namespace ExamenPGG.Business.Player
         int TurnAmount { get; set; }
 
         ISquare MovePlayer(int moveAmount);
+
         ISquare MoveToSquare(int squareID);
     }
 }

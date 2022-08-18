@@ -1,8 +1,7 @@
-﻿using ExamenPGG.Business.Game;
-using ExamenPGG.Business.Logging;
-using ExamenPGG.Business.Player;
+﻿using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.PlayerObject;
 
-namespace ExamenPGG.Business.Game
+namespace ExamenPGG.Business.GameObject
 {
     public class Game : IGame
     {
@@ -15,6 +14,7 @@ namespace ExamenPGG.Business.Game
         public IGameBoard GameBoard { get; set; }
         public ILogger Logger { get; set; }
         public IDice Dice { get; set; }
+
         public Game(List<IPlayer> playerList, IPlayer currentPlayer, DateTime startTime, int roundNumber, IGameBoard gameBoard, ILogger logger, IDice dice)
         {
             PlayerList = playerList;

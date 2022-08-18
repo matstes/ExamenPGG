@@ -1,5 +1,5 @@
 ﻿using ExamenPGG.Business.Logging;
-using ExamenPGG.Business.Player;
+using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Squares
 {

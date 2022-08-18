@@ -1,6 +1,6 @@
 ﻿using ExamenPGG.Business.Squares;
 
-namespace ExamenPGG.Business.Game
+namespace ExamenPGG.Business.GameObject
 {
     public interface IGameBoard
     {

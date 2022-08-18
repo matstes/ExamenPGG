@@ -2,7 +2,8 @@
 {
     public class DiceTests
     {
-        IDice dice;
+        private IDice dice;
+
         [SetUp]
         public void Setup()
         {
