@@ -1,5 +1,5 @@
-﻿using ExamenPGG.Business.Game;
-using ExamenPGG.Business.Player;
+﻿using ExamenPGG.Business.GameObject;
+using ExamenPGG.Business.PlayerObject;
 using ExamenPGG.Business.Squares;
 
 namespace ExamenPGG.Business.Tests
@@ -7,13 +7,13 @@ namespace ExamenPGG.Business.Tests
     public class PlayerTests
     {
         private IPlayer player;
-        private IGameBoard notABoaringBoard;
+        private IGameBoard notABoringBoard;
 
         [SetUp]
         public void Setup()
         {
-            player = new Player.Player();
-            notABoaringBoard = GameBoard.GetInstance();
+            player = new Player();
+            notABoringBoard = GameBoard.GetInstance();
         }
 
         [TestCase(5, 5, 10)]
@@ -21,7 +21,8 @@ namespace ExamenPGG.Business.Tests
         [TestCase(37, 1, 38)]
         [TestCase(11, 24, 35)]
         [TestCase(58, 8, 60)]
-        public void MovePlayerAsync_EqualTest(int startPosition, int moveAmount, int expectedResult)
+        [TestCase(55, 8, 63)]
+        public void WhenMovePlayerIsCalled_MoveForwardByMoveAmount(int startPosition, int moveAmount, int expectedResult)
         {
             // Arrange
             player.MoveToSquare(startPosition);
@@ -31,23 +32,6 @@ namespace ExamenPGG.Business.Tests
 
             // Assert
             Assert.That(square.ID, Is.EqualTo(expectedResult));
-        }
-
-        [TestCase(5, 12, 7)]
-        [TestCase(45, 7, 46)]
-        [TestCase(37, 1, 42)]
-        [TestCase(58, 8, 66)]
-        [TestCase(54, 10, 64)]
-        public void MovePlayerAsync_NotEqualTest(int startPosition, int moveAmount, int expectedResult)
-        {
-            // Arrange
-            player.MoveToSquare(startPosition);
-
-            // Act
-            ISquare square = player.MovePlayer(moveAmount);
-
-            // Assert
-            Assert.That(square.ID, Is.Not.EqualTo(expectedResult));
         }
 
         [Test]

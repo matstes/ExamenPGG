@@ -1,24 +1,27 @@
 ﻿using ExamenPGG.Business.Logging;
-using ExamenPGG.Business.Player;
+using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Squares
 {
-    public class Standard : ISquare
+    public class StandardSquare : ISquare
     {
         public int ID { get; set; }
         public SquareType SquareType { get; set; }
-        // DI Add Logger 
 
-        public Standard(int id)
+        private ILogger _logger;
+        // TODO Inject loggger
+
+        public StandardSquare(int id)
         {
             ID = id;
             SquareType = SquareType.Standard;
-           // _logger = logger;
         }
 
         public void HandlePlayer(IPlayer player)
         {
-            Console.WriteLine($"Player {player.Name} entered squareID: {ID}");
+            //todo
+            //_logger.LogMessage($"Player {player.Name} entered squareID: {ID}");
+            Console.WriteLine($"Player { player.Name } entered squareID: {ID}");
         }
     }
 }

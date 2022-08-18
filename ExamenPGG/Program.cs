@@ -1,15 +1,13 @@
-﻿using ExamenPGG.Business;
-using ExamenPGG.Business.Game;
+﻿using ExamenPGG.Business.Bootup;
+using ExamenPGG.Business.GameObject;
+using ExamenPGG.Business.PlayerObject;
+
+//GAMESTATE = BOOT
+Bootup boot = new Bootup();
+IGame currentGame = boot.CreateGame(new List<IPlayer>());
+
+//GAMESTATE = MAIN LOOP
 
 
-IGameBoard gameBoard = GameBoard.GetInstance();
-IDice dice = new Dice();
-
-foreach (var square in gameBoard.Squares)
-{
-    Console.WriteLine($" ID: {square.ID} \t SquareType: {square.SquareType.ToString()}");
-}
-
-
-
-
+//GAMESTATE = FINALIZE
+//TODO

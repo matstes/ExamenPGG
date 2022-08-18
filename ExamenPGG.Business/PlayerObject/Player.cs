@@ -1,7 +1,7 @@
-﻿using ExamenPGG.Business.Game;
+﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Squares;
 
-namespace ExamenPGG.Business.Player
+namespace ExamenPGG.Business.PlayerObject
 {
     public class Player : IPlayer
     {

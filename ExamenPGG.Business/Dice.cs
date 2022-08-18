@@ -8,6 +8,7 @@
         {
             dice = new Random();
         }
+
         public int RollDice(int rollAmount)
         {
             int diceTotal = 0;
