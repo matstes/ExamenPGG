@@ -3,6 +3,7 @@ using ExamenPGG.Business.Bootup;
 using ExamenPGG.Business.Game;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Player;
+using ExamenPGG.Business.Squares;
 
 //GAMESTATE = BOOT
 List<IPlayer> gamePlayers = new List<IPlayer>();
