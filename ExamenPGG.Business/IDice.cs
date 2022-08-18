@@ -1,7 +1,9 @@
-﻿namespace ExamenPGG.Business._00_Interfaces
+﻿namespace ExamenPGG.Business
 {
     public interface IDice
     {
+        Random dice { get; set; }
+
         int RollDice(int rollAmount);
     }
 }
