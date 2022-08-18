@@ -7,13 +7,13 @@ namespace ExamenPGG.Business.Tests
     public class PlayerTests
     {
         private IPlayer player;
-        private IGameBoard notABoaringBoard;
+        private IGameBoard notABoringBoard;
 
         [SetUp]
         public void Setup()
         {
             player = new Player.Player();
-            notABoaringBoard = GameBoard.GetInstance();
+            notABoringBoard = GameBoard.GetInstance();
         }
 
         [TestCase(5, 5, 10)]
