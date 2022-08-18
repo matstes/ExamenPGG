@@ -26,23 +26,14 @@ namespace ExamenPGG.Business.GameObject
             Dice = dice;
         }
 
-        public bool CanPlayerMove(IPlayer currentPlayer)
+        public void ChangeCurrentPlayer()   //removed the playerlist parameter since this is available inside the game class
         {
-            if (currentPlayer.InActiveTurns == 0)
-            {
-                return true;
-            }
-            return false;
-        }
+            IPlayer temp = PlayerList[0];
 
-        public void ChangeCurrentPlayer(List<IPlayer> playerList)
-        {
-            IPlayer temp = playerList[0];
+            PlayerList.Remove(PlayerList[0]);
+            PlayerList.Insert(PlayerList.Count, temp);
 
-            playerList.Remove(playerList[0]);
-            playerList.Insert(playerList.Count, temp);
-
-            CurrentPlayer = PlayerList[0];
+            CurrentPlayer = this.PlayerList[0];
         }
 
         public void EndGame()
@@ -52,12 +43,42 @@ namespace ExamenPGG.Business.GameObject
 
         public void GameLoop()
         {
-            throw new NotImplementedException();
+            //split the game loop into more methods and jump from method to method:
+
+            //implement a check to see if the playerlist has been cycled => roundnumber +1
+
+            //always increment the current players turn count
+
+            //is the player allowed to go?  no? change currentplayer
+            //                              yes? IsHumanCheck
+
+            //is the player human? no? go to ExecuteDiceRoll
+            //                     yes? EnableDiceButton
+
+            //  Button will also go to ExecuteDiceRoll method.
+
+            //move player forward by the result of dice roll
+            //player class + square classes should handle this entirely
+
+            //check if the player reached 63? or can we do this in the finalSquare class
+
+            //change current player + back to the first method
         }
 
         public void IncrementScore()
         {
-            throw new NotImplementedException();
+            CurrentPlayer.TurnAmount++;
+            CanPlayerMove();
+        }
+
+        public bool CanPlayerMove() //removed the currentplayer parameter since this is available inside the game class
+        {
+            if (CurrentPlayer.InActiveTurns == 0)
+            {
+                return true;
+
+            }
+            return false;
         }
 
         public void PerformTurn()

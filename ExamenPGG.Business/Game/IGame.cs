@@ -21,9 +21,9 @@ namespace ExamenPGG.Business.GameObject
 
         void PerformTurn();
 
-        bool CanPlayerMove(IPlayer currentPlayer);
+        bool CanPlayerMove();
 
-        void ChangeCurrentPlayer(List<IPlayer> playerList);
+        void ChangeCurrentPlayer();
 
         void IncrementScore();
 

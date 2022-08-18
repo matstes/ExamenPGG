@@ -1,4 +1,4 @@
-﻿using ExamenPGG.Business.Game;
+﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Squares;
 
 namespace ExamenPGG.Business.Tests
