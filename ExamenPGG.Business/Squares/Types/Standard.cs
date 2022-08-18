@@ -3,25 +3,22 @@ using ExamenPGG.Business.Player;
 
 namespace ExamenPGG.Business.Squares
 {
-    internal class StandardSquare : ISquare
+    public class Standard : ISquare
     {
         public int ID { get; set; }
         public SquareType SquareType { get; set; }
+        // DI Add Logger 
 
-        private ILogger _logger;
-        // TODO Inject loggger
-
-        public StandardSquare(int id)
+        public Standard(int id)
         {
             ID = id;
             SquareType = SquareType.Standard;
+           // _logger = logger;
         }
 
         public void HandlePlayer(IPlayer player)
         {
-            //todo
-            //_logger.LogMessage($"Player {player.Name} entered squareID: {ID}");
-            Console.WriteLine($"Player { player.Name } entered squareID: {ID}");
+            Console.WriteLine($"Player {player.Name} entered squareID: {ID}");
         }
     }
 }

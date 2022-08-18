@@ -2,20 +2,20 @@
 
 namespace ExamenPGG.Business.Squares
 {
-    public class FinalSquare : ISquare
+    public class Maze : ISquare
     {
         public int ID { get; set; }
         public SquareType SquareType { get; set; }
 
-        public FinalSquare(int id)
+        public Maze(int id)
         {
             ID = id;
-            SquareType = SquareType.Final;
+            SquareType = SquareType.Maze;
         }
 
         public void HandlePlayer(IPlayer player)
         {
-            Console.WriteLine($"Player {player.Name} reached the EndBoss!");
+            player.MoveToSquare(39);
         }
     }
 }
