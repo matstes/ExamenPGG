@@ -3,6 +3,7 @@
     public interface IDice
     {
         Random dice { get; set; }
+
         int RollDice(int rollAmount);
     }
 }
