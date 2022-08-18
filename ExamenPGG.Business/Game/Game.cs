@@ -2,9 +2,9 @@
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Player;
 
-namespace ExamenPGG.Business._01_Classes
+namespace ExamenPGG.Business.Game
 {
-    internal class Game : IGame
+    public class Game : IGame
     {
         public List<IPlayer> PlayerList { get; set; }
         public IPlayer CurrentPlayer { get; set; }
