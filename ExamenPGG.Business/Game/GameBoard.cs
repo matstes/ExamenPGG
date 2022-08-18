@@ -27,13 +27,13 @@ namespace ExamenPGG.Business.Game
 
         private IList<ISquare> FillBoard(int gameBoardLength = 16)
         {
-            for (int i = 0; i < gameBoardLength; i++)
+            for (int i = 0; i <= gameBoardLength; i++)
             {
                 if (i == 0)
                 {
                     Squares.Add(_squareFactory.CreateSquare(i, SquareType.Start));
                 }
-                else if (i == gameBoardLength - 1)
+                else if (i == gameBoardLength)
                 {
                     Squares.Add(_squareFactory.CreateSquare(i, SquareType.Final));
                 }
