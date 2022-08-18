@@ -9,7 +9,7 @@ namespace ExamenPGG.Business.Game
         private GameBoard()
         {
             _squareFactory = new SquareFactory();
-            FillBoard(64);
+            FillBoard(63);
         }
 
         public static GameBoard GetInstance()
@@ -39,7 +39,7 @@ namespace ExamenPGG.Business.Game
                         Squares.Add(_squareFactory.CreateSquare(i, SquareType.Maze));
                         break;
 
-                    case 64:
+                    case 63:
                         Squares.Add(_squareFactory.CreateSquare(i, SquareType.Final));
                         break;
 
