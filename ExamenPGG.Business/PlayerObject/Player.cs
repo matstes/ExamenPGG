@@ -56,5 +56,15 @@ namespace ExamenPGG.Business.PlayerObject
 
             return CurrentSquare;
         }
+
+        private void CheckIfPlayerPassesFinalSquare(int destination)
+        {
+
+            if (destination > 63)
+            {
+                int squaresOverFinish = destination - 63;
+                MoveToSquare(63 - squaresOverFinish);
+            }
+        }
     }
 }

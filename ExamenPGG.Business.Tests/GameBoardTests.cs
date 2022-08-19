@@ -20,10 +20,10 @@ namespace ExamenPGG.Business.Tests
             IList<ISquare> squares = gameBoard.Squares;
 
             //Assert
-            Assert.That(squares[0], Is.InstanceOf<StartSquare>());
-            Assert.That(squares[24], Is.InstanceOf<StandardSquare>());
-            Assert.That(squares[42], Is.InstanceOf<MazeSquare>());
-            Assert.That(squares[63], Is.InstanceOf<FinalSquare>());
+            Assert.That(squares[0], Is.InstanceOf<Start>());
+            Assert.That(squares[24], Is.InstanceOf<Standard>());
+            Assert.That(squares[42], Is.InstanceOf<Maze>());
+            Assert.That(squares[63], Is.InstanceOf<Final>());
         }
     }
 }

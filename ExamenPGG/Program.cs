@@ -9,6 +9,5 @@ currentGame.StartGame();
 
 //GAMESTATE = MAIN LOOP
 
-
 //GAMESTATE = FINALIZE
 //TODO
