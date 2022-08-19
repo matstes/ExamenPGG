@@ -12,7 +12,7 @@ namespace ExamenPGG.Business.Squares.Types
         public Bat(int id) : base(id)
         {
             ID = id;
-            SquareType = SquareType.Start;
+            SquareType = SquareType.Bat;
         }
 
         public override void HandlePlayer(IPlayer player)

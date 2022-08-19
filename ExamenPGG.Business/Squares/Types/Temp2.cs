@@ -7,7 +7,7 @@ namespace ExamenPGG.Business.Squares.Types
         public Temp2(int id) : base(id)
         {
             ID = id;
-            SquareType = SquareType.Start;
+            SquareType = SquareType.Temp2;
         }
 
         public override void HandlePlayer(IPlayer player)

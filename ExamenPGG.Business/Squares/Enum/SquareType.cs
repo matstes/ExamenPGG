@@ -6,6 +6,7 @@
         Standard,
         Maze,
         Ladder,
+        Bat,
         FallTrap,
         Temp1,
         Temp2,

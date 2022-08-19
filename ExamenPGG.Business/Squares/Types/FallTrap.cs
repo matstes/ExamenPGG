@@ -7,7 +7,7 @@ namespace ExamenPGG.Business.Squares.Types
         public FallTrap(int id) : base(id)
         {
             ID = id;
-            SquareType = SquareType.Start;
+            SquareType = SquareType.FallTrap;
         }
 
         public override void HandlePlayer(IPlayer player)

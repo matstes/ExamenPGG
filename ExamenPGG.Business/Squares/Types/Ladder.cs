@@ -7,7 +7,7 @@ namespace ExamenPGG.Business.Squares.Types
         public Ladder(int id) : base(id)
         {
             ID = id;
-            SquareType = SquareType.Start;
+            SquareType = SquareType.Ladder;
         }
 
         public override void HandlePlayer(IPlayer player)
