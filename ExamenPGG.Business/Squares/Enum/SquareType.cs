@@ -5,6 +5,12 @@
         Start,
         Standard,
         Maze,
+        Ladder,
+        Bat,
+        FallTrap,
+        Temp1,
+        Temp2,
+        Temp3,
         Final
     }
 }

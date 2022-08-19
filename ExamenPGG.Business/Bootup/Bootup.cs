@@ -19,6 +19,7 @@ namespace ExamenPGG.Business.Bootup
             string askPlayerNumber = "How many players? (0-5) 0 = simulate game";
             return askPlayerNumber;
         }
+
         public void InitialPlayerNumber()
         {
             playerNumber = -1;
@@ -41,6 +42,7 @@ namespace ExamenPGG.Business.Bootup
                 AskPlayerNumber();
             }
         }
+
         public string AskPlayerNames()
         {
             string askPlayerName = "";

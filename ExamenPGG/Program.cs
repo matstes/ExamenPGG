@@ -8,6 +8,5 @@ IGame currentGame = boot.CreateGame(new List<IPlayer>());
 
 //GAMESTATE = MAIN LOOP
 
-
 //GAMESTATE = FINALIZE
 //TODO
