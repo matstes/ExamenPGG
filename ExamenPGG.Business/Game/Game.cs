@@ -14,6 +14,7 @@ namespace ExamenPGG.Business.GameObject
         public IGameBoard GameBoard { get; set; }
         public ILogger Logger { get; set; }
         public IDice Dice { get; set; }
+        public bool IsDiceButtonEnabled { get; private set; } = false;
 
         public Game(List<IPlayer> playerList, IPlayer currentPlayer, DateTime startTime, int roundNumber, IGameBoard gameBoard, ILogger logger, IDice dice)
         {
@@ -24,6 +25,55 @@ namespace ExamenPGG.Business.GameObject
             GameBoard = gameBoard;
             Logger = logger;
             Dice = dice;
+        }
+
+        public void StartGame()
+        {
+            //some start logic?
+            HasNewRoundStarted();
+        }
+
+        public void HasNewRoundStarted()
+        {
+            //new round started logic
+            IncrementScore();
+        }
+
+        public void IncrementScore()
+        {
+            CurrentPlayer.TurnAmount++;
+            CanPlayerMove();
+        }
+
+        public void CanPlayerMove() //removed the currentplayer parameter since this is available inside the game class
+        {
+            if (CurrentPlayer.InActiveTurns == 0)
+            {
+                IsHumanCheck();
+            }
+            ChangeCurrentPlayer();
+        }
+
+        private void IsHumanCheck()
+        {
+            if (CurrentPlayer.IsHuman)
+            {
+                EnableDiceButton();
+            }
+            ExecuteDiceRoll();
+        }
+
+        private void EnableDiceButton()
+        {
+            IsDiceButtonEnabled = true;
+        }
+
+        private void ExecuteDiceRoll()
+        {
+            IsDiceButtonEnabled = false;
+            int rollAmount = Dice.RollDice(2);
+            Logger.LogDiceRoll(CurrentPlayer, rollAmount);
+            CurrentPlayer.MovePlayer(rollAmount);
         }
 
         public void ChangeCurrentPlayer()   //removed the playerlist parameter since this is available inside the game class
@@ -65,28 +115,7 @@ namespace ExamenPGG.Business.GameObject
             //change current player + back to the first method
         }
 
-        public void IncrementScore()
-        {
-            CurrentPlayer.TurnAmount++;
-            CanPlayerMove();
-        }
-
-        public bool CanPlayerMove() //removed the currentplayer parameter since this is available inside the game class
-        {
-            if (CurrentPlayer.InActiveTurns == 0)
-            {
-                return true;
-
-            }
-            return false;
-        }
-
         public void PerformTurn()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool StartGame()
         {
             throw new NotImplementedException();
         }

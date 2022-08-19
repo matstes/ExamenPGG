@@ -14,6 +14,7 @@ namespace ExamenPGG.Business.PlayerObject
         public int PositionY { get; set; }
         public int TurnAmount { get; set; }
         public int InActiveTurns { get; set; }
+        public bool IsHuman { get; private set; }
 
         private int destination;
 

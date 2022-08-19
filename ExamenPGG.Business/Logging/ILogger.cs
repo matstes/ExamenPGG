@@ -1,4 +1,5 @@
 ﻿using ExamenPGG.Business.GameObject;
+using ExamenPGG.Business.PlayerObject;
 using ExamenPGG.Business.Squares;
 
 namespace ExamenPGG.Business.Logging
@@ -10,5 +11,7 @@ namespace ExamenPGG.Business.Logging
         void LogSpecialSquare(ISquare squareHit);
 
         void LogMessage(string message);
+
+        void LogDiceRoll(IPlayer player, int rollAmount);
     }
 }
