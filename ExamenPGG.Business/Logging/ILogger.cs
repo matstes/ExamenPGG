@@ -8,7 +8,7 @@ namespace ExamenPGG.Business.Logging
     {
         void LogGame(IGame game);
 
-        void LogSpecialSquare(ISquare squareHit);
+        void LogSpecialSquare(ISquare squareHit, IPlayer player);
 
         void LogMessage(string message);
 

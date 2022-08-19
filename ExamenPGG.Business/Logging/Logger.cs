@@ -8,7 +8,7 @@ namespace ExamenPGG.Business.Logging
     {
         public void LogDiceRoll(IPlayer player, int rollAmount)
         {
-            Console.WriteLine($"{player.Name} rolled the dice and got {rollAmount}!");
+            Console.WriteLine($"{DateTime.Now} {player.Name} rolled the dice and got {rollAmount}!");
         }
 
         public void LogGame(IGame game)
@@ -19,8 +19,9 @@ namespace ExamenPGG.Business.Logging
         {
         }
 
-        public void LogSpecialSquare(ISquare squareHit)
+        public void LogSpecialSquare(ISquare squareHit, IPlayer player)
         {
+            Console.WriteLine($"{DateTime.Now} Player {player.Name} entered squareID: {squareHit.ID}, {squareHit.SquareType}");
         }
     }
 }
