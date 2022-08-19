@@ -18,14 +18,20 @@ namespace ExamenPGG.Business.PlayerObject
 
         private int destination;
 
-        public Player()
+        public Player(bool isHuman)
         {
+            IsHuman = isHuman;
             CurrentSquare = GameBoard.GetInstance().GetSquare(0);
         }
 
         public ISquare MovePlayer(int moveAmount)
         {
             destination += moveAmount;
+            if (destination > 63)
+            {
+                int squaresOverFinish = destination - 63;
+                destination = 63 - squaresOverFinish;
+            }
             return HandlePlayer(destination);
         }
 

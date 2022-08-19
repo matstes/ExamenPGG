@@ -15,6 +15,7 @@ namespace ExamenPGG.Business.GameObject
         ILogger Logger { get; set; }
         public IDice Dice { get; set; }
         public bool IsDiceButtonEnabled { get; }
+        public int CurrentplayerID { get; }
 
         void StartGame();
 

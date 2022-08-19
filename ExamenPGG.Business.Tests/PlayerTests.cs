@@ -12,7 +12,7 @@ namespace ExamenPGG.Business.Tests
         [SetUp]
         public void Setup()
         {
-            player = new Player();
+            player = new Player(false);
             notABoringBoard = GameBoard.GetInstance();
         }
 

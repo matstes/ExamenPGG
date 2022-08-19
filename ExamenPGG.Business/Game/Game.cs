@@ -15,6 +15,7 @@ namespace ExamenPGG.Business.GameObject
         public ILogger Logger { get; set; }
         public IDice Dice { get; set; }
         public bool IsDiceButtonEnabled { get; private set; } = false;
+        public int CurrentplayerID { get; private set; }
 
         public Game(List<IPlayer> playerList, IPlayer currentPlayer, DateTime startTime, int roundNumber, IGameBoard gameBoard, ILogger logger, IDice dice)
         {
@@ -30,12 +31,6 @@ namespace ExamenPGG.Business.GameObject
         public void StartGame()
         {
             //some start logic?
-            HasNewRoundStarted();
-        }
-
-        public void HasNewRoundStarted()
-        {
-            //new round started logic
             IncrementScore();
         }
 
@@ -51,7 +46,10 @@ namespace ExamenPGG.Business.GameObject
             {
                 IsHumanCheck();
             }
-            ChangeCurrentPlayer();
+            else
+            {
+                ChangeCurrentPlayer();
+            }
         }
 
         private void IsHumanCheck()
@@ -60,12 +58,18 @@ namespace ExamenPGG.Business.GameObject
             {
                 EnableDiceButton();
             }
-            ExecuteDiceRoll();
+            else
+            {
+                ExecuteDiceRoll();
+            }
         }
 
         private void EnableDiceButton()
         {
             IsDiceButtonEnabled = true;
+            Console.WriteLine("Press any key to roll.");
+            Console.ReadKey(); //must become wpf button.
+            ExecuteDiceRoll(); // remove after wpf button
         }
 
         private void ExecuteDiceRoll()
@@ -74,21 +78,36 @@ namespace ExamenPGG.Business.GameObject
             int rollAmount = Dice.RollDice(2);
             Logger.LogDiceRoll(CurrentPlayer, rollAmount);
             CurrentPlayer.MovePlayer(rollAmount);
+            HasReachedEnd();
         }
 
-        public void ChangeCurrentPlayer()   //removed the playerlist parameter since this is available inside the game class
+        private void HasReachedEnd()
         {
-            IPlayer temp = PlayerList[0];
+            if (CurrentPlayer.CurrentSquare.ID == 63)
+            {
+                EndGame();
+            }
+            else
+            {
+                ChangeCurrentPlayer();
+            }
+        }
 
-            PlayerList.Remove(PlayerList[0]);
-            PlayerList.Insert(PlayerList.Count, temp);
-
-            CurrentPlayer = this.PlayerList[0];
+        public void ChangeCurrentPlayer()
+        {
+            CurrentplayerID++;
+            if (CurrentplayerID == PlayerList.Count)
+            {
+                CurrentplayerID = 0;
+                RoundNumber++;
+            }
+            CurrentPlayer = PlayerList[CurrentplayerID];
+            IncrementScore();
         }
 
         public void EndGame()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("YOU WON YIPIE");
         }
 
         public void GameLoop()

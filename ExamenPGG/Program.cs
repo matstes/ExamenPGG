@@ -5,6 +5,7 @@ using ExamenPGG.Business.PlayerObject;
 //GAMESTATE = BOOT
 Bootup boot = new Bootup();
 IGame currentGame = boot.CreateGame(new List<IPlayer>());
+currentGame.StartGame();
 
 //GAMESTATE = MAIN LOOP
 
