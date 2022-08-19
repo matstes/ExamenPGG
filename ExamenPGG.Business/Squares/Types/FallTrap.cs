@@ -2,7 +2,7 @@
 
 namespace ExamenPGG.Business.Squares.Types
 {
-    public class FallTrap : BaseSquare, ISquare
+    public class FallTrap : Standard, ISquare
     {
         public FallTrap(int id) : base(id)
         {

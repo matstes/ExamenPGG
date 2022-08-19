@@ -1,10 +1,15 @@
 ﻿using ExamenPGG.Business.PlayerObject;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace ExamenPGG.Business.Squares.Types
 {
-    public class Temp2 : Standard, ISquare
+    public class Bat : Standard, ISquare
     {
-        public Temp2(int id) : base(id)
+        public Bat(int id) : base(id)
         {
             ID = id;
             SquareType = SquareType.Start;

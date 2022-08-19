@@ -2,7 +2,7 @@
 
 namespace ExamenPGG.Business.Squares.Types
 {
-    public class Temp1 : BaseSquare, ISquare
+    public class Temp1 : Standard, ISquare
     {
         public Temp1(int id) : base(id)
         {

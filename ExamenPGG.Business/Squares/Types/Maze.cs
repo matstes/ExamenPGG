@@ -2,7 +2,7 @@
 
 namespace ExamenPGG.Business.Squares
 {
-    public class Maze : BaseSquare, ISquare
+    public class Maze : Standard, ISquare
     {
         public Maze(int id) : base(id)
         {

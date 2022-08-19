@@ -2,7 +2,7 @@
 
 namespace ExamenPGG.Business.Squares.Types
 {
-    public class Ladder : BaseSquare, ISquare
+    public class Ladder : Standard, ISquare
     {
         public Ladder(int id) : base(id)
         {
