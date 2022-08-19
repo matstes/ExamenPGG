@@ -2,18 +2,15 @@
 
 namespace ExamenPGG.Business.Squares
 {
-    public class Maze : ISquare
+    public class Maze : BaseSquare, ISquare
     {
-        public int ID { get; set; }
-        public SquareType SquareType { get; set; }
-
-        public Maze(int id)
+        public Maze(int id) : base(id)
         {
             ID = id;
             SquareType = SquareType.Maze;
         }
 
-        public void HandlePlayer(IPlayer player)
+        public override void HandlePlayer(IPlayer player)
         {
             player.MoveToSquare(39);
         }

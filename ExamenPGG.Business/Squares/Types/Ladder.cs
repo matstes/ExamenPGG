@@ -2,9 +2,9 @@
 
 namespace ExamenPGG.Business.Squares.Types
 {
-    public class Temp3 : BaseSquare, ISquare
+    public class Ladder : BaseSquare, ISquare
     {
-        public Temp3(int id) : base(id)
+        public Ladder(int id) : base(id)
         {
             ID = id;
             SquareType = SquareType.Start;

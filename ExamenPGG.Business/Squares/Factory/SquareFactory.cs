@@ -20,6 +20,12 @@ namespace ExamenPGG.Business.Squares
                 case SquareType.Maze:
                     return new Maze(id);
 
+                case SquareType.Ladder:
+                    return new Maze(id);
+
+                case SquareType.FallTrap:
+                    return new Maze(id);
+
                 case SquareType.Temp1:
                     return new Temp1(id);
 

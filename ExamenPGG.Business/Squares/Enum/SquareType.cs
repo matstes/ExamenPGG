@@ -5,6 +5,8 @@
         Start,
         Standard,
         Maze,
+        Ladder,
+        FallTrap,
         Temp1,
         Temp2,
         Temp3,
