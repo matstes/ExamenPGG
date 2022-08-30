@@ -14,17 +14,24 @@ namespace ExamenPGG.Business.PlayerObject
         public int PositionY { get; set; }
         public int TurnAmount { get; set; }
         public int InActiveTurns { get; set; }
+        public bool IsHuman { get; private set; }
 
         private int destination;
 
-        public Player()
+        public Player(bool isHuman)
         {
+            IsHuman = isHuman;
             CurrentSquare = GameBoard.GetInstance().GetSquare(0);
         }
 
         public ISquare MovePlayer(int moveAmount)
         {
             destination += moveAmount;
+            if (destination > 63)
+            {
+                int squaresOverFinish = destination - 63;
+                destination = 63 - squaresOverFinish;
+            }
             return HandlePlayer(destination);
         }
 
@@ -48,16 +55,6 @@ namespace ExamenPGG.Business.PlayerObject
             CurrentSquare.HandlePlayer(this);
 
             return CurrentSquare;
-        }
-
-        private void CheckIfPlayerPassesFinalSquare(int destination)
-        {
-
-            if (destination > 63)
-            {
-                int squaresOverFinish = destination - 63;
-                MoveToSquare(63 - squaresOverFinish);
-            }
         }
     }
 }

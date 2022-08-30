@@ -17,7 +17,7 @@ namespace ExamenPGG.Business.Squares
 
         public virtual void HandlePlayer(IPlayer player)
         {
-            _logger.LogMessage($"Player {player.Name} entered squareID: {ID}");
+            _logger.LogSpecialSquare(this, player);
         }
     }
 }

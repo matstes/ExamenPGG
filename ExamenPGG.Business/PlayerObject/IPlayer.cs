@@ -12,6 +12,7 @@ namespace ExamenPGG.Business.PlayerObject
         int PositionY { get; set; }
         ISquare PreviousSquare { get; set; }
         int TurnAmount { get; set; }
+        public bool IsHuman { get; }
 
         ISquare MovePlayer(int moveAmount);
 

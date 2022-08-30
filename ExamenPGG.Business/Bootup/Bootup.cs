@@ -92,11 +92,16 @@ namespace ExamenPGG.Business.Bootup
                 }
             }
             //Finalize boot sequence and create game instance:
+            bool isHumans = true;
+            if (playerNumber == 0)
+            {
+                isHumans = false;
+            }
             for (int i = 0; i < activePlayers.Count; i++)
             {
                 //Create list of player instances from the bootlist of player names:
                 string newPlayerName = activePlayers[i];
-                Player newPlayer = new Player();
+                Player newPlayer = new Player(isHumans);
                 newPlayer.Name = newPlayerName;
                 inputList.Add(newPlayer);
             }

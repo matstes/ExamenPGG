@@ -14,16 +14,18 @@ namespace ExamenPGG.Business.GameObject
         IGameBoard GameBoard { get; set; }
         ILogger Logger { get; set; }
         public IDice Dice { get; set; }
+        public bool IsDiceButtonEnabled { get; }
+        public int CurrentplayerID { get; }
 
-        bool StartGame();
+        void StartGame();
 
         void GameLoop();
 
         void PerformTurn();
 
-        bool CanPlayerMove(IPlayer currentPlayer);
+        void CanPlayerMove();
 
-        void ChangeCurrentPlayer(List<IPlayer> playerList);
+        void ChangeCurrentPlayer();
 
         void IncrementScore();
 
