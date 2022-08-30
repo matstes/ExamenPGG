@@ -1,7 +1,6 @@
 ﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.PlayerObject;
 using ExamenPGG.Business.Squares;
-using ExamenPGG.Business.Squares.Types;
 
 namespace ExamenPGG.Business.Tests
 {
@@ -83,7 +82,7 @@ namespace ExamenPGG.Business.Tests
         public void MovePlayer_WhenStopsOnCobweb_SkipTurn()
         {
             //arrange
-            
+
             //act
             ISquare square = player.MovePlayer(3);
 

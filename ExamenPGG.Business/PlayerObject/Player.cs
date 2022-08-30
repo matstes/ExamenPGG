@@ -18,6 +18,7 @@ namespace ExamenPGG.Business.PlayerObject
         public int LastThrow { get; set; } = 0;
 
         private int direction = 1;
+
         public int Direction
         {
             get { return direction; }
@@ -34,10 +35,7 @@ namespace ExamenPGG.Business.PlayerObject
             }
         }
 
-
         private int destination;
-
-
 
         public Player(bool isHuman)
         {
