@@ -37,6 +37,7 @@ namespace ExamenPGG.Business.GameObject
         public void IncrementScore()
         {
             CurrentPlayer.TurnAmount++;
+            CurrentPlayer.Direction = 1;
             CanPlayerMove();
         }
 
@@ -76,6 +77,7 @@ namespace ExamenPGG.Business.GameObject
         {
             IsDiceButtonEnabled = false;
             int rollAmount = Dice.RollDice(2);
+            CurrentPlayer.LastThrow = rollAmount;
             Logger.LogDiceRoll(CurrentPlayer, rollAmount);
             CurrentPlayer.MovePlayer(rollAmount);
             HasReachedEnd();

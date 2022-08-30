@@ -48,5 +48,21 @@ namespace ExamenPGG.Business.Tests
             Assert.That(player.CurrentSquare.ID, Is.EqualTo(39));
             Assert.That(player.PreviousSquare, Is.InstanceOf<Cobweb>());
         }
+
+        [Test]
+        public void MovePlayerPastFinish_WhenStopsOnBat_SendBackPlayer()
+        {
+            //arrange
+            player.MoveToSquare(61);
+            player.LastThrow = 6;
+
+            //act
+            ISquare square = player.MovePlayer(6);
+
+            //Assert
+            Assert.That(square.ID, Is.EqualTo(53));
+            Assert.That(player.CurrentSquare.ID, Is.EqualTo(53));
+            Assert.That(player.PreviousSquare, Is.InstanceOf<Standard>());
+        }
     }
 }
