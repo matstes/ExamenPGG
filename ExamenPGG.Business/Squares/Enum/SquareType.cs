@@ -4,13 +4,13 @@
     {
         Start,
         Standard,
-        Maze,
+        Cobweb,
         Ladder,
         Bat,
         FallTrap,
+        Mystery,
         Temp1,
         Temp2,
-        Temp3,
         Final
     }
 }

@@ -109,34 +109,5 @@ namespace ExamenPGG.Business.GameObject
         {
             Console.WriteLine("YOU WON YIPIE");
         }
-
-        public void GameLoop()
-        {
-            //split the game loop into more methods and jump from method to method:
-
-            //implement a check to see if the playerlist has been cycled => roundnumber +1
-
-            //always increment the current players turn count
-
-            //is the player allowed to go?  no? change currentplayer
-            //                              yes? IsHumanCheck
-
-            //is the player human? no? go to ExecuteDiceRoll
-            //                     yes? EnableDiceButton
-
-            //  Button will also go to ExecuteDiceRoll method.
-
-            //move player forward by the result of dice roll
-            //player class + square classes should handle this entirely
-
-            //check if the player reached 63? or can we do this in the finalSquare class
-
-            //change current player + back to the first method
-        }
-
-        public void PerformTurn()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

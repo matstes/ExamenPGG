@@ -19,10 +19,6 @@ namespace ExamenPGG.Business.GameObject
 
         void StartGame();
 
-        void GameLoop();
-
-        void PerformTurn();
-
         void CanPlayerMove();
 
         void ChangeCurrentPlayer();

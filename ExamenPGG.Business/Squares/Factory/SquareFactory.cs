@@ -17,23 +17,20 @@ namespace ExamenPGG.Business.Squares
                 case SquareType.Standard:
                     return new Standard(id);
 
-                case SquareType.Maze:
-                    return new Maze(id);
+                case SquareType.Cobweb:
+                    return new Cobweb(id);
 
                 case SquareType.Ladder:
-                    return new Maze(id);
+                    return new Ladder(id);
 
                 case SquareType.FallTrap:
-                    return new Maze(id);
+                    return new FallTrap(id);
 
-                case SquareType.Temp1:
-                    return new Temp1(id);
+                case SquareType.Mystery:
+                    return new Mystery(id);
 
-                case SquareType.Temp2:
-                    return new Temp2(id);
-
-                case SquareType.Temp3:
-                    return new Temp3(id);
+                case SquareType.Bat:
+                    return new Bat(id);
 
                 default:
                     throw new ArgumentOutOfRangeException($"No valid square type: {nameof(SquareType)}");

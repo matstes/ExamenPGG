@@ -2,17 +2,17 @@
 
 namespace ExamenPGG.Business.Squares.Types
 {
-    public class Temp3 : Standard, ISquare
+    public class Mystery : Standard, ISquare
     {
-        public Temp3(int id) : base(id)
+        public Mystery(int id) : base(id)
         {
             ID = id;
-            SquareType = SquareType.Temp3;
+            SquareType = SquareType.Mystery;
         }
 
         public override void HandlePlayer(IPlayer player)
         {
-            Console.WriteLine($"Player {player.Name} entered squareID: {ID}");
+            _logger.LogSpecialSquare(this, player);
         }
     }
 }

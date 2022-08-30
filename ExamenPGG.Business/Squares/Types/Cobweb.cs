@@ -2,17 +2,18 @@
 
 namespace ExamenPGG.Business.Squares
 {
-    public class Maze : Standard, ISquare
+    public class Cobweb : Standard, ISquare
     {
-        public Maze(int id) : base(id)
+        public Cobweb(int id) : base(id)
         {
             ID = id;
-            SquareType = SquareType.Maze;
+            SquareType = SquareType.Cobweb;
         }
 
         public override void HandlePlayer(IPlayer player)
         {
             player.MoveToSquare(39);
+            _logger.LogSpecialSquare(this, player);
         }
     }
 }
