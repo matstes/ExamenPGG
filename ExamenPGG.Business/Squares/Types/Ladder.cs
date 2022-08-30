@@ -1,6 +1,6 @@
 ﻿using ExamenPGG.Business.PlayerObject;
 
-namespace ExamenPGG.Business.Squares.Types
+namespace ExamenPGG.Business.Squares
 {
     public class Ladder : Standard, ISquare
     {

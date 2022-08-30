@@ -1,6 +1,5 @@
 ﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Squares;
-using ExamenPGG.Business.Squares.Types;
 
 namespace ExamenPGG.Business.Tests
 {

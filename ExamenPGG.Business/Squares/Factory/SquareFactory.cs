@@ -1,6 +1,4 @@
-﻿using ExamenPGG.Business.Squares.Types;
-
-namespace ExamenPGG.Business.Squares
+﻿namespace ExamenPGG.Business.Squares
 {
     public class SquareFactory : ISquareFactory
     {
