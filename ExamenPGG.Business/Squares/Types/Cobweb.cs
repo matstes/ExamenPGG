@@ -12,8 +12,8 @@ namespace ExamenPGG.Business.Squares
 
         public override void HandlePlayer(IPlayer player)
         {
-            player.MoveToSquare(39);
             _logger.LogSpecialSquare(this, player);
+            player.InActiveTurns += 1;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Squares;
+using ExamenPGG.Business.Squares.Types;
 
 namespace ExamenPGG.Business.Tests
 {
@@ -22,7 +23,9 @@ namespace ExamenPGG.Business.Tests
             //Assert
             Assert.That(squares[0], Is.InstanceOf<Start>());
             Assert.That(squares[24], Is.InstanceOf<Standard>());
-            Assert.That(squares[42], Is.InstanceOf<Cobweb>());
+            Assert.That(squares[17], Is.InstanceOf<Mystery>());
+            Assert.That(squares[34], Is.InstanceOf<Ladder>());
+            Assert.That(squares[42], Is.InstanceOf<FallTrap>());
             Assert.That(squares[63], Is.InstanceOf<Final>());
         }
     }

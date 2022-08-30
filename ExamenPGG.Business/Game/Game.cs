@@ -49,6 +49,7 @@ namespace ExamenPGG.Business.GameObject
             }
             else
             {
+                CurrentPlayer.InActiveTurns -= 1;
                 ChangeCurrentPlayer();
             }
         }
