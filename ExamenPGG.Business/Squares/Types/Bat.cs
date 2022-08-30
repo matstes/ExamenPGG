@@ -17,7 +17,8 @@ namespace ExamenPGG.Business.Squares.Types
 
         public override void HandlePlayer(IPlayer player)
         {
-            Console.WriteLine($"Player {player.Name} entered squareID: {ID}");
+            //Console.WriteLine($"Player {player.Name} entered squareID: {ID}");
+            _logger.LogSpecialSquare(this, player);
         }
     }
 }

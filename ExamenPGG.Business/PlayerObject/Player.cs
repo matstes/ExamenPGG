@@ -31,6 +31,7 @@ namespace ExamenPGG.Business.PlayerObject
             {
                 int squaresOverFinish = destination - 63;
                 destination = 63 - squaresOverFinish;
+                // playerdirection
             }
             return HandlePlayer(destination);
         }

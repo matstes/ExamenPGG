@@ -46,7 +46,7 @@ namespace ExamenPGG.Business.Tests
             //Assert
             Assert.That(square.ID, Is.EqualTo(39));
             Assert.That(player.CurrentSquare.ID, Is.EqualTo(39));
-            Assert.That(player.PreviousSquare, Is.InstanceOf<Maze>());
+            Assert.That(player.PreviousSquare, Is.InstanceOf<Cobweb>());
         }
     }
 }

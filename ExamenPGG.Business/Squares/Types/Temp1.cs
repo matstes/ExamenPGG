@@ -7,12 +7,12 @@ namespace ExamenPGG.Business.Squares.Types
         public Temp1(int id) : base(id)
         {
             ID = id;
-            SquareType = SquareType.Temp1;
+            SquareType = SquareType.Temp2;
         }
 
         public override void HandlePlayer(IPlayer player)
         {
-            _logger.LogMessage($"Player {player.Name} entered squareID: {ID}");
+            Console.WriteLine($"Player {player.Name} entered squareID: {ID}");
         }
     }
 }

@@ -8,38 +8,41 @@ namespace ExamenPGG.Business.Bootup
     {
         public List<string> activePlayers = new List<string>();
         public bool isReady = false;
-
         public int playerNumber = -1;
         private string computerName = "Computer";
-        private string inputPlayerNumber = "0";
         private string wrongInput = "Please input correct numbers only.";
 
         public string AskPlayerNumber()
         {
             string askPlayerNumber = "How many players? (0-5) 0 = simulate game";
+            Console.Clear();
             return askPlayerNumber;
         }
 
         public void InitialPlayerNumber()
         {
-            playerNumber = -1;
-
-            try
+            bool isPlayersInLimit = true;
+            while (isPlayersInLimit)
             {
-                inputPlayerNumber = Console.ReadLine();
-                playerNumber = Convert.ToInt32(inputPlayerNumber);
-                if (playerNumber < 0 || playerNumber > 5)
+                Console.WriteLine("How many players? (0-5) 0 = simulate game");
+                try
+                {
+                    playerNumber = Convert.ToInt32(Console.ReadLine());
+                    if (playerNumber < 0 || playerNumber > 5)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        isPlayersInLimit = false;
+                    }
+                }
+                catch (Exception ex)
                 {
                     Console.Clear();
                     Console.WriteLine(wrongInput);
-                    AskPlayerNumber();
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.Clear();
-                Console.WriteLine(wrongInput);
-                AskPlayerNumber();
             }
         }
 
@@ -78,18 +81,11 @@ namespace ExamenPGG.Business.Bootup
             while (isReady == false)
             {
                 //Input player number
-                Console.WriteLine(AskPlayerNumber());
                 InitialPlayerNumber();
+                Console.WriteLine(AskPlayerNames());
+                InputPlayerNames();
 
-                //Input player names or simulate Computer name
-                while (playerNumber >= 0 && playerNumber <= 5 && isReady == false)
-                {
-                    //TODO: This does not yet include a choice for player icons! Player NAME input ONLY for now!
-                    Console.WriteLine(AskPlayerNames());
-                    InputPlayerNames();
-                    //boot.activePlayers list (strings) is now created: List of player names ("Computer" or 1-5 real names)
-                    //boot.isReady is true if all input it complete: Continue to final part of boot sequence
-                }
+                //TODO: This does not yet include a choice for player icons! Player NAME input ONLY for now!
             }
             //Finalize boot sequence and create game instance:
             bool isHumans = true;
