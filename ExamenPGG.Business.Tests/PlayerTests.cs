@@ -22,6 +22,7 @@ namespace ExamenPGG.Business.Tests
         {
             // Arrange
             player.MoveToSquare(startPosition);
+            player.LastThrow = moveAmount;
 
             // Act
             ISquare square = player.MovePlayer(moveAmount);
@@ -60,6 +61,22 @@ namespace ExamenPGG.Business.Tests
             Assert.That(square.ID, Is.EqualTo(53));
             Assert.That(player.CurrentSquare.ID, Is.EqualTo(53));
             Assert.That(player.PreviousSquare, Is.InstanceOf<Standard>());
+        }
+
+        [Test]
+        public void WhenThorwing9FromStart_MoveToFinish()
+        {
+            //arrange
+            player.LastThrow = 9;
+
+            //act
+            ISquare square = player.MovePlayer(9);
+
+            //Assert
+            Assert.That(square.ID, Is.EqualTo(63));
+            Assert.That(player.CurrentSquare.ID, Is.EqualTo(63));
+            Assert.That(player.PreviousSquare, Is.InstanceOf<Bat>());
+            Assert.That(player.CurrentSquare, Is.InstanceOf<Final>());
         }
 
         [Test]
