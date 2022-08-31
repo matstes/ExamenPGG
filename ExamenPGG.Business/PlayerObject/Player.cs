@@ -15,6 +15,25 @@ namespace ExamenPGG.Business.PlayerObject
         public int TurnAmount { get; set; }
         public int InActiveTurns { get; set; }
         public bool IsHuman { get; private set; }
+        public int LastThrow { get; set; } = 0;
+
+        private int direction = 1;
+
+        public int Direction
+        {
+            get { return direction; }
+            set
+            {
+                if (value <= -1)
+                {
+                    direction = -1;
+                }
+                else
+                {
+                    direction = 1;
+                }
+            }
+        }
 
         private int destination;
 
@@ -31,7 +50,7 @@ namespace ExamenPGG.Business.PlayerObject
             {
                 int squaresOverFinish = destination - 63;
                 destination = 63 - squaresOverFinish;
-                // playerdirection
+                Direction = -1;
             }
             return HandlePlayer(destination);
         }
