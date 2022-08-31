@@ -1,4 +1,5 @@
 ﻿using ExamenPGG.Business.PlayerObject;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace ExamenPGG.Business.Squares
 {
@@ -15,5 +16,6 @@ namespace ExamenPGG.Business.Squares
             _logger.LogSpecialSquare(this, player);
             player.MovePlayer(15-2*(ID-(ID/8)*8));
         }
+
     }
 }

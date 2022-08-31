@@ -8,6 +8,7 @@ namespace ExamenPGG.Business.Squares
         public int ID { get; set; }
         public SquareType SquareType { get; set; }
 
+        // TODO* Inject.
         public ILogger _logger = new Logger();
 
         public Standard(int id)
