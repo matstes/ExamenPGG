@@ -22,12 +22,11 @@ void RegisterServices(ServiceCollection services)
     services.AddTransient<IBootstrapper, Bootstrapper>();
     services.AddTransient<IBootup, Bootup>();
     services.AddTransient<IDice, Dice>();  // TODO INCORRECT!
-    services.AddTransient<IGame, Game>();
-    services.AddSingleton<IGameBoard, GameBoard>();
     services.AddTransient<ILeaderBoard, LeaderBoard>();
     services.AddTransient<ISquareFactory, SquareFactory>();
     services.AddTransient<IPlayerFactory, PlayerFactory>();
 
+    services.AddSingleton<IGameBoard, GameBoard>();
 }
 
 

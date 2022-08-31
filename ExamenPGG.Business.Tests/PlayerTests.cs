@@ -12,6 +12,7 @@ namespace ExamenPGG.Business.Tests
         [SetUp]
         public void Setup()
         {
+            // TODO FOR MICHIEL Fix these poor tests ;(
             player = new Player(false);
             notABoringBoard = GameBoard.GetInstance();
         }

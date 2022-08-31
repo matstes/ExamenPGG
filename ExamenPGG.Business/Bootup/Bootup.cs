@@ -12,6 +12,7 @@ namespace ExamenPGG.Business.Bootup
         public int playerNumber = -1;
         private string computerName = "Computer";
         private string wrongInput = "Please input correct numbers only.";
+
         private IGameBoard _gameBoard;
         private ILogger _logger;
         private IPlayerFactory _playerFactory;
@@ -113,10 +114,9 @@ namespace ExamenPGG.Business.Bootup
                 inputList.Add(newPlayer);
             }
             DateTime currentTime = new DateTime();
-            ILogger gameLogger = new Logger();
-            Dice gameDice = new Dice();
+            Dice gameDice = new Dice(); //TODO COLLECTIOON OF DICE -=> SEE FACTORIES
 
-            return new Game(inputList, inputList[0], currentTime, 1, _gameBoard, gameLogger, gameDice);
+            return new Game(inputList, inputList[0], currentTime, 1, _gameBoard, _logger, gameDice);
         }
     }
 }
