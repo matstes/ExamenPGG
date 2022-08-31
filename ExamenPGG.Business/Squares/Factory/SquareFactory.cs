@@ -2,6 +2,12 @@
 {
     public class SquareFactory : ISquareFactory
     {
+        private IDice MysteryDice;
+
+        public SquareFactory(IDice mysteryDice)
+        {
+            MysteryDice = mysteryDice;
+        }
         public ISquare CreateSquare(int id, SquareType SquareType)
         {
             switch (SquareType)
@@ -25,7 +31,7 @@
                     return new FallTrap(id);
 
                 case SquareType.Mystery:
-                    return new Mystery(id);
+                    return new Mystery(id, MysteryDice);
 
                 case SquareType.Bat:
                     return new Bat(id);

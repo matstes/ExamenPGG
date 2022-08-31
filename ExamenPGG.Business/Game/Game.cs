@@ -17,6 +17,8 @@ namespace ExamenPGG.Business.GameObject
         public bool IsDiceButtonEnabled { get; private set; } = false;
         public int CurrentplayerID { get; private set; }
 
+        public int DiceAmount { get; set; } = 2;
+
         public Game(List<IPlayer> playerList, IPlayer currentPlayer, DateTime startTime, int roundNumber, IGameBoard gameBoard, ILogger logger, IDice dice)
         {
             PlayerList = playerList;
@@ -79,7 +81,7 @@ namespace ExamenPGG.Business.GameObject
         private void ExecuteDiceRoll()
         {
             IsDiceButtonEnabled = false;
-            int rollAmount = Dice.RollDice(2);
+            int rollAmount = Dice.RollDice(DiceAmount);
             CurrentPlayer.LastThrow = rollAmount;
             Logger.LogDiceRoll(CurrentPlayer, rollAmount);
             CurrentPlayer.MovePlayer(rollAmount);
