@@ -6,9 +6,12 @@ namespace ExamenPGG.Business.GameObject
     {
         private static GameBoard _instance;
 
+        private IDice MysteryDice;
+
         private GameBoard()
         {
-            _squareFactory = new SquareFactory();
+            MysteryDice = new Dice();
+            _squareFactory = new SquareFactory(MysteryDice);
             FillBoard(64);
         }
 

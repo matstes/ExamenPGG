@@ -18,6 +18,8 @@ namespace ExamenPGG.Business.PlayerObject
 
         private int destination;
 
+        public IDice Dice { get; set; }
+
         public Player(bool isHuman)
         {
             IsHuman = isHuman;
