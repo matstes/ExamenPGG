@@ -12,7 +12,7 @@ namespace ExamenPGG.Business.Squares
 
         public override void HandlePlayer(IPlayer player)
         {
-            Console.WriteLine($"Player {player.Name} reached the EndBoss!");
+            _logger.LogMessage($"Player {player.Name} reached the EndBoss!");
         }
     }
 }

@@ -38,6 +38,7 @@ namespace ExamenPGG.Business.GameObject
         {
             CurrentPlayer.TurnAmount++;
             CurrentPlayer.Direction = 1;
+            Logger.LogPlayerTurn(CurrentPlayer);
             CanPlayerMove();
         }
 
@@ -50,6 +51,7 @@ namespace ExamenPGG.Business.GameObject
             else
             {
                 CurrentPlayer.InActiveTurns -= 1;
+                Logger.LogSkipTurn(CurrentPlayer);
                 ChangeCurrentPlayer();
             }
         }
@@ -110,7 +112,9 @@ namespace ExamenPGG.Business.GameObject
 
         public void EndGame()
         {
-            Console.WriteLine("YOU WON YIPIE");
+            WinningPlayer = CurrentPlayer;
+            EndTime = DateTime.Now;
+            Logger.LogGameEnd(this);
         }
     }
 }
