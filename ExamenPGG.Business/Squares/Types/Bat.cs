@@ -1,11 +1,6 @@
 ﻿using ExamenPGG.Business.PlayerObject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ExamenPGG.Business.Squares.Types
+namespace ExamenPGG.Business.Squares
 {
     public class Bat : Standard, ISquare
     {
@@ -17,8 +12,8 @@ namespace ExamenPGG.Business.Squares.Types
 
         public override void HandlePlayer(IPlayer player)
         {
-            //Console.WriteLine($"Player {player.Name} entered squareID: {ID}");
             _logger.LogSpecialSquare(this, player);
+            player.MovePlayer(player.LastThrow * player.Direction);
         }
     }
 }

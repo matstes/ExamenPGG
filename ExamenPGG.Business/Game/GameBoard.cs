@@ -40,14 +40,14 @@ namespace ExamenPGG.Business.GameObject
 
             // Start and Final square
             gameBoardSquareTypes[0] = SquareType.Start;
-            gameBoardSquareTypes[gameBoardLength-1] = SquareType.Final;
+            gameBoardSquareTypes[gameBoardLength - 1] = SquareType.Final;
 
             // Other Squares
-            int[] batSquares = {5,9,18,27,36,45,54,59};
+            int[] batSquares = { 5, 9, 18, 27, 36, 45, 54, 59 };
             int[] cobWebSquares = { 3, 38, 57 };
             int[] mysterySquares = { 10, 17, 44 };
             int[] ladderSquares = { 21, 26, 34, 53 };
-            int[] fallTrapSquares = {42,51,60};
+            int[] fallTrapSquares = { 42, 51, 60 };
 
             foreach (int i in batSquares)
             {
@@ -61,7 +61,7 @@ namespace ExamenPGG.Business.GameObject
             {
                 gameBoardSquareTypes[i] = SquareType.Mystery;
             }
-            foreach (int i in ladderSquares )
+            foreach (int i in ladderSquares)
             {
                 gameBoardSquareTypes[i] = SquareType.Ladder;
             }

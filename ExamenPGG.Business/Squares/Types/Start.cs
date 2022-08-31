@@ -12,7 +12,7 @@ namespace ExamenPGG.Business.Squares
 
         public override void HandlePlayer(IPlayer player)
         {
-            Console.WriteLine($"Player {player.Name} starts at squareID: {ID}");
+            _logger.LogMessage($"Player {player.Name} starts at squareID: {ID}");
         }
     }
 }

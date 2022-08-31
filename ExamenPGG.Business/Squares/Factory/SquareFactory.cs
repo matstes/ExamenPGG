@@ -1,7 +1,4 @@
-﻿using ExamenPGG.Business.Squares.Types;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-
-namespace ExamenPGG.Business.Squares
+﻿namespace ExamenPGG.Business.Squares
 {
     public class SquareFactory : ISquareFactory
     {

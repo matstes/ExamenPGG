@@ -9,6 +9,7 @@ namespace ExamenPGG.Business.Squares
         public SquareType SquareType { get; set; }
 
         public ILogger _logger = new Logger();
+
         public Standard(int id)
         {
             ID = id;

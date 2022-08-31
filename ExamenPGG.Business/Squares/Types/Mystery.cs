@@ -1,6 +1,6 @@
 ﻿using ExamenPGG.Business.PlayerObject;
 
-namespace ExamenPGG.Business.Squares.Types
+namespace ExamenPGG.Business.Squares
 {
     public class Mystery : Standard, ISquare
     {
@@ -20,18 +20,21 @@ namespace ExamenPGG.Business.Squares.Types
             //20% death square, 80% extra dobbelsteen
 
             Random success = new Random();
-            int random = success.Next(1, 6);
+            int random = success.Next(1, 2);
             int rollAmount = 0;
 
             if (random == 1)
             {
-                player.MovePlayer(0);
+                player.MoveToSquare(0);
             }
             else
             {
                 rollAmount = MysteryDice.RollDice(1);
+                _logger.LogDiceRoll(player, rollAmount);
                 player.MovePlayer(rollAmount);
+
             }
+
         }
     }
 }
