@@ -2,11 +2,61 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.PlayerSelectionView"
+             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
+             xmlns:model="clr-namespace:ExamenPGG.UI.Model"
+             x:DataType="viewmodel:PlayerSelectionViewModel"
              Title="PlayerSelectionView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <Grid ColumnDefinitions="*,750,*"
+          RowDefinitions="25,auto,*,auto,25"
+          RowSpacing="25">
+
+            <HorizontalStackLayout Grid.Row="1"
+                               Grid.Column="1"
+                               HorizontalOptions="Start">
+                <Label Text="PlayerName"/>
+                <Label Text="Icon"
+                   Margin="470,0,60,0"/>
+                <Label Text="IsBot"/>
+            </HorizontalStackLayout>
+
+            <CollectionView Grid.Row="2"
+                            Grid.Column="1"
+                            ItemsSource="{Binding PlayerChoices}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="10"
+                                       Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:PlayerChoice">
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <Entry MinimumWidthRequest="510"
+                                   Text="{Binding Name}"/>
+                            <Picker Margin="25,0"/>
+                            <CheckBox IsChecked="{Binding IsBot}"
+                                      Margin="15,0"/>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <HorizontalStackLayout Grid.Row="3"
+                               Grid.Column="1"
+                               HorizontalOptions="Center">
+                <Label Text="Player count:"
+                   Margin="10,0"
+                   VerticalTextAlignment="Center"/>
+                <Button Text="-"
+                        Command="{Binding RemovePlayerCommand}"/>
+                <Label Text="{Binding PlayerCount}"
+                   Margin="10,0"
+                   VerticalTextAlignment="Center"/>
+                <Button Text="+"
+                        Command="{Binding AddPlayerCommand}"/>
+                <Button Text="Start game"
+                    Margin="280,0,0,0"/>
+            </HorizontalStackLayout>
+
+        </Grid>
+    </ScrollView>
 </ContentPage>

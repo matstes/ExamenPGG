@@ -1,4 +1,7 @@
-﻿namespace ExamenPGG.UI
+﻿using ExamenPGG.UI.View;
+using ExamenPGG.UI.ViewModel;
+
+namespace ExamenPGG.UI
 {
     public static class MauiProgram
     {
@@ -13,6 +16,8 @@
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<PlayerSelectionView>();
+            builder.Services.AddSingleton<PlayerSelectionViewModel>();
             return builder.Build();
         }
     }
