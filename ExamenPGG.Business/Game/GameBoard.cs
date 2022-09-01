@@ -1,32 +1,23 @@
-﻿using ExamenPGG.Business.Squares;
-
+﻿using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.Squares;
 namespace ExamenPGG.Business.GameObject
 {
     public class GameBoard : IGameBoard
     {
-        private static GameBoard _instance;
-
         private IDice MysteryDice;
+        private ILogger _logger;
+        private ISquareFactory _squareFactory;
 
-        private GameBoard()
+
+        public GameBoard(ILogger logger, ISquareFactory factory)
         {
             MysteryDice = new Dice();
-            _squareFactory = new SquareFactory(MysteryDice);
+            _squareFactory = factory; 
+            _logger = logger;
             FillBoard(64);
         }
 
-        public static GameBoard GetInstance()
-        {
-            if (_instance == null)
-            {
-                _instance = new GameBoard();
-            }
-
-            return _instance;
-        }
-
         public IList<ISquare> Squares { get; private set; } = new List<ISquare>();
-        private ISquareFactory _squareFactory { get; set; }
 
         private IList<ISquare> FillBoard(int gameBoardLength)
         {

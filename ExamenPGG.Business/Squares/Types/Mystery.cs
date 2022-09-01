@@ -20,7 +20,7 @@ namespace ExamenPGG.Business.Squares
             //20% death square, 80% extra dobbelsteen
 
             Random success = new Random();
-            int random = success.Next(1, 2);
+            int random = success.Next(1, 6);
             int rollAmount = 0;
 
             if (random == 1)

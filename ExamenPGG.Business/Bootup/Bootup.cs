@@ -1,6 +1,7 @@
 ﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
+using ExamenPGG.Business.Squares.Factory;
 
 namespace ExamenPGG.Business.Bootup
 {
@@ -11,6 +12,17 @@ namespace ExamenPGG.Business.Bootup
         public int playerNumber = -1;
         private string computerName = "Computer";
         private string wrongInput = "Please input correct numbers only.";
+
+        private IGameBoard _gameBoard;
+        private ILogger _logger;
+        private IPlayerFactory _playerFactory;
+
+        public Bootup(IGameBoard gameBoard, IPlayerFactory factory, ILogger logger)
+        {
+            _gameBoard = gameBoard;
+            _logger = logger;
+            _playerFactory = factory;
+        }
 
         public string AskPlayerNumber()
         {
@@ -93,20 +105,18 @@ namespace ExamenPGG.Business.Bootup
             {
                 isHumans = false;
             }
+
             for (int i = 0; i < activePlayers.Count; i++)
             {
                 //Create list of player instances from the bootlist of player names:
                 string newPlayerName = activePlayers[i];
-                Player newPlayer = new Player(isHumans);
-                newPlayer.Name = newPlayerName;
+                IPlayer newPlayer = _playerFactory.CreatePlayer(newPlayerName, isHumans);
                 inputList.Add(newPlayer);
             }
             DateTime currentTime = new DateTime();
-            IGameBoard newGameBoard = GameBoard.GetInstance();
-            ILogger gameLogger = new Logger();
-            Dice gameDice = new Dice();
+            Dice gameDice = new Dice(); //TODO COLLECTIOON OF DICE -=> SEE FACTORIES
 
-            return new Game(inputList, inputList[0], currentTime, 1, newGameBoard, gameLogger, gameDice);
+            return new Game(inputList, inputList[0], currentTime, 1, _gameBoard, _logger, gameDice);
         }
     }
 }

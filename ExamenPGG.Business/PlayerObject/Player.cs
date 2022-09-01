@@ -19,6 +19,16 @@ namespace ExamenPGG.Business.PlayerObject
 
         private int direction = 1;
 
+        private IGameBoard _gameBoard;
+
+        public Player(string name, bool isHuman, IGameBoard gameBoard)
+        {
+            Name = name;
+            IsHuman = isHuman;
+            _gameBoard = gameBoard;
+            CurrentSquare = _gameBoard.GetSquare(0);
+        }
+
         public int Direction
         {
             get { return direction; }
@@ -37,11 +47,7 @@ namespace ExamenPGG.Business.PlayerObject
 
         private int destination;
 
-        public Player(bool isHuman)
-        {
-            IsHuman = isHuman;
-            CurrentSquare = GameBoard.GetInstance().GetSquare(0);
-        }
+
 
         public ISquare MovePlayer(int moveAmount)
         {
@@ -63,7 +69,7 @@ namespace ExamenPGG.Business.PlayerObject
 
         private ISquare GetSquare(int position)
         {
-            var square = GameBoard.GetInstance().GetSquare(position);
+            var square = _gameBoard.GetSquare(position);
 
             return square;
         }
