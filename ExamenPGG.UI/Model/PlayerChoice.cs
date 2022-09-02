@@ -1,13 +1,22 @@
-﻿namespace ExamenPGG.UI.Model
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace ExamenPGG.UI.Model
 {
-    public class PlayerChoice
+    public partial class PlayerChoice: ObservableObject
     {
-        public PlayerChoice(string name)
+        public PlayerChoice(string name, IList<String> iconList)
         {
             Name = name;
+            IconList = iconList;
+            Icon = IconList[0];
         }
-        public string Name { get; set; }
-        public int Icon { get; set; }
-        public bool IsBot { get; set; }
+
+        [ObservableProperty]
+        public string name;
+        [ObservableProperty]
+        public string icon;
+        [ObservableProperty]
+        public bool isBot;
+        public IList<String> IconList { get; set; }
     }
 }

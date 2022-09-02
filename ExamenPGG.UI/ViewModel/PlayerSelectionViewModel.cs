@@ -10,10 +10,19 @@ namespace ExamenPGG.UI.ViewModel
         [ObservableProperty]
         private int playerCount = 1;
         public ObservableCollection<PlayerChoice> PlayerChoices { get; set; } = new();
+        public IList<String> IconList { get; set; }
 
         public PlayerSelectionViewModel()
         {
-            PlayerChoices.Add(new PlayerChoice("Player 1"));
+            IconList = new List<string>()
+            {
+                "testicon1.png",
+                "testicon2.png",
+                "testicon3.png",
+                "testicon4.png",
+                "testicon5.png"
+            };
+            PlayerChoices.Add(new PlayerChoice("Player 1", IconList));
         }
 
         [RelayCommand]
@@ -22,7 +31,7 @@ namespace ExamenPGG.UI.ViewModel
             if (PlayerCount < 5)
             {
                 PlayerCount++;
-                PlayerChoices.Add(new PlayerChoice($"Player {playerCount}"));
+                PlayerChoices.Add(new PlayerChoice($"Player {playerCount}", IconList));
             }
         }
 
