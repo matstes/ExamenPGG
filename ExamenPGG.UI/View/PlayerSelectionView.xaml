@@ -49,7 +49,7 @@
                                    HeightRequest="32"/>
 
                             <CheckBox IsChecked="{Binding IsBot}"
-                                      Margin="15,0"/>
+                                      Margin="40,0"/>
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
