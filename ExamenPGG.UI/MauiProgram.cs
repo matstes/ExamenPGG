@@ -18,6 +18,8 @@ namespace ExamenPGG.UI
 
             builder.Services.AddSingleton<PlayerSelectionView>();
             builder.Services.AddSingleton<PlayerSelectionViewModel>();
+
+            builder.Services.AddTransient<MainPage>();
             return builder.Build();
         }
     }

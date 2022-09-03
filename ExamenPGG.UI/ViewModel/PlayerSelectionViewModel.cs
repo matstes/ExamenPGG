@@ -44,5 +44,17 @@ namespace ExamenPGG.UI.ViewModel
                 PlayerChoices.RemoveAt(PlayerCount);
             }
         }
+
+        [RelayCommand]
+        async Task StartGame()
+        {
+            //create the game object
+            await GoToMainViewAsync();
+        }
+
+        async Task GoToMainViewAsync()
+        {
+            await Shell.Current.GoToAsync($"{nameof(MainPage)}");
+        }
     }
 }

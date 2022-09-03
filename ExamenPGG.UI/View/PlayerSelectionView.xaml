@@ -8,7 +8,7 @@
              Title="Player Selection">
     
     <ScrollView>
-        <Grid ColumnDefinitions="*,750,*"
+        <Grid ColumnDefinitions="*,550,*"
           RowDefinitions="25,auto,*,auto,25"
           RowSpacing="25">
 
@@ -18,7 +18,7 @@
                 <Label Text="PlayerName"/>
                 
                 <Label Text="Icon"
-                   Margin="470,0,90,0"/>
+                       Margin="270,0,90,0"/>
                 
                 <Label Text="IsBot"/>
             </HorizontalStackLayout>
@@ -35,7 +35,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:PlayerChoice">
                         <HorizontalStackLayout HorizontalOptions="Center">
-                            <Entry MinimumWidthRequest="450"
+                            <Entry MinimumWidthRequest="250"
                                    Text="{Binding Name}"/>
 
                             <Picker Margin="25,0"
@@ -73,7 +73,8 @@
                         Command="{Binding AddPlayerCommand}"/>
 
                 <Button Text="Start game"
-                        Margin="400,0,0,0"/>
+                        Margin="200,0,0,0"
+                        Command="{Binding StartGameCommand}"/>
             </HorizontalStackLayout>
         </Grid>
     </ScrollView>

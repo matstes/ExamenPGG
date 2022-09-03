@@ -10,6 +10,6 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate view:PlayerSelectionView}"
-        Route="MainPage" />
+        Route="PlayerSelection" />
 
 </Shell>
