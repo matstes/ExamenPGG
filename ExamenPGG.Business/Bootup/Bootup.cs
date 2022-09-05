@@ -110,7 +110,7 @@ namespace ExamenPGG.Business.Bootup
             {
                 //Create list of player instances from the bootlist of player names:
                 string newPlayerName = activePlayers[i];
-                IPlayer newPlayer = _playerFactory.CreatePlayer(newPlayerName, isHumans);
+                IPlayer newPlayer = _playerFactory.CreatePlayer(newPlayerName, "testicon1.png", isHumans);
                 inputList.Add(newPlayer);
             }
             DateTime currentTime = new DateTime();

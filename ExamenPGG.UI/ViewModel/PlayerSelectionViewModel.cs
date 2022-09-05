@@ -1,5 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExamenPGG.Business;
+using ExamenPGG.Business.GameObject;
+using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.PlayerObject;
+using ExamenPGG.Business.Squares.Factory;
 using ExamenPGG.UI.Model;
 using System.Collections.ObjectModel;
 
@@ -12,8 +17,18 @@ namespace ExamenPGG.UI.ViewModel
         public ObservableCollection<PlayerChoice> PlayerChoices { get; set; } = new();
         public IList<String> IconList { get; set; }
 
-        public PlayerSelectionViewModel()
+        private IGameBoard _gameBoard;
+        private ILogger _logger;
+        private IPlayerFactory _playerFactory;
+        private IDice _dice;
+
+        public PlayerSelectionViewModel(IGameBoard gameBoard, IPlayerFactory playerFactory, ILogger logger, IDice dice)
         {
+            _gameBoard = gameBoard;
+            _logger = logger;
+            _playerFactory = playerFactory;
+            _dice = dice;
+
             IconList = new List<string>()
             {
                 "testicon1.png",
@@ -48,6 +63,16 @@ namespace ExamenPGG.UI.ViewModel
         [RelayCommand]
         async Task StartGame()
         {
+            List<IPlayer> playerList = GetPlayerList();
+            if (playerList is null)
+            {
+                return;
+            }
+
+            var currentTime = DateTime.Now;
+            IGame game = new Game(playerList, playerList[0], currentTime, 1, _gameBoard, _logger, _dice);
+            game.StartGame();
+
             //create the game object
             await GoToMainViewAsync();
         }
@@ -55,6 +80,26 @@ namespace ExamenPGG.UI.ViewModel
         async Task GoToMainViewAsync()
         {
             await Shell.Current.GoToAsync($"{nameof(MainPage)}");
+        }
+
+        private List<IPlayer> GetPlayerList()
+        {
+            //generate playerlist
+            List<IPlayer> playerList = new();
+
+            foreach (var choice in PlayerChoices)
+            {
+                if (string.IsNullOrEmpty(choice.Name))
+                {
+                    return null;
+                }
+                else
+                {
+                    IPlayer newPlayer = _playerFactory.CreatePlayer(choice.Name, choice.Icon, !choice.IsBot);
+                    playerList.Add(newPlayer);
+                }
+            }
+            return playerList;
         }
     }
 }
