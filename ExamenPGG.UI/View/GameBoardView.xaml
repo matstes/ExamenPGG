@@ -1,12 +1,110 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.GameBoardView"
-             Title="GameBoardView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="GameBoardView"
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="768"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="464"></ColumnDefinition>
+            <ColumnDefinition Width="768"></ColumnDefinition>
+            <ColumnDefinition Width="464"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <StackLayout
+            Grid.Column="0" Grid.Row="0"
+            Background="Green"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="1" Grid.Row="0"
+            Background="Red"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="2" Grid.Row="0"
+            Background="Green"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="3" Grid.Row="0"
+            Background="Blue"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="4" Grid.Row="0"
+            Background="Red"
+            ></StackLayout>
+
+
+        <StackLayout
+            Grid.Column="0" Grid.Row="1"
+            Background="Red"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="1" Grid.Row="1"
+            Background="Yellow"
+            >
+            <Image 
+                Source="batleft.png"
+                HorizontalOptions="End"
+                VerticalOptions="CenterAndExpand" 
+                Aspect="AspectFill"
+                >
+            </Image>
+        </StackLayout>
+        <StackLayout
+            Grid.Column="2" Grid.Row="1"
+            Background="Purple"
+            >
+            <Image 
+                Source="batworld.png"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"   
+                >
+            </Image>            
+        </StackLayout>
+        <StackLayout
+            Grid.Column="3" Grid.Row="1" 
+            Background="Orange"
+            >
+            <Image 
+                Source="batright.png"
+                HorizontalOptions="Start"
+                VerticalOptions="CenterAndExpand"  
+                Aspect="AspectFill"
+                >                
+            </Image>
+        </StackLayout>
+        <StackLayout
+            Grid.Column="4" Grid.Row="1"
+            Background="Lime"
+            ></StackLayout>
+
+        <StackLayout
+            Grid.Column="0" Grid.Row="2"
+            Background="Purple"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="1" Grid.Row="2"
+            Background="Blue"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="2" Grid.Row="2"
+            Background="Lime"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="3" Grid.Row="2"
+            Background="Pink"
+            ></StackLayout>
+        <StackLayout
+            Grid.Column="4" Grid.Row="3"
+            Background="Orange"
+            ></StackLayout>
+    </Grid>
 </ContentPage>
