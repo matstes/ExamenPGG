@@ -37,6 +37,7 @@ namespace ExamenPGG.UI
             builder.Services.AddSingleton<PlayerSelectionViewModel>();
 
             builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<MainViewModel>();
             return builder.Build();
         }
     }

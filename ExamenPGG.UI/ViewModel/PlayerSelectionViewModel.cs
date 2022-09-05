@@ -71,15 +71,18 @@ namespace ExamenPGG.UI.ViewModel
 
             var currentTime = DateTime.Now;
             IGame game = new Game(playerList, playerList[0], currentTime, 1, _gameBoard, _logger, _dice);
-            game.StartGame();
 
             //create the game object
-            await GoToMainViewAsync();
+            await GoToMainViewAsync(game);
         }
 
-        async Task GoToMainViewAsync()
+        async Task GoToMainViewAsync(IGame game)
         {
-            await Shell.Current.GoToAsync($"{nameof(MainPage)}");
+            await Shell.Current.GoToAsync($"{nameof(MainPage)}", true,
+                new Dictionary<string, object>()
+                {
+                    {"Game", game }
+                }) ;
         }
 
         private List<IPlayer> GetPlayerList()

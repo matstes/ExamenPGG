@@ -73,9 +73,6 @@ namespace ExamenPGG.Business.GameObject
         private void EnableDiceButton()
         {
             IsDiceButtonEnabled = true;
-            Console.WriteLine("Press any key to roll.");
-            Console.ReadKey(); //must become wpf button.
-            ExecuteDiceRoll(); // remove after wpf button
         }
 
         private void ExecuteDiceRoll()
