@@ -48,6 +48,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="ViewModel\ScaleApp.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\batleft.png" />
 	  <None Remove="Resources\Images\batright.png" />
 	  <None Remove="Resources\Images\batworld.png" />

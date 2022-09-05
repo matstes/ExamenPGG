@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.GameBoardView"
              Title="GameBoardView"
              >
-    <Grid>
+    <Grid x:Name="GridCanvas">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="768"></RowDefinition>
@@ -20,35 +20,144 @@
         </Grid.ColumnDefinitions>
 
 
+
+        
+        <StackLayout x:Name="gameBoardImage"
+            Grid.Column="2" Grid.Row="1"
+            Background="Purple"
+            >
+            <Image 
+                Source="batworld.png"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"   
+                Aspect="AspectFill"
+                >
+            </Image>
+        </StackLayout>
+
+
+
+        <Grid x:Name="GridGameBoard" Grid.Column="2" Grid.Row="1" Padding="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition Height="96"></RowDefinition>
+                <RowDefinition Height="96"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="96"></ColumnDefinition>
+                <ColumnDefinition Width="96"></ColumnDefinition>
+                <ColumnDefinition Width="96"></ColumnDefinition>
+                <ColumnDefinition Width="96"></ColumnDefinition>
+                <ColumnDefinition Width="96"></ColumnDefinition>
+                <ColumnDefinition Width="96"></ColumnDefinition>
+                <ColumnDefinition Width="96"></ColumnDefinition>
+                <ColumnDefinition Width="96"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="7" Text="START"   FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="7" Text="1"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="7" Text="2"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="7" Text="3"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="7" Text="4"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="7" Text="5"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="7" Text="6"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="7" Text="7"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="6" Text="15"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="6" Text="14"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="6" Text="13"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="6" Text="12"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="6" Text="11"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="6" Text="10"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="6" Text="9"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="6" Text="8"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="5" Text="16"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="5" Text="17"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="5" Text="18"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="5" Text="19"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="5" Text="20"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="5" Text="21"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="5" Text="22"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="5" Text="23"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="4" Text="31"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="4" Text="30"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="4" Text="29"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="4" Text="28"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="4" Text="27"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="4" Text="26"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="4" Text="25"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="4" Text="24"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="3" Text="32"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="3" Text="33"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="3" Text="34"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="3" Text="35"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="3" Text="36"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="3" Text="37"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="3" Text="38"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="3" Text="39"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="2" Text="47"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="2" Text="46"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="2" Text="45"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="2" Text="44"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="2" Text="43"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="2" Text="42"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="2" Text="41"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="2" Text="40"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="1" Text="48"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="1" Text="49"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="1" Text="50"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="1" Text="51"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="1" Text="52"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="1" Text="53"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="1" Text="54"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="1" Text="55"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="0" Text="KILL IT" FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="0" Text="62"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="0" Text="61"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="0" Text="60"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="0" Text="59"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="0" Text="58"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="0" Text="57"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="0" Text="56"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+        </Grid>
+
+
+
+
+
+
         <StackLayout
             Grid.Column="0" Grid.Row="0"
-            Background="Green"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="1" Grid.Row="0"
-            Background="Red"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="2" Grid.Row="0"
-            Background="Green"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="3" Grid.Row="0"
-            Background="Blue"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="4" Grid.Row="0"
-            Background="Red"
+            Background="Black"
             ></StackLayout>
 
 
         <StackLayout
             Grid.Column="0" Grid.Row="1"
-            Background="Red"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="1" Grid.Row="1"
-            Background="Yellow"
+            Background="Black"
             >
             <Image 
                 Source="batleft.png"
@@ -59,19 +168,8 @@
             </Image>
         </StackLayout>
         <StackLayout
-            Grid.Column="2" Grid.Row="1"
-            Background="Purple"
-            >
-            <Image 
-                Source="batworld.png"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="CenterAndExpand"   
-                >
-            </Image>            
-        </StackLayout>
-        <StackLayout
             Grid.Column="3" Grid.Row="1" 
-            Background="Orange"
+            Background="Black"
             >
             <Image 
                 Source="batright.png"
@@ -83,28 +181,28 @@
         </StackLayout>
         <StackLayout
             Grid.Column="4" Grid.Row="1"
-            Background="Lime"
+            Background="Black"
             ></StackLayout>
 
         <StackLayout
             Grid.Column="0" Grid.Row="2"
-            Background="Purple"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="1" Grid.Row="2"
-            Background="Blue"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="2" Grid.Row="2"
-            Background="Lime"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="3" Grid.Row="2"
-            Background="Pink"
+            Background="Black"
             ></StackLayout>
         <StackLayout
             Grid.Column="4" Grid.Row="3"
-            Background="Orange"
+            Background="Black"
             ></StackLayout>
     </Grid>
 </ContentPage>
