@@ -1,7 +1,7 @@
 ﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.PlayerObject;
 
-namespace ExamenPGG.Business.Squares.Factory
+namespace ExamenPGG.Business.Factory
 {
     public class PlayerFactory : IPlayerFactory
     {
@@ -12,9 +12,9 @@ namespace ExamenPGG.Business.Squares.Factory
             _gameBoard = gameBoard;
         }
 
-        public IPlayer CreatePlayer(string name, bool isHuman)
+        public IPlayer CreatePlayer(string name, string iconPath, bool isHuman)
         {
-            return new Player(name, isHuman, _gameBoard);
+            return new Player(name, iconPath, isHuman, _gameBoard);
         }
     }
 }

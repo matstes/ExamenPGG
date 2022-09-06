@@ -110,13 +110,12 @@ namespace ExamenPGG.Business.Bootup
             {
                 //Create list of player instances from the bootlist of player names:
                 string newPlayerName = activePlayers[i];
-                IPlayer newPlayer = _playerFactory.CreatePlayer(newPlayerName, isHumans);
+                IPlayer newPlayer = _playerFactory.CreatePlayer(newPlayerName, "testicon1.png", isHumans);
                 inputList.Add(newPlayer);
             }
-            DateTime currentTime = new DateTime();
             Dice gameDice = new Dice(); //TODO COLLECTIOON OF DICE -=> SEE FACTORIES
 
-            return new Game(inputList, inputList[0], currentTime, 1, _gameBoard, _logger, gameDice);
+            return new Game(_gameBoard, _logger, gameDice);
         }
     }
 }

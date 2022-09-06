@@ -19,20 +19,29 @@ namespace ExamenPGG.Business.GameObject
 
         public int DiceAmount { get; set; } = 2;
 
-        public Game(List<IPlayer> playerList, IPlayer currentPlayer, DateTime startTime, int roundNumber, IGameBoard gameBoard, ILogger logger, IDice dice)
+        public Game(IGameBoard gameBoard, ILogger logger, IDice dice)
         {
-            PlayerList = playerList;
-            CurrentPlayer = PlayerList[0];
-            StartTime = DateTime.Now;
-            RoundNumber = 1;
             GameBoard = gameBoard;
             Logger = logger;
             Dice = dice;
         }
 
+        public void InitializeNewGame(List<IPlayer> playerList)
+        {
+            PlayerList = playerList;
+            CurrentPlayer = PlayerList[0];
+            StartTime = DateTime.Now;
+            RoundNumber = 1;
+        }
+
         public void StartGame()
         {
             //some start logic?
+            if (PlayerList is null)
+            {
+                return;
+            }
+
             IncrementScore();
         }
 
@@ -73,9 +82,6 @@ namespace ExamenPGG.Business.GameObject
         private void EnableDiceButton()
         {
             IsDiceButtonEnabled = true;
-            Console.WriteLine("Press any key to roll.");
-            Console.ReadKey(); //must become wpf button.
-            ExecuteDiceRoll(); // remove after wpf button
         }
 
         private void ExecuteDiceRoll()

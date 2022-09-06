@@ -1,4 +1,13 @@
-﻿namespace ExamenPGG.UI
+﻿using ExamenPGG.Business;
+using ExamenPGG.Business.Bootup;
+using ExamenPGG.Business.GameObject;
+using ExamenPGG.Business.LeaderBoard;
+using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.Factory;
+using ExamenPGG.UI.View;
+using ExamenPGG.UI.ViewModel;
+
+namespace ExamenPGG.UI
 {
     public static class MauiProgram
     {
@@ -13,6 +22,24 @@
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            //business layer dependencies
+            builder.Services.AddTransient<ILogger, Logger>();
+            builder.Services.AddTransient<IBootstrapper, Bootstrapper>();
+            builder.Services.AddTransient<IBootup, Bootup>();
+            builder.Services.AddTransient<IDice, Dice>();  // TODO INCORRECT!
+            builder.Services.AddTransient<ILeaderBoard, LeaderBoard>();
+            builder.Services.AddTransient<ISquareFactory, SquareFactory>();
+            builder.Services.AddTransient<IPlayerFactory, PlayerFactory>();
+
+            builder.Services.AddSingleton<IGameBoard, GameBoard>();
+            builder.Services.AddSingleton<IGame, Game>();
+
+            //pages
+            builder.Services.AddTransient<PlayerSelectionView>();
+            builder.Services.AddTransient<PlayerSelectionViewModel>();
+
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<MainViewModel>();
             return builder.Build();
         }
     }
