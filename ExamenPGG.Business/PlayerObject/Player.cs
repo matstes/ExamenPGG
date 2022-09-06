@@ -21,9 +21,10 @@ namespace ExamenPGG.Business.PlayerObject
 
         private IGameBoard _gameBoard;
 
-        public Player(string name, bool isHuman, IGameBoard gameBoard)
+        public Player(string name,string iconPath, bool isHuman, IGameBoard gameBoard)
         {
             Name = name;
+            IconPath = iconPath;
             IsHuman = isHuman;
             _gameBoard = gameBoard;
             CurrentSquare = _gameBoard.GetSquare(0);
