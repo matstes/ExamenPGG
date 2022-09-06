@@ -70,8 +70,40 @@ namespace ExamenPGG.Business.PlayerObject
         private ISquare GetSquare(int position)
         {
             var square = _gameBoard.GetSquare(position);
-
+            PositionY = GetYPosition();
+            PositionX = GetXPosition(PositionY);
             return square;
+        }
+
+        private int GetYPosition()
+        {
+
+            int yY = 8 - (CurrentSquare.ID + 1) / 8;
+            return yY;
+            
+        }
+        private int GetXPosition(int yy)
+        {
+            int xX;
+            int id = CurrentSquare.ID;
+            if (yy % 2 == 0)
+            {
+                while (CurrentSquare.ID > 8)
+                {
+                    id = CurrentSquare.ID - 8;
+                }
+                xX = 7 - id;
+            }
+            else
+            {
+                while (CurrentSquare.ID > 8)
+                {
+                    id = CurrentSquare.ID - 8;
+                }
+                xX = id;
+            }
+
+            return xX;
         }
 
         private ISquare HandlePlayer(int destination)
