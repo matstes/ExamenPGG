@@ -84,7 +84,7 @@ namespace ExamenPGG.Business.GameObject
             IsDiceButtonEnabled = true;
         }
 
-        private void ExecuteDiceRoll()
+        public void ExecuteDiceRoll()
         {
             IsDiceButtonEnabled = false;
             int rollAmount = Dice.RollDice(DiceAmount);

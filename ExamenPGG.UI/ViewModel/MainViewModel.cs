@@ -20,6 +20,7 @@ namespace ExamenPGG.UI.ViewModel
             InformationView = informationView;
             GameBoardView = gameBoardView;
             Game = game;
+            Game.StartGame();
         }
 
         [RelayCommand]
