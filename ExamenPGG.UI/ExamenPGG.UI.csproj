@@ -57,6 +57,12 @@
 	  <None Remove="Resources\Images\batleft.png" />
 	  <None Remove="Resources\Images\batright.png" />
 	  <None Remove="Resources\Images\batworld.png" />
+	  <None Remove="Resources\Images\dice1.png" />
+	  <None Remove="Resources\Images\dice2.png" />
+	  <None Remove="Resources\Images\dice3.png" />
+	  <None Remove="Resources\Images\dice4.png" />
+	  <None Remove="Resources\Images\dice5.png" />
+	  <None Remove="Resources\Images\dice6.png" />
 	</ItemGroup>
 
 	<ItemGroup>
