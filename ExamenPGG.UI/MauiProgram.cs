@@ -38,11 +38,15 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<PlayerSelectionView>();
             builder.Services.AddTransient<PlayerSelectionViewModel>();
 
-            builder.Services.AddTransient<MainPage>();
-            builder.Services.AddTransient<MainViewModel>();
+            builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddSingleton<InformationViewModel>();
+            builder.Services.AddSingleton<GameControlViewModel>();
+            builder.Services.AddSingleton<GameBoardViewModel>();
 
-            builder.Services.AddTransient<GameBoardView>();
-            builder.Services.AddTransient<GameBoardViewModel>();
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<InformationView>();
+            builder.Services.AddSingleton<GameControlView>();
+            builder.Services.AddSingleton<GameBoardView>();
             return builder.Build();
         }
     }

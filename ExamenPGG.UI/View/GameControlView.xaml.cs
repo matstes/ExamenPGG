@@ -1,6 +1,6 @@
 namespace ExamenPGG.UI.View;
 
-public partial class GameControlView : ContentPage
+public partial class GameControlView : ContentView
 {
 	public GameControlView()
 	{
