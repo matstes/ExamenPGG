@@ -1,41 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamenPGG.UI.MainPage">
+             x:Class="ExamenPGG.UI.MainPage"
+             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
+             x:DataType="viewmodel:MainViewModel"
+             WidthRequest="1024" HeightRequest="768">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+    <Grid RowDefinitions="576, auto"
+          ColumnDefinitions="auto,720">
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+        <ContentView Content="{Binding GameBoardView}"
+                     Grid.Column ="1"/>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+        <ContentView Content="{Binding InformationView}">
+            
+        </ContentView>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+        <ContentView Content="{Binding GameControlView}"
+                     Grid.Row="1"
+                     Grid.ColumnSpan="2">
+        
+        </ContentView>
+                     
+                     
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+    </Grid>
+    
 </ContentPage>
