@@ -5,13 +5,14 @@ namespace ExamenPGG.Business.PlayerObject
 {
     public class Player : IPlayer
     {
+
         public string Name { get; set; }
         public string IconPath { get; set; }
         public ISquare PreviousSquare { get; set; }
 
         public ISquare CurrentSquare { get; private set; }
-        public int PositionX { get; set; }
-        public int PositionY { get; set; }
+        public int PositionX { get; set; } = 0;
+        public int PositionY { get; set; } = 7;
         public int TurnAmount { get; set; }
         public int InActiveTurns { get; set; }
         public bool IsHuman { get; private set; }

@@ -40,6 +40,9 @@ namespace ExamenPGG.UI
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainViewModel>();
+
+            builder.Services.AddTransient<GameBoardView>();
+            builder.Services.AddTransient<GameBoardViewModel>();
             return builder.Build();
         }
     }

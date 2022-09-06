@@ -1,7 +1,7 @@
-﻿using ExamenPGG.Business.GameObject;
+﻿using ExamenPGG.Business.Factory;
+using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
-using ExamenPGG.Business.Squares.Factory;
 
 namespace ExamenPGG.Business.Bootup
 {

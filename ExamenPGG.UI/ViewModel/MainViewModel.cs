@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.GameObject;
+using ExamenPGG.UI.View;
 
 namespace ExamenPGG.UI.ViewModel
 {
@@ -15,9 +16,11 @@ namespace ExamenPGG.UI.ViewModel
         }
 
         [RelayCommand]
-        private void StartGame()
+        private async Task StartGame()
         {
             Game.StartGame();
+            await Shell.Current.GoToAsync($"{nameof(GameBoardView)}");
+            
         }
     }
 }
