@@ -2,30 +2,29 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.InformationView"
-             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel">
+             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
+             x:DataType="viewmodel:InformationViewModel">
 
-    <VerticalStackLayout BackgroundColor="LawnGreen">
+    <Grid RowDefinitions = "20,*,*,*,auto,20">
 
-        <Grid RowDefinitions = "20,*,*,*,*,20">
+        <Image Source="Logo.png"
+               HorizontalOptions="Start"
+               Margin="10"
+               WidthRequest="100" 
+               Grid.Row="1"/>
 
-            <Image Source="Logo.png"
-                   WidthRequest="100" 
-                   Grid.Row="1"
-                   Margin="0,0,0,50"/>
-
-            <Label Text="Players" Grid.Row="2" TextColor="Black" FontSize="Large"/>
-            <ListView ItemsSource="{Binding Player}"
+        <Label Text="Players" Grid.Row="2" TextColor="Black" FontSize="Large" Padding="10"/>
+        
+        <ListView ItemsSource="{Binding Game.PlayerList}"
                   Grid.Row="3"/>
 
-            <HorizontalStackLayout Grid.Row="4">
-                
-                <Button Text="Rules"/>
-                <Button Text="GoBack"/>
-                
-            </HorizontalStackLayout>
-            
-        </Grid>
-        
-    </VerticalStackLayout>
-    
+        <HorizontalStackLayout Grid.Row="4">
+
+            <Button Text="Rules"/>
+            <Button Text="GoBack"/>
+
+        </HorizontalStackLayout>
+
+    </Grid>
+
 </ContentView>

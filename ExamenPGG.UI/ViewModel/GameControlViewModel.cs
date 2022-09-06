@@ -1,13 +1,21 @@
-﻿using ExamenPGG.Business.GameObject;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using ExamenPGG.Business.GameObject;
 
 namespace ExamenPGG.UI.ViewModel
 {
-    public class GameControlViewModel : BaseViewModel
+    public partial class GameControlViewModel : ObservableObject
     {
-        public Game Game { get; set; }
-        public GameControlViewModel(Game game)
+        public IGame Game { get; set; }
+        public GameControlViewModel(IGame game)
         {
             Game = game;
+        }
+
+        [RelayCommand]
+        private void RollDice()
+        {
+            // CurrentPlayer.RollDice
         }
     }
 }

@@ -1,16 +1,16 @@
-﻿using ExamenPGG.Business.GameObject;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.UI.ViewModel
 {
-    public class InformationViewModel : BaseViewModel
+    public class InformationViewModel : ObservableObject
     {
-        public IList<IPlayer> playerList { get; set; }
-
-        public Game Game { get; set; }
-        public InformationViewModel(Game game)
+        public IGame Game { get; set; }
+        public InformationViewModel(IGame game)
         {
             Game = game;
+
         }
     }
 }
