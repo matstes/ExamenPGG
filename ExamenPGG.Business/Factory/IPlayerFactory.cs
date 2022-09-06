@@ -1,6 +1,6 @@
 ﻿using ExamenPGG.Business.PlayerObject;
 
-namespace ExamenPGG.Business.Squares.Factory
+namespace ExamenPGG.Business.Factory
 {
     public interface IPlayerFactory
     {

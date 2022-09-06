@@ -1,4 +1,6 @@
-﻿namespace ExamenPGG.Business.Squares
+﻿using ExamenPGG.Business.Squares;
+
+namespace ExamenPGG.Business.Factory
 {
     public class SquareFactory : ISquareFactory
     {

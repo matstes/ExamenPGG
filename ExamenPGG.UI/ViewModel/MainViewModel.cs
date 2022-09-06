@@ -1,5 +1,6 @@
 ﻿using ExamenPGG.UI.View;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.GameObject;
 
 namespace ExamenPGG.UI.ViewModel
@@ -7,16 +8,23 @@ namespace ExamenPGG.UI.ViewModel
     public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
-        Game game;
+        private IGame game;
 
         public InformationView InformationView { get; set; }
         public GameBoardView GameBoardView { get; set; }
         public GameControlView GameControlView { get; set; }
-        public MainViewModel(GameControlView gameControlView, InformationView informationView, GameBoardView gameBoardView)
+        public MainViewModel(IGame game, GameControlView gameControlView, InformationView informationView, GameBoardView gameBoardView)
         {
             GameControlView = gameControlView;
             InformationView = informationView;
             GameBoardView = gameBoardView;
+            Game = game;
+        }
+
+        [RelayCommand]
+        private void StartGame()
+        {
+            Game.StartGame();
         }
     }
 }

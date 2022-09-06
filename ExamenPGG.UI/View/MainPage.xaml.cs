@@ -4,15 +4,10 @@ namespace ExamenPGG.UI
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage(MainViewModel mainViewModel)
+        public MainPage(MainViewModel vm)
         {
             InitializeComponent();
-            BindingContext = mainViewModel;
-        }
-
-        protected override void OnNavigatedTo(NavigatedToEventArgs args)
-        {
-            base.OnNavigatedTo(args);
+            BindingContext = vm;
         }
     }
 }
