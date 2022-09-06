@@ -1,4 +1,5 @@
-﻿using ExamenPGG.Business.Logging;
+﻿using ExamenPGG.Business.Factory;
+using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Squares;
 namespace ExamenPGG.Business.GameObject
 {

@@ -5,13 +5,14 @@ namespace ExamenPGG.Business.PlayerObject
 {
     public class Player : IPlayer
     {
+
         public string Name { get; set; }
         public string IconPath { get; set; }
         public ISquare PreviousSquare { get; set; }
 
         public ISquare CurrentSquare { get; private set; }
-        public int PositionX { get; set; }
-        public int PositionY { get; set; }
+        public int PositionX { get; set; } = 0;
+        public int PositionY { get; set; } = 7;
         public int TurnAmount { get; set; }
         public int InActiveTurns { get; set; }
         public bool IsHuman { get; private set; }
@@ -71,14 +72,46 @@ namespace ExamenPGG.Business.PlayerObject
         private ISquare GetSquare(int position)
         {
             var square = _gameBoard.GetSquare(position);
-
             return square;
+        }
+
+        private int GetYPosition()
+        {
+
+            double yY = 8.0 - (double)((CurrentSquare.ID + 1.0) / 8.0);
+            return (int)yY;
+            
+        }
+        private int GetXPosition(int yy)
+        {
+            int xX;
+            int id = CurrentSquare.ID;
+            if (yy % 2 == 0)
+            {
+                while (id > 8)
+                {
+                    id -= 8;
+                }
+                xX = 7 - id;
+            }
+            else
+            {
+                while (id > 8)
+                {
+                    id -= 8;
+                }
+                xX = id;
+            }
+
+            return xX;
         }
 
         private ISquare HandlePlayer(int destination)
         {
             PreviousSquare = CurrentSquare;
             CurrentSquare = GetSquare(destination);
+            PositionY = GetYPosition();
+            PositionX = GetXPosition(PositionY);
             CurrentSquare.HandlePlayer(this);
 
             return CurrentSquare;

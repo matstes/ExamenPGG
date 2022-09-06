@@ -1,9 +1,12 @@
 ﻿using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace ExamenPGG.Business.GameObject
 {
-    public class Game : IGame
+    public class Game : IGame, INotifyPropertyChanged
     {
         public List<IPlayer> PlayerList { get; set; }
         public IPlayer CurrentPlayer { get; set; }
@@ -14,7 +17,26 @@ namespace ExamenPGG.Business.GameObject
         public IGameBoard GameBoard { get; set; }
         public ILogger Logger { get; set; }
         public IDice Dice { get; set; }
-        public bool IsDiceButtonEnabled { get; private set; } = false;
+
+        private bool isDiceButtonEnabled = false;
+        public bool IsDiceButtonEnabled 
+        { 
+            get
+            {
+                return isDiceButtonEnabled;
+            }
+            set
+            {
+                isDiceButtonEnabled=value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private void RaisePropertyChanged([CallerMemberName]string? propertyName=null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public int CurrentplayerID { get; private set; }
 
         public int DiceAmount { get; set; } = 2;
@@ -25,6 +47,8 @@ namespace ExamenPGG.Business.GameObject
             Logger = logger;
             Dice = dice;
         }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public void InitializeNewGame(List<IPlayer> playerList)
         {
@@ -84,7 +108,7 @@ namespace ExamenPGG.Business.GameObject
             IsDiceButtonEnabled = true;
         }
 
-        private void ExecuteDiceRoll()
+        public void ExecuteDiceRoll()
         {
             IsDiceButtonEnabled = false;
             int rollAmount = Dice.RollDice(DiceAmount);

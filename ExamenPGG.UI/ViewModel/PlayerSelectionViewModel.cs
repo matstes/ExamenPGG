@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.PlayerObject;
-using ExamenPGG.Business.Squares.Factory;
+using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.Model;
 using System.Collections.ObjectModel;
 

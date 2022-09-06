@@ -6,7 +6,9 @@ namespace ExamenPGG.UI.ViewModel
 {
     public partial class GameControlViewModel : ObservableObject
     {
-        public IGame Game { get; set; }
+        [ObservableProperty]
+        private IGame game;
+        
         public GameControlViewModel(IGame game)
         {
             Game = game;
@@ -15,7 +17,7 @@ namespace ExamenPGG.UI.ViewModel
         [RelayCommand]
         private void RollDice()
         {
-            // CurrentPlayer.RollDice
+            Game.ExecuteDiceRoll();
         }
     }
 }

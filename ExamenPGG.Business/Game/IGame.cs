@@ -27,5 +27,7 @@ namespace ExamenPGG.Business.GameObject
         void IncrementScore();
 
         void EndGame();
+
+        void ExecuteDiceRoll();
     }
 }
