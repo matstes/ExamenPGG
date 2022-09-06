@@ -1,12 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.GameControlView"
-             Title="GameControlView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-</ContentPage>
+             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
+             x:DataType="viewmodel:GameControlViewModel">
+
+    <HorizontalStackLayout BackgroundColor="CadetBlue">
+
+        <Grid ColumnDefinitions="20,auto,*,auto,20" WidthRequest="1024">
+            
+        <Label Text="Game Control View"
+               MaximumWidthRequest="150"
+               HorizontalOptions="Start"
+               Grid.Column="1"
+               FontSize="24"
+               Padding="10"/>
+
+            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec ex eu magna scelerisque porttitor. 
+                   Quisque in convallis dolor, quis dignissim ipsum. Pellentesque metus augue, pharetra in gravida vel, ultricies et turpis. 
+                   Ut eget nisi ut eros consectetur rhoncus. Aliquam suscipit tortor est, sed egestas enim porttitor at. 
+                   Donec id lobortis nisl, eget malesuada ipsum. Vestibulum massa magna, consectetur et est et, pellentesque ornare dolor. 
+                   Phasellus est nunc, malesuada et nisi in, dapibus fermentum mauris. Pellentesque tempus odio dolor, sit amet sodales elit efficitur sit amet. 
+                   Curabitur vel quam risus. Fusce faucibus tincidunt purus vel porta. Vivamus ut nunc orci."
+                   
+               
+               Padding="10"
+               HorizontalTextAlignment="Start"
+               HorizontalOptions="StartAndExpand"
+               Grid.Column="2"
+               MaxLines="5"
+               HeightRequest="150"
+               MinimumWidthRequest="800"/>
+
+            <Button Text="Roll Dice"
+                Grid.Column="3"
+                FontSize="24" 
+                Command="{Binding RollDiceCommand}"
+                IsEnabled="{Binding Game.IsDiceButtonEnabled}"
+                TextColor="Black"/>
+
+        </Grid>
+
+    </HorizontalStackLayout>
+
+</ContentView>
