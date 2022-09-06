@@ -6,7 +6,7 @@
              xmlns:model="clr-namespace:ExamenPGG.UI.Model"
              x:DataType="viewmodel:PlayerSelectionViewModel"
              Title="Player Selection">
-    
+
     <ScrollView>
         <Grid ColumnDefinitions="*,550,*"
           RowDefinitions="25,auto,*,auto,25"
@@ -15,28 +15,28 @@
             <HorizontalStackLayout Grid.Row="1"
                                Grid.Column="1"
                                HorizontalOptions="Start">
-                <Label Text="PlayerName"/>
-                
+                <Label Text="PlayerName" />
+
                 <Label Text="Icon"
-                       Margin="270,0,90,0"/>
-                
-                <Label Text="IsBot"/>
+                       Margin="270,0,90,0" />
+
+                <Label Text="IsBot" />
             </HorizontalStackLayout>
 
             <CollectionView Grid.Row="2"
-                            Grid.Column="1" 
+                            Grid.Column="1"
                             ItemsSource="{Binding PlayerChoices}">
-                
+
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="10"
-                                       Orientation="Vertical"/>
+                                       Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
-                
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:PlayerChoice">
                         <HorizontalStackLayout HorizontalOptions="Center">
                             <Entry MinimumWidthRequest="250"
-                                   Text="{Binding Name}"/>
+                                   Text="{Binding Name}" />
 
                             <Picker Margin="25,0"
                                     WidthRequest="95"
@@ -46,10 +46,10 @@
 
                             <Image Source="{Binding Icon}"
                                    WidthRequest="32"
-                                   HeightRequest="32"/>
+                                   HeightRequest="32" />
 
                             <CheckBox IsChecked="{Binding IsBot}"
-                                      Margin="40,0"/>
+                                      Margin="40,0" />
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -60,21 +60,21 @@
                                    HorizontalOptions="Start">
                 <Label Text="Player count:"
                        Margin="0,0,10,0"
-                       VerticalTextAlignment="Center"/>
+                       VerticalTextAlignment="Center" />
 
                 <Button Text="-"
-                        Command="{Binding RemovePlayerCommand}"/>
+                        Command="{Binding RemovePlayerCommand}" />
 
                 <Label Text="{Binding PlayerCount}"
                        Margin="10,0"
-                       VerticalTextAlignment="Center"/>
+                       VerticalTextAlignment="Center" />
 
                 <Button Text="+"
-                        Command="{Binding AddPlayerCommand}"/>
+                        Command="{Binding AddPlayerCommand}" />
 
                 <Button Text="Start game"
                         Margin="200,0,0,0"
-                        Command="{Binding StartGameCommand}"/>
+                        Command="{Binding StartGameCommand}" />
             </HorizontalStackLayout>
         </Grid>
     </ScrollView>

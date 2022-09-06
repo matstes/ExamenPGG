@@ -1,8 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using ExamenPGG.Business;
 using ExamenPGG.Business.GameObject;
-using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
 using ExamenPGG.Business.Squares.Factory;
 using ExamenPGG.UI.Model;
@@ -10,24 +8,21 @@ using System.Collections.ObjectModel;
 
 namespace ExamenPGG.UI.ViewModel
 {
-    public partial class PlayerSelectionViewModel: ObservableObject
+    public partial class PlayerSelectionViewModel : ObservableObject
     {
         [ObservableProperty]
         private int playerCount = 1;
+
         public ObservableCollection<PlayerChoice> PlayerChoices { get; set; } = new();
         public IList<String> IconList { get; set; }
 
-        private IGameBoard _gameBoard;
-        private ILogger _logger;
         private IPlayerFactory _playerFactory;
-        private IDice _dice;
+        private IGame _game;
 
-        public PlayerSelectionViewModel(IGameBoard gameBoard, IPlayerFactory playerFactory, ILogger logger, IDice dice)
+        public PlayerSelectionViewModel(IGame game, IPlayerFactory playerFactory)
         {
-            _gameBoard = gameBoard;
-            _logger = logger;
             _playerFactory = playerFactory;
-            _dice = dice;
+            _game = game;
 
             IconList = new List<string>()
             {
@@ -41,7 +36,7 @@ namespace ExamenPGG.UI.ViewModel
         }
 
         [RelayCommand]
-        public void AddPlayer()
+        private void AddPlayer()
         {
             if (PlayerCount < 5)
             {
@@ -51,7 +46,7 @@ namespace ExamenPGG.UI.ViewModel
         }
 
         [RelayCommand]
-        public void RemovePlayer()
+        private void RemovePlayer()
         {
             if (PlayerCount > 1)
             {
@@ -61,7 +56,7 @@ namespace ExamenPGG.UI.ViewModel
         }
 
         [RelayCommand]
-        async Task StartGame()
+        private async Task StartGame()
         {
             List<IPlayer> playerList = GetPlayerList();
             if (playerList is null)
@@ -69,20 +64,13 @@ namespace ExamenPGG.UI.ViewModel
                 return;
             }
 
-            var currentTime = DateTime.Now;
-            IGame game = new Game(playerList, playerList[0], currentTime, 1, _gameBoard, _logger, _dice);
-
-            //create the game object
-            await GoToMainViewAsync(game);
+            _game.InitializeNewGame(playerList);
+            await GoToMainViewAsync();
         }
 
-        async Task GoToMainViewAsync(IGame game)
+        private async Task GoToMainViewAsync()
         {
-            await Shell.Current.GoToAsync($"{nameof(MainPage)}", true,
-                new Dictionary<string, object>()
-                {
-                    {"Game", game }
-                }) ;
+            await Shell.Current.GoToAsync($"{nameof(MainPage)}");
         }
 
         private List<IPlayer> GetPlayerList()

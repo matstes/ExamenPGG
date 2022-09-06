@@ -1,17 +1,23 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.GameObject;
 
 namespace ExamenPGG.UI.ViewModel
 {
-     [QueryProperty("Game", "Game")]
-    public partial class MainViewModel: ObservableObject
+    public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
-        Game game;
+        private IGame game;
 
-        public MainViewModel()
+        public MainViewModel(IGame game)
         {
+            Game = game;
+        }
 
+        [RelayCommand]
+        private void StartGame()
+        {
+            Game.StartGame();
         }
     }
 }

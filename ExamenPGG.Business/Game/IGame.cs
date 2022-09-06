@@ -17,6 +17,7 @@ namespace ExamenPGG.Business.GameObject
         public bool IsDiceButtonEnabled { get; }
         public int CurrentplayerID { get; }
 
+        void InitializeNewGame(List<IPlayer> playerList);
         void StartGame();
 
         void CanPlayerMove();

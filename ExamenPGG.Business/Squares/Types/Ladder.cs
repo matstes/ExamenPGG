@@ -1,5 +1,4 @@
 ﻿using ExamenPGG.Business.PlayerObject;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 
 namespace ExamenPGG.Business.Squares
 {

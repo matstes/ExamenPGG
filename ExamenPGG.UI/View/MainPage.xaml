@@ -32,12 +32,10 @@
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me"
+                Text="start game"
                 SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                Command="{Binding StartGameCommand}"
                 HorizontalOptions="Center" />
-
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

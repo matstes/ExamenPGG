@@ -1,12 +1,11 @@
-﻿using ExamenPGG.Business.Bootup;
+﻿using ExamenPGG.Business;
+using ExamenPGG.Business.Bootup;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.LeaderBoard;
-using ExamenPGG.Business.Squares.Factory;
-using ExamenPGG.Business.Squares;
-using ExamenPGG.Business;
+using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
-using ExamenPGG.Business.Logging;
 
 namespace ExamenPGG.UI
 {
@@ -23,6 +22,7 @@ namespace ExamenPGG.UI
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            //business layer dependencies
             builder.Services.AddTransient<ILogger, Logger>();
             builder.Services.AddTransient<IBootstrapper, Bootstrapper>();
             builder.Services.AddTransient<IBootup, Bootup>();
@@ -32,9 +32,11 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<IPlayerFactory, PlayerFactory>();
 
             builder.Services.AddSingleton<IGameBoard, GameBoard>();
+            builder.Services.AddSingleton<IGame, Game>();
 
-            builder.Services.AddSingleton<PlayerSelectionView>();
-            builder.Services.AddSingleton<PlayerSelectionViewModel>();
+            //pages
+            builder.Services.AddTransient<PlayerSelectionView>();
+            builder.Services.AddTransient<PlayerSelectionViewModel>();
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<MainViewModel>();
