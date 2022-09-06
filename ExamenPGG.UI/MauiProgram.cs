@@ -1,5 +1,12 @@
-﻿using ExamenPGG.UI.View;
+﻿using ExamenPGG.Business.Bootup;
+using ExamenPGG.Business.GameObject;
+using ExamenPGG.Business.LeaderBoard;
+using ExamenPGG.Business.Squares.Factory;
+using ExamenPGG.Business.Squares;
+using ExamenPGG.Business;
+using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
+using ExamenPGG.Business.Logging;
 
 namespace ExamenPGG.UI
 {
@@ -16,6 +23,18 @@ namespace ExamenPGG.UI
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddTransient<ILogger, Logger>();
+            builder.Services.AddTransient<IBootstrapper, Bootstrapper>();
+            builder.Services.AddTransient<IBootup, Bootup>();
+            builder.Services.AddTransient<IDice, Dice>();  // TODO INCORRECT!
+            builder.Services.AddTransient<ILeaderBoard, LeaderBoard>();
+            builder.Services.AddTransient<ISquareFactory, SquareFactory>();
+            builder.Services.AddTransient<IPlayerFactory, PlayerFactory>();
+
+            builder.Services.AddSingleton<IGameBoard, GameBoard>();
+
+            builder.Services.AddSingleton<PlayerSelectionView>();
+            builder.Services.AddSingleton<PlayerSelectionViewModel>();
 
             builder.Services.AddSingleton<MainViewModel>();
             builder.Services.AddSingleton<InformationViewModel>();
@@ -26,7 +45,6 @@ namespace ExamenPGG.UI
             builder.Services.AddSingleton<InformationView>();
             builder.Services.AddSingleton<GameControlView>();
             builder.Services.AddSingleton<GameBoardView>();
-
             return builder.Build();
         }
     }
