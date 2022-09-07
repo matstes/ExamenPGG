@@ -1,4 +1,5 @@
-﻿using ExamenPGG.Business.Logging;
+﻿using ExamenPGG.Business.DiceObject;
+using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Squares
@@ -30,7 +31,7 @@ namespace ExamenPGG.Business.Squares
             }
             else
             {
-                rollAmount = MysteryDice.RollDice(1);
+                rollAmount = MysteryDice.RollDice();
                 _logger.LogDiceRoll(player, rollAmount);
                 player.MovePlayer(rollAmount);
 

@@ -1,20 +1,16 @@
-﻿using ExamenPGG.Business.Factory;
+﻿using ExamenPGG.Business.DiceObject;
+using ExamenPGG.Business.Factory;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Squares;
 namespace ExamenPGG.Business.GameObject
 {
     public class GameBoard : IGameBoard
     {
-        private IDice MysteryDice;
-        private ILogger _logger;
         private ISquareFactory _squareFactory;
 
-
-        public GameBoard(ILogger logger, ISquareFactory factory)
+        public GameBoard(ISquareFactory factory)
         {
-            MysteryDice = new Dice();
             _squareFactory = factory; 
-            _logger = logger;
             FillBoard(64);
         }
 

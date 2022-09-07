@@ -1,4 +1,4 @@
-﻿namespace ExamenPGG.Business
+﻿namespace ExamenPGG.Business.DiceObject
 {
     public class Dice : IDice
     {
@@ -11,16 +11,9 @@
         
         // TODO* Incorrect -> We need to know the result of each die
 
-        public int RollDice(int rollAmount)
+        public int RollDice()
         {
-            int diceTotal = 0;
-
-            for (int i = 0; i < rollAmount; i++)
-            {
-                diceTotal += dice.Next(1, 7); ;
-            }
-
-            return diceTotal;
+            return dice.Next(1, 7);
         }
     }
 }

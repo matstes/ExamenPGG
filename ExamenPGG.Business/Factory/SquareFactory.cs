@@ -1,17 +1,20 @@
-﻿using ExamenPGG.Business.Logging;
+﻿using ExamenPGG.Business.DiceObject;
+using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Squares;
 
 namespace ExamenPGG.Business.Factory
 {
     public class SquareFactory : ISquareFactory
     {
+        private IDiceFactory _diceFactory;
         private IDice MysteryDice;
         private ILogger _logger;
 
-        public SquareFactory(IDice mysteryDice, ILogger logger)
+        public SquareFactory(IDiceFactory diceFactory, ILogger logger)
         {
-            MysteryDice = mysteryDice;
+            _diceFactory = diceFactory;
             _logger = logger;
+            MysteryDice = _diceFactory.CreateDice();
         }
         public ISquare CreateSquare(int id, SquareType SquareType)
         {
