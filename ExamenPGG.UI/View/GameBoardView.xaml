@@ -135,8 +135,10 @@
                    Grid.Column ="{Binding CurrentGame.PlayerList[0].PositionX}"
                    Grid.Row    ="{Binding CurrentGame.PlayerList[0].PositionY}"
                    
-                   HorizontalOptions="Start"
-                   VerticalOptions  ="Start"
+                   ScaleX="0.15"
+                   ScaleY="0.15"
+                   AnchorX="0.10"
+                   AnchorY="0.90"
                    >
             </Image>
         </Grid>

@@ -5,18 +5,19 @@
              xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
              x:DataType="viewmodel:InformationViewModel">
 
-    <Grid RowDefinitions = "20,*,*,*,auto,20">
-
+    <Grid RowDefinitions = "20,*,*,*,auto,20" BackgroundColor="#151928">
+        
         <Image Source="Logo.png"
                HorizontalOptions="Start"
                Margin="10"
                WidthRequest="100" 
                Grid.Row="1"/>
 
-        <Label Text="Players" Grid.Row="2" TextColor="Black" FontSize="Large" Padding="10"/>
+        <Label Text="Players" Grid.Row="2" TextColor="#8e53e0" FontSize="Large" Padding="10"/>
         
         <ListView ItemsSource="{Binding Game.PlayerList}"
-                  Grid.Row="3"/>
+                  Grid.Row="3"
+                  />
 
         <HorizontalStackLayout Grid.Row="4">
 
