@@ -1,10 +1,11 @@
-﻿using ExamenPGG.Business.PlayerObject;
+﻿using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Squares
 {
     public class Cobweb : Standard, ISquare
     {
-        public Cobweb(int id) : base(id)
+        public Cobweb(int id, ILogger logger) : base(id, logger)
         {
             ID = id;
             SquareType = SquareType.Cobweb;

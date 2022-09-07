@@ -1,4 +1,5 @@
-﻿using ExamenPGG.Business.PlayerObject;
+﻿using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Squares
 {
@@ -6,7 +7,7 @@ namespace ExamenPGG.Business.Squares
     {
         private IDice MysteryDice;
 
-        public Mystery(int id, IDice mysteryDice) : base(id)
+        public Mystery(int id, IDice mysteryDice, ILogger logger) : base(id, logger)
         {
             ID = id;
             MysteryDice = mysteryDice;
