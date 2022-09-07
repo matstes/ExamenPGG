@@ -35,18 +35,18 @@ namespace ExamenPGG.UI
             builder.Services.AddSingleton<IGame, Game>();
 
             //pages
-            builder.Services.AddTransient<PlayerSelectionView>();
+            builder.Services.AddTransient<MainViewModel>();
+            builder.Services.AddTransient<InformationViewModel>();
+            builder.Services.AddTransient<GameControlViewModel>();
+            builder.Services.AddTransient<GameBoardViewModel>();
             builder.Services.AddTransient<PlayerSelectionViewModel>();
 
-            builder.Services.AddSingleton<MainViewModel>();
-            builder.Services.AddSingleton<InformationViewModel>();
-            builder.Services.AddSingleton<GameControlViewModel>();
-            builder.Services.AddSingleton<GameBoardViewModel>();
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<InformationView>();
+            builder.Services.AddTransient<GameControlView>();
+            builder.Services.AddTransient<GameBoardView>();
+            builder.Services.AddTransient<PlayerSelectionView>();
 
-            builder.Services.AddSingleton<MainPage>();
-            builder.Services.AddSingleton<InformationView>();
-            builder.Services.AddSingleton<GameControlView>();
-            builder.Services.AddSingleton<GameBoardView>();
             return builder.Build();
         }
     }
