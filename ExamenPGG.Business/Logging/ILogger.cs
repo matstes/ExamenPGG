@@ -7,6 +7,8 @@ namespace ExamenPGG.Business.Logging
 {
     public interface ILogger
     {
+        public int LogDataLength { get; set; }
+        public string LogData { get; set; }
         public StringBuilder Sb { get; set; }
         void LogGameEnd(IGame game);
 

@@ -24,5 +24,7 @@ namespace ExamenPGG.UI.ViewModel
         {
             Game.ExecuteDiceRoll();
         }
+
+        
     }
 }
