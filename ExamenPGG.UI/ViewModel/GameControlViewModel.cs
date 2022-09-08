@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.GameObject;
+using ExamenPGG.Business.Logging;
+using System.Text;
 
 namespace ExamenPGG.UI.ViewModel
 {
@@ -8,10 +10,13 @@ namespace ExamenPGG.UI.ViewModel
     {
         [ObservableProperty]
         private IGame game;
+        [ObservableProperty]
+        private ILogger logger;
         
-        public GameControlViewModel(IGame game)
+        public GameControlViewModel(IGame game, ILogger logger)
         {
             Game = game;
+            Logger = logger;
         }
 
         [RelayCommand]

@@ -88,7 +88,7 @@ namespace ExamenPGG.Business.PlayerObject
             int id = CurrentSquare.ID;
             if (yy % 2 == 0)
             {
-                while (id > 8)
+                while (id >= 8)
                 {
                     id -= 8;
                 }
@@ -96,7 +96,7 @@ namespace ExamenPGG.Business.PlayerObject
             }
             else
             {
-                while (id > 8)
+                while (id >= 8)
                 {
                     id -= 8;
                 }
