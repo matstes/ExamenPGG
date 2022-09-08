@@ -1,10 +1,11 @@
-﻿using ExamenPGG.Business.PlayerObject;
+﻿using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Squares
 {
     public class Start : Standard, ISquare
     {
-        public Start(int id) : base(id)
+        public Start(int id, ILogger logger) : base(id, logger)
         {
             ID = id;
             SquareType = SquareType.Start;

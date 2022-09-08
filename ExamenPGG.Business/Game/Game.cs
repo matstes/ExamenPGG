@@ -1,6 +1,7 @@
-﻿using ExamenPGG.Business.Logging;
+﻿using ExamenPGG.Business.DiceObject;
+using ExamenPGG.Business.Factory;
+using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -13,10 +14,14 @@ namespace ExamenPGG.Business.GameObject
         public IPlayer WinningPlayer { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
+        public List<IDice> DiceBag { get; set; }
+        public int DiceAmount { get; set; } = 2;
         public int RoundNumber { get; set; }
-        public IGameBoard GameBoard { get; set; }
-        public ILogger Logger { get; set; }
-        public IDice Dice { get; set; }
+        public int CurrentplayerID { get; private set; }
+
+        private IGameBoard _gameBoard;
+        private ILogger _logger;
+        private IDiceFactory _diceFactory;
 
         private bool isDiceButtonEnabled = false;
         public bool IsDiceButtonEnabled 
@@ -32,23 +37,24 @@ namespace ExamenPGG.Business.GameObject
             }
         }
 
-        private void RaisePropertyChanged([CallerMemberName]string? propertyName=null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public int CurrentplayerID { get; private set; }
-
-        public int DiceAmount { get; set; } = 2;
-
-        public Game(IGameBoard gameBoard, ILogger logger, IDice dice)
-        {
-            GameBoard = gameBoard;
-            Logger = logger;
-            Dice = dice;
-        }
-
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        public Game(IGameBoard gameBoard, ILogger logger, IDiceFactory diceFactory)
+        {
+            _gameBoard = gameBoard;
+            _logger = logger;
+            _diceFactory = diceFactory;
+            DiceBag = new List<IDice>();
+            FillDiceBag();
+        }
+
+        private void FillDiceBag()
+        {
+            for (int i = 0; i < DiceAmount; i++)
+            {
+                DiceBag.Add(_diceFactory.CreateDice());
+            }
+        }
 
         public void InitializeNewGame(List<IPlayer> playerList)
         {
@@ -56,6 +62,7 @@ namespace ExamenPGG.Business.GameObject
             CurrentPlayer = PlayerList[0];
             StartTime = DateTime.Now;
             RoundNumber = 1;
+            CurrentplayerID = 0;
         }
 
         public void StartGame()
@@ -73,7 +80,7 @@ namespace ExamenPGG.Business.GameObject
         {
             CurrentPlayer.TurnAmount++;
             CurrentPlayer.Direction = 1;
-            Logger.LogPlayerTurn(CurrentPlayer);
+            _logger.LogPlayerTurn(CurrentPlayer);
             CanPlayerMove();
         }
 
@@ -86,7 +93,7 @@ namespace ExamenPGG.Business.GameObject
             else
             {
                 CurrentPlayer.InActiveTurns -= 1;
-                Logger.LogSkipTurn(CurrentPlayer);
+                _logger.LogSkipTurn(CurrentPlayer);
                 ChangeCurrentPlayer();
             }
         }
@@ -111,11 +118,41 @@ namespace ExamenPGG.Business.GameObject
         public void ExecuteDiceRoll()
         {
             IsDiceButtonEnabled = false;
-            int rollAmount = Dice.RollDice(DiceAmount);
-            CurrentPlayer.LastThrow = rollAmount;
-            Logger.LogDiceRoll(CurrentPlayer, rollAmount);
-            CurrentPlayer.MovePlayer(rollAmount);
+
+            List<int> rollAmount = new();
+            foreach (var dice in DiceBag)
+            {
+                rollAmount.Add(dice.RollDice());
+            }
+            CurrentPlayer.LastThrow = rollAmount.Sum();
+            _logger.LogDiceRoll(CurrentPlayer, rollAmount.Sum());
+            CheckRoll(rollAmount);
             HasReachedEnd();
+        }
+
+        private void CheckRoll(List<int> rollAmount)
+        {
+            if (CurrentPlayer.CurrentSquare.SquareType is Squares.SquareType.Start)
+            {
+                if ((rollAmount.Contains(4)) & (rollAmount.Contains(5)))
+                {
+                    _logger.LogMessage("Wow, special case: go straight to square 28!");
+                    CurrentPlayer.MoveToSquare(28);
+                }
+                else if ((rollAmount.Contains(6)) & (rollAmount.Contains(3)))
+                {
+                    _logger.LogMessage("Wow, special case: go straight to square 52!");
+                    CurrentPlayer.MoveToSquare(52);
+                }
+                else
+                {
+                    CurrentPlayer.MovePlayer(rollAmount.Sum());
+                }
+            }
+            else
+            {
+                CurrentPlayer.MovePlayer(rollAmount.Sum());
+            }
         }
 
         private void HasReachedEnd()
@@ -146,7 +183,11 @@ namespace ExamenPGG.Business.GameObject
         {
             WinningPlayer = CurrentPlayer;
             EndTime = DateTime.Now;
-            Logger.LogGameEnd(this);
+            _logger.LogGameEnd(this);
+        }
+        private void RaisePropertyChanged([CallerMemberName]string? propertyName=null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

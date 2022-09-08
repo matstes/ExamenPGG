@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.InformationView"
              xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
+             xmlns:playerobject="clr-namespace:ExamenPGG.Business.PlayerObject;assembly=ExamenPGG.Business"
              x:DataType="viewmodel:InformationViewModel">
 
     <Grid RowDefinitions = "20,*,*,*,auto,20" BackgroundColor="#151928">
@@ -12,16 +13,26 @@
                Margin="10"
                WidthRequest="100" 
                Grid.Row="1"/>
+        <VerticalStackLayout Grid.Row="2" Grid.RowSpan="2" Margin="15,0">
+            <Label Text="Players" TextColor="#8e53e0" FontSize="Large" Padding="10"/>
 
-        <Label Text="Players" Grid.Row="2" TextColor="#8e53e0" FontSize="Large" Padding="10"/>
+            <CollectionView ItemsSource="{Binding Game.PlayerList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="playerobject:Player">
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Name}" Margin="20,0" VerticalOptions="Center"/>
+                            <Image Source="{Binding IconPath}" HorizontalOptions="End"/>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
         
-        <ListView ItemsSource="{Binding Game.PlayerList}"
-                  Grid.Row="3"
-                  />
 
-        <HorizontalStackLayout Grid.Row="4">
+        <HorizontalStackLayout Grid.Row="4"
+                               HorizontalOptions="Center">
 
-            <Button Text="Rules"/>
+            <Button Text="Rules" Margin="10,0"/>
             <Button Text="GoBack"/>
 
         </HorizontalStackLayout>

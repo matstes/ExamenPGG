@@ -1,18 +1,17 @@
 ﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Squares;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace ExamenPGG.Business.PlayerObject
 {
-    public class Player : IPlayer
+    public class Player : IPlayer, INotifyPropertyChanged
     {
 
         public string Name { get; set; }
         public string IconPath { get; set; }
         public ISquare PreviousSquare { get; set; }
-
         public ISquare CurrentSquare { get; private set; }
-        public int PositionX { get; set; } = 0;
-        public int PositionY { get; set; } = 7;
         public int TurnAmount { get; set; }
         public int InActiveTurns { get; set; }
         public bool IsHuman { get; private set; }
@@ -21,6 +20,27 @@ namespace ExamenPGG.Business.PlayerObject
         private int direction = 1;
 
         private IGameBoard _gameBoard;
+
+        private int positionX = 0;
+        public int PositionX 
+        {
+            get { return positionX; }
+            set 
+            {
+                positionX = value;
+                RaisePropertyChanged();
+            }
+        }
+        private int positionY = 7;
+        public int PositionY
+        {
+            get { return positionY; }
+            set
+            {
+                positionY = value;
+                RaisePropertyChanged();
+            }
+        }
 
         public Player(string name,string iconPath, bool isHuman, IGameBoard gameBoard)
         {
@@ -49,7 +69,12 @@ namespace ExamenPGG.Business.PlayerObject
 
         private int destination;
 
+        public event PropertyChangedEventHandler? PropertyChanged;
 
+        private void RaisePropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public ISquare MovePlayer(int moveAmount)
         {
@@ -88,7 +113,7 @@ namespace ExamenPGG.Business.PlayerObject
             int id = CurrentSquare.ID;
             if (yy % 2 == 0)
             {
-                while (id > 8)
+                while (id >= 8)
                 {
                     id -= 8;
                 }
@@ -96,7 +121,7 @@ namespace ExamenPGG.Business.PlayerObject
             }
             else
             {
-                while (id > 8)
+                while (id >= 8)
                 {
                     id -= 8;
                 }

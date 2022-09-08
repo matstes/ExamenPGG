@@ -1,10 +1,11 @@
-﻿using ExamenPGG.Business.PlayerObject;
+﻿using ExamenPGG.Business.Logging;
+using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Squares
 {
     public class FallTrap : Standard, ISquare
     {
-        public FallTrap(int id) : base(id)
+        public FallTrap(int id, ILogger logger) : base(id, logger)
         {
             ID = id;
             SquareType = SquareType.FallTrap;
