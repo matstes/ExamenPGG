@@ -9,7 +9,7 @@
 
         <Grid ColumnDefinitions="20,280,*,400,20" WidthRequest="1490">
             
-        <Label Text="VILLAGER ACTIONS:"
+        <Label Text="VILLAGER ACTIONS:" 
                MaximumWidthRequest="210"
                HorizontalOptions="Start"
                VerticalOptions="Center"
@@ -17,7 +17,7 @@
                FontSize="20"
                TextColor="#8e53e0"
                Padding="10"/>
-
+        
             <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec ex eu magna scelerisque porttitor. 
 Quisque in convallis dolor, quis dignissim ipsum. Pellentesque metus augue, pharetra in gravida vel, ultricies et turpis. 
 Ut eget nisi ut eros consectetur rhoncus. Aliquam suscipit tortor est, sed egestas enim porttitor at. 
