@@ -1,4 +1,5 @@
-﻿using ExamenPGG.Business.Factory;
+﻿using ExamenPGG.Business.DiceObject;
+using ExamenPGG.Business.Factory;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
@@ -113,9 +114,9 @@ namespace ExamenPGG.Business.Bootup
                 IPlayer newPlayer = _playerFactory.CreatePlayer(newPlayerName, "testicon1.png", isHumans);
                 inputList.Add(newPlayer);
             }
-            Dice gameDice = new Dice(); //TODO COLLECTIOON OF DICE -=> SEE FACTORIES
+            IDiceFactory diceFactory = new DiceFactory(); //TODO COLLECTIOON OF DICE -=> SEE FACTORIES
 
-            return new Game(_gameBoard, _logger, gameDice);
+            return new Game(_gameBoard, _logger, diceFactory);
         }
     }
 }

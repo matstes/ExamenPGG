@@ -4,11 +4,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
              x:Class="ExamenPGG.UI.View.GameBoardView"
-             
-             x:DataType="viewmodel:GameBoardViewModel"
-             
-             
-             >
+             x:DataType="viewmodel:GameBoardViewModel">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            
+            <Style TargetType="Image"
+                   x:Key="playericon">
+                <Setter Property="HeightRequest" Value="32"/>
+                <Setter Property="WidthRequest" Value="32"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            
+            <Style TargetType="Label"
+                   x:Key="boardText">
+                <Setter Property="Padding" Value="0,14,0,0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Georgia"/>
+                <Setter Property="TextColor" Value="Gold"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+            </Style>
+            
+        </ResourceDictionary>
+    </ContentView.Resources>
+
     <Grid x:Name="GridCanvas">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
@@ -63,82 +83,107 @@
                 <ColumnDefinition Width="96"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             
-                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="7" Text="START"   FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="7" Text="1"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="7" Text="2"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="7" Text="3"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="7" Text="4"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="7" Text="5"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="7" Text="6"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="7" Text="7"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="6" Text="15"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="6" Text="14"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="6" Text="13"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="6" Text="12"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="6" Text="11"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="6" Text="10"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="6" Text="9"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="6" Text="8"       FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="5" Text="16"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="5" Text="17"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="5" Text="18"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="5" Text="19"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="5" Text="20"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="5" Text="21"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="5" Text="22"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="5" Text="23"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="4" Text="31"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="4" Text="30"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="4" Text="29"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="4" Text="28"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="4" Text="27"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="4" Text="26"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="4" Text="25"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="4" Text="24"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="3" Text="32"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="3" Text="33"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="3" Text="34"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="3" Text="35"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="3" Text="36"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="3" Text="37"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="3" Text="38"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="3" Text="39"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="2" Text="47"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="2" Text="46"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="2" Text="45"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="2" Text="44"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="2" Text="43"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="2" Text="42"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="2" Text="41"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="2" Text="40"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="1" Text="48"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="1" Text="49"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="1" Text="50"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="1" Text="51"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="1" Text="52"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="1" Text="53"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="1" Text="54"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="1" Text="55"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="0" Grid.Row="0" Text="KILL IT" FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="1" Grid.Row="0" Text="62"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="2" Grid.Row="0" Text="61"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="3" Grid.Row="0" Text="60"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="4" Grid.Row="0" Text="59"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="5" Grid.Row="0" Text="58"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="6" Grid.Row="0" Text="57"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
-                <Label Padding="0,14,0,0" Grid.Column="7" Grid.Row="0" Text="56"      FontSize="14" FontFamily="Georgia" TextColor="Gold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"></Label>
+                <Label Grid.Column="0" Grid.Row="7" Text="START"  Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="1" Grid.Row="7" Text="1"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="2" Grid.Row="7" Text="2"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="3" Grid.Row="7" Text="3"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="4" Grid.Row="7" Text="4"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="5" Grid.Row="7" Text="5"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="6" Grid.Row="7" Text="6"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="7" Grid.Row="7" Text="7"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="0" Grid.Row="6" Text="15"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="1" Grid.Row="6" Text="14"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="2" Grid.Row="6" Text="13"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="3" Grid.Row="6" Text="12"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="4" Grid.Row="6" Text="11"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="5" Grid.Row="6" Text="10"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="6" Grid.Row="6" Text="9"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="7" Grid.Row="6" Text="8"      Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="0" Grid.Row="5" Text="16"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="1" Grid.Row="5" Text="17"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="2" Grid.Row="5" Text="18"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="3" Grid.Row="5" Text="19"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="4" Grid.Row="5" Text="20"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="5" Grid.Row="5" Text="21"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="6" Grid.Row="5" Text="22"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="7" Grid.Row="5" Text="23"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="0" Grid.Row="4" Text="31"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="1" Grid.Row="4" Text="30"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="2" Grid.Row="4" Text="29"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="3" Grid.Row="4" Text="28"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="4" Grid.Row="4" Text="27"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="5" Grid.Row="4" Text="26"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="6" Grid.Row="4" Text="25"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="7" Grid.Row="4" Text="24"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="0" Grid.Row="3" Text="32"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="1" Grid.Row="3" Text="33"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="2" Grid.Row="3" Text="34"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="3" Grid.Row="3" Text="35"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="4" Grid.Row="3" Text="36"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="5" Grid.Row="3" Text="37"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="6" Grid.Row="3" Text="38"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="7" Grid.Row="3" Text="39"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="0" Grid.Row="2" Text="47"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="1" Grid.Row="2" Text="46"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="2" Grid.Row="2" Text="45"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="3" Grid.Row="2" Text="44"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="4" Grid.Row="2" Text="43"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="5" Grid.Row="2" Text="42"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="6" Grid.Row="2" Text="41"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="7" Grid.Row="2" Text="40"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="0" Grid.Row="1" Text="48"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="1" Grid.Row="1" Text="49"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="2" Grid.Row="1" Text="50"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="3" Grid.Row="1" Text="51"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="4" Grid.Row="1" Text="52"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="5" Grid.Row="1" Text="53"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="6" Grid.Row="1" Text="54"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="7" Grid.Row="1" Text="55"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="0" Grid.Row="0" Text="KILL IT" Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="1" Grid.Row="0" Text="62"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="2" Grid.Row="0" Text="61"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="3" Grid.Row="0" Text="60"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="4" Grid.Row="0" Text="59"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="5" Grid.Row="0" Text="58"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="6" Grid.Row="0" Text="57"     Style = "{StaticResource Key=boardText}"></Label>
+                <Label Grid.Column="7" Grid.Row="0" Text="56"     Style = "{StaticResource Key=boardText}"></Label>
 
 
 
-            <Image x:Name="imagePlayer1"
-                   Source      ="{Binding CurrentGame.PlayerList[0].IconPath}"
+            <Image Source      ="{Binding CurrentGame.PlayerList[0].IconPath}"
                    Grid.Column ="{Binding CurrentGame.PlayerList[0].PositionX}"
                    Grid.Row    ="{Binding CurrentGame.PlayerList[0].PositionY}"
-                   
+                   Style="{StaticResource Key=playericon}"
                    HorizontalOptions="Start"
-                   VerticalOptions  ="Start"
-                   >
-            </Image>
+                   VerticalOptions="Start"/>
+
+            <Image Source      ="{Binding CurrentGame.PlayerList[1].IconPath}"
+                   Grid.Column ="{Binding CurrentGame.PlayerList[1].PositionX}"
+                   Grid.Row    ="{Binding CurrentGame.PlayerList[1].PositionY}"
+                   Style="{StaticResource Key=playericon}"
+                   HorizontalOptions="End"
+                   VerticalOptions="Start"/>
+
+            <Image Source      ="{Binding CurrentGame.PlayerList[2].IconPath}"
+                   Grid.Column ="{Binding CurrentGame.PlayerList[2].PositionX}"
+                   Grid.Row    ="{Binding CurrentGame.PlayerList[2].PositionY}"
+                   Style="{StaticResource Key=playericon}"
+                   HorizontalOptions="Start"
+                   VerticalOptions="End"/>
+
+            <Image Source      ="{Binding CurrentGame.PlayerList[3].IconPath}"
+                   Grid.Column ="{Binding CurrentGame.PlayerList[3].PositionX}"
+                   Grid.Row    ="{Binding CurrentGame.PlayerList[3].PositionY}"
+                   Style="{StaticResource Key=playericon}"
+                   HorizontalOptions="End"
+                   VerticalOptions="End"/>
+
+            <Image Source      ="{Binding CurrentGame.PlayerList[4].IconPath}"
+                   Grid.Column ="{Binding CurrentGame.PlayerList[4].PositionX}"
+                   Grid.Row    ="{Binding CurrentGame.PlayerList[4].PositionY}"
+                   Style="{StaticResource Key=playericon}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
         </Grid>
 
 

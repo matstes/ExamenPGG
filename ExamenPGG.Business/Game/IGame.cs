@@ -1,4 +1,5 @@
-﻿using ExamenPGG.Business.Logging;
+﻿using ExamenPGG.Business.DiceObject;
+using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.GameObject
@@ -11,9 +12,7 @@ namespace ExamenPGG.Business.GameObject
         DateTime StartTime { get; set; }
         DateTime EndTime { get; set; }
         public int RoundNumber { get; set; }
-        IGameBoard GameBoard { get; set; }
-        ILogger Logger { get; set; }
-        public IDice Dice { get; set; }
+        List<IDice> DiceBag { get; set; }
         public bool IsDiceButtonEnabled { get; }
         public int CurrentplayerID { get; }
 
