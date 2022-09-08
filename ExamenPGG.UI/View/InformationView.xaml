@@ -33,7 +33,7 @@
                                HorizontalOptions="Center">
 
             <Button Text="Rules" Margin="10,0"/>
-            <Button Text="GoBack"/>
+            <Button Text="GoBack" Command="{Binding GoBackCommand}"/>
 
         </HorizontalStackLayout>
 
