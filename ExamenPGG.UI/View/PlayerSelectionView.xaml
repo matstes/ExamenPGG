@@ -7,26 +7,27 @@
              x:DataType="viewmodel:PlayerSelectionViewModel"
              Title="Player Selection">
 
-    <ScrollView>
+    <ScrollView Background="#1a0022">
         <Grid ColumnDefinitions="*,550,*"
           RowDefinitions="25,auto,*,auto,25"
           RowSpacing="25">
-
-            <HorizontalStackLayout Grid.Row="1"
+            
+            <HorizontalStackLayout 
+                               Grid.Row="1"
                                Grid.Column="1"
                                HorizontalOptions="Start">
-                <Label Text="PlayerName" />
+                <Label Text="PlayerName" FontFamily="Mistral" TextColor="Gold" FontSize ="64" />
 
-                <Label Text="Icon"
-                       Margin="270,0,90,0" />
+                <Label Text="Icon" FontFamily="Mistral" TextColor="Gold" FontSize ="64"
+                       Margin="30,0,90,0" />
 
-                <Label Text="IsBot" />
+                <Label Text="IsBot" FontFamily="Mistral" TextColor="Gold" FontSize ="64"/>
             </HorizontalStackLayout>
 
             <CollectionView Grid.Row="2"
                             Grid.Column="1"
-                            ItemsSource="{Binding PlayerChoices}">
-
+                            ItemsSource="{Binding PlayerChoices}" >
+                            
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="10"
                                        Orientation="Vertical" />
@@ -34,14 +35,22 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:PlayerChoice">
-                        <HorizontalStackLayout HorizontalOptions="Center">
-                            <Entry MinimumWidthRequest="250"
-                                   Text="{Binding Name}" />
+                        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,28" >
+                            
+                            <Entry MinimumWidthRequest="320"
+                                   Text="{Binding Name}" 
+                                   FontFamily="Mistral"  FontSize="30" TextColor="Gold"
+                                   />
 
-                            <Picker Margin="25,0"
+                            <Picker Margin="10,0"
                                     WidthRequest="95"
                                     ItemsSource="{Binding IconList}"
-                                    SelectedItem="{Binding Icon}">
+                                    SelectedItem="{Binding Icon}"
+                                    FontFamily="Mistral"
+                                    TextColor="Black"
+                                    Background="Purple"
+                                    VerticalOptions="Center"
+                                    >
                             </Picker>
 
                             <Image Source="{Binding Icon}"
@@ -60,19 +69,22 @@
                                    HorizontalOptions="Start">
                 <Label Text="Player count:"
                        Margin="0,0,10,0"
+                       FontFamily="Mistral" TextColor="Gold" FontSize="30"
                        VerticalTextAlignment="Center" />
 
-                <Button Text="-"
+                <Button Text="-" FontFamily="Mistral" TextColor="Gold" FontSize="42" Background="Black"
                         Command="{Binding RemovePlayerCommand}" />
 
                 <Label Text="{Binding PlayerCount}"
                        Margin="10,0"
+                       FontFamily="Mistral" TextColor="Gold" FontSize="30"
                        VerticalTextAlignment="Center" />
 
-                <Button Text="+"
+                <Button Text="+" FontFamily="Mistral" TextColor="Gold" FontSize="42" Background="Black"
                         Command="{Binding AddPlayerCommand}" />
 
-                <Button Text="Start game"
+                <Button Text="Start game" Background="Black"
+                        FontFamily="Mistral" TextColor="Gold" FontSize="30"
                         Margin="200,0,0,0"
                         Command="{Binding StartGameCommand}" />
             </HorizontalStackLayout>
