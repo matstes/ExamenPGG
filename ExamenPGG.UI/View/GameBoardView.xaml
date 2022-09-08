@@ -154,36 +154,36 @@
                    Grid.Column ="{Binding CurrentGame.PlayerList[0].PositionX}"
                    Grid.Row    ="{Binding CurrentGame.PlayerList[0].PositionY}"
                    Style="{StaticResource Key=playericon}"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Start"/>
+                   TranslationX="-34"
+                   VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[1].IconPath}"
                    Grid.Column ="{Binding CurrentGame.PlayerList[1].PositionX}"
                    Grid.Row    ="{Binding CurrentGame.PlayerList[1].PositionY}"
                    Style="{StaticResource Key=playericon}"
-                   HorizontalOptions="End"
-                   VerticalOptions="Start"/>
+                   TranslationX="-20"
+                   VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[2].IconPath}"
                    Grid.Column ="{Binding CurrentGame.PlayerList[2].PositionX}"
                    Grid.Row    ="{Binding CurrentGame.PlayerList[2].PositionY}"
                    Style="{StaticResource Key=playericon}"
-                   HorizontalOptions="Start"
+                   TranslationX="-4"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[3].IconPath}"
                    Grid.Column ="{Binding CurrentGame.PlayerList[3].PositionX}"
                    Grid.Row    ="{Binding CurrentGame.PlayerList[3].PositionY}"
                    Style="{StaticResource Key=playericon}"
-                   HorizontalOptions="End"
+                   TranslationX="12"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[4].IconPath}"
                    Grid.Column ="{Binding CurrentGame.PlayerList[4].PositionX}"
                    Grid.Row    ="{Binding CurrentGame.PlayerList[4].PositionY}"
                    Style="{StaticResource Key=playericon}"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"/>
+                   TranslationX="28"
+                   VerticalOptions="End"/>
         </Grid>
 
 
