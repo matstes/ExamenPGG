@@ -26,5 +26,10 @@ namespace ExamenPGG.UI.ViewModel
         {
             await Shell.Current.GoToAsync($"..");
         }
+        [RelayCommand]
+        private async Task GoToRulesAsync()
+        {
+            await Shell.Current.GoToAsync($"{nameof(MainPage)}");
+        }
     }
 }

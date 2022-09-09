@@ -26,11 +26,11 @@ namespace ExamenPGG.UI.ViewModel
 
             IconList = new List<string>()
             {
-                "testicon1.png",
-                "testicon2.png",
-                "testicon3.png",
-                "testicon4.png",
-                "testicon5.png"
+                "villager1.png",
+                "villager2.png",
+                "villager3.png",
+                "villager4.png",
+                "villager5.png"
             };
             PlayerChoices.Add(new PlayerChoice("Player 1", IconList));
         }
