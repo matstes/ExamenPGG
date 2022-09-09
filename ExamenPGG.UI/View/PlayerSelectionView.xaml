@@ -9,9 +9,28 @@
 
     <ScrollView Background="#1a0022">
         <Grid ColumnDefinitions="*,550,*"
-          RowDefinitions="25,auto,*,auto,25"
+          RowDefinitions="50,auto,*,auto,50"
           RowSpacing="25">
-            
+            <Image
+                Grid.Column="0"
+                Grid.Row="2"
+                Source="logo.png"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Scale="3.00"
+                Aspect="Center"
+                >
+            </Image>
+            <Image
+                Grid.Column="4"
+                Grid.Row="2"
+                Source="logo.png"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Scale="3.00"
+                Aspect="Center"
+                >
+            </Image>
             <HorizontalStackLayout 
                                Grid.Row="1"
                                Grid.Column="1"
