@@ -35,10 +35,18 @@
 
             <Button Text="Rules" 
                     TextColor="Gold" 
-                    Margin="10,0" 
+                    Margin="10,0"
+                    FontFamily="Mistral"
+                    FontSize="24" 
+                    Background="Black"
                     Command="{Binding GoToRulesCommand}"/>
+            
             <Button Text="GoBack"
                     TextColor="Gold"
+                    Margin="10,0"
+                    FontFamily="Mistral"
+                    FontSize="24" 
+                    Background="Black"
                     Command="{Binding GoBackCommand}"/>
 
         </HorizontalStackLayout>

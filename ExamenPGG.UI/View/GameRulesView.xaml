@@ -2,13 +2,162 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.GameRulesView"
-             Title="GameRulesView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Rules of the Game"
-            TextColor="Gold"
-            FontSize="Large"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
+             x:DataType="viewmodel:GameRulesViewModel">
+
+    <ContentPage.Resources>
+
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Gold" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style TargetType="Image">
+                <Setter Property="WidthRequest" Value="96" />
+                <Setter Property="HeightRequest" Value="96" />
+
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView BackgroundColor="Purple">
+
+        <VerticalStackLayout>
+
+            <Grid ColumnDefinitions="100,*">
+
+                <Button Text="Go Back"
+                    TextColor="Gold"
+                        Grid.Column="0"
+                    Margin="25"
+                    FontFamily="Mistral"
+                    FontSize="24"
+                    WidthRequest="150"
+                    Background="Black"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Command="{Binding GoBackCommand}" />
+
+                <HorizontalStackLayout HorizontalOptions="Center"
+                                   WidthRequest="800"
+                                       Grid.Column="1">
+
+                    <Image Source="Logo.png"
+                           Aspect="AspectFill"
+                           WidthRequest="150"
+                           HeightRequest="100"
+                           Margin="25" />
+
+                    <Label
+                Text="Rules of the Game"
+                FontSize="Header"
+                VerticalOptions="Center"/>
+                    
+                </HorizontalStackLayout>
+            </Grid>
+
+            <Label Text="This is Game of Bats, a spooky version of the all familiar Game of Goose. In summary, a board game where two or more players move forward a grid by rolling two dice, each taking turns."
+               FontSize="Medium"
+               WidthRequest="600"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Start"
+               Margin="0,25" />
+
+            <Label Text="The aim of the game is to reach the last square first, while trying to avoid obstacles. Careful, when you reach a position higher than the amount of squares on the board, you'll move backwards on the board."
+               FontSize="Medium"
+               WidthRequest="600"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Start"
+               Margin="0,0,0,25" />
+
+            <Image Source="grid2.png"
+                   Aspect="Center"
+               WidthRequest="813"
+               HeightRequest="525"
+               Margin="25">
+
+                <Image.Shadow>
+                    <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                </Image.Shadow>
+            </Image>
+
+            <Label Text="Just start the game, add your players and/or bots, and enjoy!"
+               FontSize="Body"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               Margin="0,25,0,50" />
+
+            <Grid ColumnDefinitions="*,*,3*"
+
+              RowDefinitions="*,*,*,*,*,*,*,*"
+              WidthRequest="800"
+              RowSpacing="10">
+
+                <!--Candle-->
+
+                <Image Source="candle.png"
+               Margin="25">
+
+                    <Image.Shadow>
+                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                    </Image.Shadow>
+                    
+                </Image>
+
+                <Label Text="Candle"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <Label Text="Your adventure starts here, on square 0."
+                   Grid.Row="0"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <!--Normal-->
+
+                <Image Source="normal.png"
+                   Grid.Row="1"
+                   Grid.Column="0" />
+
+                <Label Text="Normal"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <Label Text="I guess you're lucky, nothing (bad) happens here. Just wait for your next turn."
+                   Grid.Row="1"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <!--Spider-->
+
+                <Image Source="spider.png"
+                   Grid.Row="2"
+                   Grid.Column="0" />
+
+                <Label Text="Spider"
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <Label Text="Too bad, you encountered a spider! This means you'll have to skip your next turn. "
+                   Grid.Row="2"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <!--Bat-->
+                <!--Ladder-->
+                <!--Special-->
+                <!--Fall-->
+                <!--Endboss-->
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

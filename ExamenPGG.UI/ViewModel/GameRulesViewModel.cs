@@ -1,6 +1,13 @@
-﻿namespace ExamenPGG.UI.ViewModel
+﻿using CommunityToolkit.Mvvm.Input;
+
+namespace ExamenPGG.UI.ViewModel
 {
-    internal class GameRulesViewModel
+    public partial class GameRulesViewModel
     {
+        [RelayCommand]
+        async Task GoBack()
+        {
+            await Shell.Current.GoToAsync($"..");
+        }
     }
 }
