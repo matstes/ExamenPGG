@@ -20,7 +20,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ScrollView BackgroundColor="Purple">
+    <ScrollView BackgroundColor="#1a0022">
 
         <VerticalStackLayout>
 
@@ -91,7 +91,8 @@
 
               RowDefinitions="*,*,*,*,*,*,*,*"
               WidthRequest="800"
-              RowSpacing="10">
+              RowSpacing="10"
+                 >
 
                 <!--Candle-->
 
