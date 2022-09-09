@@ -156,7 +156,8 @@
                    Style="{StaticResource Key=playericon}"
                    TranslationX="-34"
                    TranslationY="-5"
-                   Scale="1.25"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[0].ScaleXplayer}"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[1].IconPath}"
@@ -165,7 +166,8 @@
                    Style="{StaticResource Key=playericon}"
                    TranslationX="-20"
                    TranslationY="-5"
-                   Scale="1.25"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[1].ScaleXplayer}"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[2].IconPath}"
@@ -174,7 +176,8 @@
                    Style="{StaticResource Key=playericon}"
                    TranslationX="-4"
                    TranslationY="-5"
-                   Scale="1.25"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[2].ScaleXplayer}"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[3].IconPath}"
@@ -183,7 +186,8 @@
                    Style="{StaticResource Key=playericon}"
                    TranslationX="12"
                    TranslationY="-5"
-                   Scale="1.25"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[3].ScaleXplayer}"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[4].IconPath}"
@@ -192,7 +196,8 @@
                    Style="{StaticResource Key=playericon}"
                    TranslationX="28"
                    TranslationY="-5"
-                   Scale="1.25"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[4].ScaleXplayer}"
                    VerticalOptions="End"/>
         </Grid>
 

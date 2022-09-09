@@ -7,6 +7,7 @@ using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
 using ExamenPGG.Business.DiceObject;
+using Plugin.Maui.Audio;
 
 namespace ExamenPGG.UI
 {
@@ -48,6 +49,10 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<GameControlView>();
             builder.Services.AddTransient<GameBoardView>();
             builder.Services.AddTransient<PlayerSelectionView>();
+
+            //audio
+            builder.Services.AddSingleton(AudioManager.Current);
+            builder.Services.AddTransient<MainPage>();
 
             return builder.Build();
         }
