@@ -10,6 +10,7 @@ namespace ExamenPGG.Business.PlayerObject
         string Name { get; set; }
         int PositionX { get; set; }
         int PositionY { get; set; }
+        double ScaleXplayer { get; set; }
         ISquare PreviousSquare { get; set; }
         int TurnAmount { get; set; }
         public bool IsHuman { get; }

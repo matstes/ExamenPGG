@@ -42,6 +42,29 @@ namespace ExamenPGG.Business.PlayerObject
             }
         }
 
+
+        private double scaleXplayer = 1.25;
+        public double ScaleXplayer
+        {
+            get { return scaleXplayer; }
+            set
+            {
+                scaleXplayer = value;
+                RaisePropertyChanged();
+            }
+        }
+        public double GetXScale()
+        {
+            if      (PositionY == 7) { return   1.25; }
+            else if (PositionY == 6) { return  -1.25; }
+            else if (PositionY == 5) { return   1.25; }
+            else if (PositionY == 4) { return  -1.25; }
+            else if (PositionY == 3) { return   1.25; }
+            else if (PositionY == 2) { return  -1.25; }
+            else if (PositionY == 1) { return   1.25; }
+            else                     { return  -1.25; }
+        }
+
         public Player(string name,string iconPath, bool isHuman, IGameBoard gameBoard)
         {
             Name = name;
@@ -137,6 +160,7 @@ namespace ExamenPGG.Business.PlayerObject
             CurrentSquare = GetSquare(destination);
             PositionY = GetYPosition();
             PositionX = GetXPosition(PositionY);
+            ScaleXplayer = GetXScale();   //Wrong placement?
             CurrentSquare.HandlePlayer(this);
 
             return CurrentSquare;
