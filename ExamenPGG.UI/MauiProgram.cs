@@ -7,6 +7,7 @@ using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
 using ExamenPGG.Business.DiceObject;
+using ExamenPGG.Data.Repository;
 
 namespace ExamenPGG.UI
 {
@@ -31,6 +32,7 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<ISquareFactory, SquareFactory>();
             builder.Services.AddTransient<IPlayerFactory, PlayerFactory>();
             builder.Services.AddTransient<IDiceFactory, DiceFactory>();
+            builder.Services.AddTransient<IDBGameRepo, DBGameRepo>();
 
             builder.Services.AddSingleton<IGameBoard, GameBoard>();
             builder.Services.AddSingleton<IGame, Game>();

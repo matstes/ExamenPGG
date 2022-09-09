@@ -2,6 +2,8 @@
 using ExamenPGG.Business.Factory;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
+using ExamenPGG.Data.Entities;
+using ExamenPGG.Data.Repository;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -22,6 +24,7 @@ namespace ExamenPGG.Business.GameObject
         private IGameBoard _gameBoard;
         private ILogger _logger;
         private IDiceFactory _diceFactory;
+        private IDBGameRepo _dBGameRepo;
 
         private bool isDiceButtonEnabled = false;
         public bool IsDiceButtonEnabled 
@@ -39,11 +42,12 @@ namespace ExamenPGG.Business.GameObject
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public Game(IGameBoard gameBoard, ILogger logger, IDiceFactory diceFactory)
+        public Game(IGameBoard gameBoard, ILogger logger, IDiceFactory diceFactory, IDBGameRepo repo)
         {
             _gameBoard = gameBoard;
             _logger = logger;
             _diceFactory = diceFactory;
+            _dBGameRepo = repo;
             DiceBag = new List<IDice>();
             FillDiceBag();
         }
@@ -184,7 +188,20 @@ namespace ExamenPGG.Business.GameObject
             WinningPlayer = CurrentPlayer;
             EndTime = DateTime.Now;
             _logger.LogGameEnd(this);
+            WriteToDB();
         }
+
+        private void WriteToDB()
+        {
+            var game = new DBGame()
+            {
+                StartTime = this.StartTime,
+                EndTime = this.EndTime,
+                //Player = this.WinningPlayer,
+            };
+            _dBGameRepo.AddGame(game);
+        }
+
         private void RaisePropertyChanged([CallerMemberName]string? propertyName=null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
