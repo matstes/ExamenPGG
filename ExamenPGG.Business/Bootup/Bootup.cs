@@ -3,6 +3,7 @@ using ExamenPGG.Business.Factory;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
+using ExamenPGG.Data.Repository;
 
 namespace ExamenPGG.Business.Bootup
 {
@@ -115,8 +116,9 @@ namespace ExamenPGG.Business.Bootup
                 inputList.Add(newPlayer);
             }
             IDiceFactory diceFactory = new DiceFactory(); //TODO COLLECTIOON OF DICE -=> SEE FACTORIES
+            IDBGameRepo repo = new DBGameRepo();
 
-            return new Game(_gameBoard, _logger, diceFactory);
+            return new Game(_gameBoard, _logger, diceFactory, repo);
         }
     }
 }

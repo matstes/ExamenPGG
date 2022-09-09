@@ -40,5 +40,11 @@ namespace ExamenPGG.Data.Repository
                           .Take(10).ToListAsync();
             return top10;
         }
+
+        public void UpdateGame(DBGame game)
+        {
+            dbContext.Games.Update(game);
+            dbContext.SaveChanges();
+        }
     }
 }

@@ -18,7 +18,6 @@ namespace ExamenPGG.Data.Entities
         [Range(1, int.MaxValue)]
         public int ThrowsToWin { get; set; }
 
-        [ForeignKey("WinnerID")]
         public DBPlayer Player { get; set; }
 
         [Required]

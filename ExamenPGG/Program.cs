@@ -29,13 +29,63 @@
 //    services.AddSingleton<IGameBoard, GameBoard>();
 //}
 
+using ExamenPGG.Data.Entities;
+using ExamenPGG.Data.Repository;
+
 namespace ExamenPGG
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+            if (!File.Exists("GameOfBatsDB"))
+            {
+                File.Create("GameOfBatsDB");
+            }
 
+            DBGameRepo _dBGameRepo = new();
+            DBPlayerRepo _dBPlayerRepo = new();
+
+            List<DBPlayer> dbList = new List<DBPlayer>();
+
+                dbList.Add(new DBPlayer()
+                {
+                    Name =  "Jef",
+                    IconPath = "Whocares"
+                });
+
+            dbList.Add(new DBPlayer()
+            {
+                Name = "Jof",
+                IconPath = "Whocares"
+            });
+
+            dbList.Add(new DBPlayer()
+            {
+                Name = "Jaf",
+                IconPath = "Whocares"
+            });
+
+            DBPlayer winner = dbList[1];
+
+            var game = new DBGame()
+            {
+                StartTime = DateTime.Now,
+                EndTime = DateTime.Now,
+                ThrowsToWin = 12
+            };
+
+            await _dBGameRepo.AddGame(game);
+
+            foreach (var player in dbList)
+            {
+                await _dBPlayerRepo.AddPlayer(player);
+            }
+
+            game.Player = dbList[1];
+            game.PlayerList = dbList;
+
+            _dBGameRepo.UpdateGame(game);
         }
     }
 }

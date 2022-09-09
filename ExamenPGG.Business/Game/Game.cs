@@ -193,11 +193,26 @@ namespace ExamenPGG.Business.GameObject
 
         private void WriteToDB()
         {
+            List<DBPlayer> dbList = new List<DBPlayer>();
+
+            foreach (var player in PlayerList)
+            {
+                dbList.Add(new DBPlayer()
+                {
+                    Name = player.Name,
+                    IconPath = player.IconPath
+                });
+            }
+
+            DBPlayer winner = dbList[CurrentplayerID];
+
             var game = new DBGame()
             {
                 StartTime = this.StartTime,
                 EndTime = this.EndTime,
-                //Player = this.WinningPlayer,
+                Player = winner,
+                PlayerList = dbList,
+                ThrowsToWin = RoundNumber
             };
             _dBGameRepo.AddGame(game);
         }
