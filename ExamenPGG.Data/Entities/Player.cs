@@ -2,9 +2,10 @@
 {
     public class Player
     {
-        //todo Constraints, DataTypes
         public int ID { get; set; }
 
         public string Name { get; set; }
+        public string IconPath { get; set; }
+
     }
 }
