@@ -43,6 +43,7 @@
                     VerticalOptions="End"
                     Padding="10,10,10,10"
                     Margin="20,20,30,20"
+                    Command="GoToRulesCommand"
                     />
             <Button Text="GoBack" 
                     BackgroundColor="Black"

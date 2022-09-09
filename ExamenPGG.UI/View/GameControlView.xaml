@@ -8,55 +8,49 @@
     <HorizontalStackLayout BackgroundColor="#151928">
 
         <Grid ColumnDefinitions="20,280,*,400,20" WidthRequest="1490">
-            
-        <Label Text="VILLAGER ACTIONS:"
+
+            <Label Text="VILLAGER ACTIONS:"
                MaximumWidthRequest="210"
                HorizontalOptions="Start"
                VerticalOptions="Center"
                Grid.Column="1"
                FontSize="20"
                TextColor="#8e53e0"
-               Padding="10"/>
+               Padding="10" />
 
-            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec ex eu magna scelerisque porttitor. 
-Quisque in convallis dolor, quis dignissim ipsum. Pellentesque metus augue, pharetra in gravida vel, ultricies et turpis. 
-Ut eget nisi ut eros consectetur rhoncus. Aliquam suscipit tortor est, sed egestas enim porttitor at. 
-Donec id lobortis nisl, eget malesuada ipsum. Vestibulum massa magna, consectetur et est et, pellentesque ornare dolor. 
-Phasellus est nunc, malesuada et nisi in, dapibus fermentum mauris. Pellentesque tempus odio dolor, sit amet sodales elit efficitur sit amet. 
-Curabitur vel quam risus. Fusce faucibus tincidunt purus vel porta. Vivamus ut nunc orci."
-                   
-               TextColor="#8e53e0"
-               Padding="10"
-               HorizontalTextAlignment="Start"
-               VerticalTextAlignment="Center"
-               Grid.Column="2"
-               MaxLines="5"
-               HeightRequest="150"
-               />
-  
+            <ScrollView 
+                Grid.Column="2"
+                x:Name="logScreenScrollView"
+                MaximumHeightRequest="250"
+                Padding="10">
+
+                <Label
+                    x:Name="logScreenLabel"
+                    SizeChanged="ScrollView_SizeChanged"
+                    Text="{Binding Logger.LogData}"
+                    TextColor="Gold"
+                    VerticalTextAlignment="End"
+                    MinimumWidthRequest="600"/>
+                    
+                
+            </ScrollView>
+
             <Button
                 Padding="10,10,10,10"
                 Text="ROLL"
                 BackgroundColor="Black"
                 BorderColor="Gold"
                 BorderWidth="10"
-   
                 ImageSource="dice6.png"
-
                 ScaleX="0.70"
                 ScaleY="0.70"
                 Grid.Column="3"
-                FontSize="100" 
+                FontSize="100"
                 FontFamily="Mistral"
                 Command="{Binding RollDiceCommand}"
                 IsEnabled="{Binding Game.IsDiceButtonEnabled}"
-                TextColor="Gold"
-                >
-                
+                TextColor="Gold">
             </Button>
-
         </Grid>
-
     </HorizontalStackLayout>
-
 </ContentView>

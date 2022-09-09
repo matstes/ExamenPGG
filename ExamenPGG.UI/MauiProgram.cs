@@ -25,7 +25,7 @@ namespace ExamenPGG.UI
                 });
 
             //business layer dependencies
-            builder.Services.AddTransient<ILogger, Logger>();
+            builder.Services.AddSingleton<ILogger, FileLogger>();
             builder.Services.AddTransient<IBootstrapper, Bootstrapper>();
             builder.Services.AddTransient<IBootup, Bootup>();
             builder.Services.AddTransient<ILeaderBoard, LeaderBoard>();
