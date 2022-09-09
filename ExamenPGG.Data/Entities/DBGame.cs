@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExamenPGG.Data.Entities
 {
-    public class Game
+    public class DBGame
     {
         [Key]
         public int ID { get; set; }
@@ -18,10 +18,10 @@ namespace ExamenPGG.Data.Entities
         [Range(1, int.MaxValue)]
         public int ThrowsToWin { get; set; }
 
-        [ForeignKey("WinnerId")]
-        public Player Player { get; set; }
+        [ForeignKey("WinnerID")]
+        public DBPlayer Player { get; set; }
 
         [Required]
-        public IList<Player> PlayerList { get; set; }
+        public IList<DBPlayer> PlayerList { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExamenPGG.Data.Entities
 {
-    public class Player
+    public class DBPlayer
     {
         [Key]
         public int ID { get; set; }

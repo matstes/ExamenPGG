@@ -18,7 +18,7 @@ namespace ExamenPGG.Data.Migrations
                     StartTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     EndTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     ThrowsToWin = table.Column<int>(type: "INTEGER", nullable: false),
-                    WinnerId = table.Column<int>(type: "INTEGER", nullable: false)
+                    WinnerID = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,32 +33,32 @@ namespace ExamenPGG.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "varchar(50)", nullable: false),
                     IconPath = table.Column<string>(type: "varchar(50)", nullable: false),
-                    GameID = table.Column<int>(type: "INTEGER", nullable: true)
+                    DBGameID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Players", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Players_Games_GameID",
-                        column: x => x.GameID,
+                        name: "FK_Players_Games_DBGameID",
+                        column: x => x.DBGameID,
                         principalTable: "Games",
                         principalColumn: "ID");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Games_WinnerId",
+                name: "IX_Games_WinnerID",
                 table: "Games",
-                column: "WinnerId");
+                column: "WinnerID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Players_GameID",
+                name: "IX_Players_DBGameID",
                 table: "Players",
-                column: "GameID");
+                column: "DBGameID");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Games_Players_WinnerId",
+                name: "FK_Games_Players_WinnerID",
                 table: "Games",
-                column: "WinnerId",
+                column: "WinnerID",
                 principalTable: "Players",
                 principalColumn: "ID",
                 onDelete: ReferentialAction.Cascade);
@@ -67,7 +67,7 @@ namespace ExamenPGG.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Games_Players_WinnerId",
+                name: "FK_Games_Players_WinnerID",
                 table: "Games");
 
             migrationBuilder.DropTable(

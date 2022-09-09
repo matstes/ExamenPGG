@@ -17,7 +17,7 @@ namespace ExamenPGG.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
 
-            modelBuilder.Entity("ExamenPGG.Data.Entities.Game", b =>
+            modelBuilder.Entity("ExamenPGG.Data.Entities.DBGame", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -32,23 +32,23 @@ namespace ExamenPGG.Data.Migrations
                     b.Property<int>("ThrowsToWin")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("WinnerId")
+                    b.Property<int>("WinnerID")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("WinnerId");
+                    b.HasIndex("WinnerID");
 
                     b.ToTable("Games");
                 });
 
-            modelBuilder.Entity("ExamenPGG.Data.Entities.Player", b =>
+            modelBuilder.Entity("ExamenPGG.Data.Entities.DBPlayer", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("GameID")
+                    b.Property<int?>("DBGameID")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("IconPath")
@@ -61,30 +61,30 @@ namespace ExamenPGG.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("GameID");
+                    b.HasIndex("DBGameID");
 
                     b.ToTable("Players");
                 });
 
-            modelBuilder.Entity("ExamenPGG.Data.Entities.Game", b =>
+            modelBuilder.Entity("ExamenPGG.Data.Entities.DBGame", b =>
                 {
-                    b.HasOne("ExamenPGG.Data.Entities.Player", "Player")
+                    b.HasOne("ExamenPGG.Data.Entities.DBPlayer", "Player")
                         .WithMany()
-                        .HasForeignKey("WinnerId")
+                        .HasForeignKey("WinnerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Player");
                 });
 
-            modelBuilder.Entity("ExamenPGG.Data.Entities.Player", b =>
+            modelBuilder.Entity("ExamenPGG.Data.Entities.DBPlayer", b =>
                 {
-                    b.HasOne("ExamenPGG.Data.Entities.Game", null)
+                    b.HasOne("ExamenPGG.Data.Entities.DBGame", null)
                         .WithMany("PlayerList")
-                        .HasForeignKey("GameID");
+                        .HasForeignKey("DBGameID");
                 });
 
-            modelBuilder.Entity("ExamenPGG.Data.Entities.Game", b =>
+            modelBuilder.Entity("ExamenPGG.Data.Entities.DBGame", b =>
                 {
                     b.Navigation("PlayerList");
                 });

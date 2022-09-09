@@ -5,8 +5,8 @@ namespace ExamenPGG.Data.Data
 {
     public class GameOfBatsContext : DbContext
     {
-        public DbSet<Game> Games { get; set; }
-        public DbSet<Player> Players { get; set; }
+        public DbSet<DBGame> Games { get; set; }
+        public DbSet<DBPlayer> Players { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
