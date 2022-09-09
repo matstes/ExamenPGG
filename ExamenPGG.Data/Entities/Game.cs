@@ -1,12 +1,27 @@
-﻿namespace ExamenPGG.Data.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ExamenPGG.Data.Entities
 {
     public class Game
     {
-        public int Id { get; set; }
+        [Key]
+        public int ID { get; set; }
+
+        [Required]
         public DateTime StartTime { get; set; }
+
+        [Required]
         public DateTime EndTime { get; set; }
+
+        [Required]
+        [Range(1, int.MaxValue)]
         public int ThrowsToWin { get; set; }
-        public Player Winner { get; set; }
+
+        [ForeignKey("WinnerId")]
+        public Player Player { get; set; }
+
+        [Required]
         public IList<Player> PlayerList { get; set; }
     }
 }
