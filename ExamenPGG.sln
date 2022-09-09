@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamenPGG.Business", "Exame
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamenPGG.Business.Tests", "ExamenPGG.Business.Tests\ExamenPGG.Business.Tests.csproj", "{2ADA77A8-8E0D-41FF-BC0A-38928923A430}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExamenPGG.UI", "ExamenPGG.UI\ExamenPGG.UI.csproj", "{D80320DD-9F6E-439B-BB3F-32B7CD615968}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamenPGG.UI", "ExamenPGG.UI\ExamenPGG.UI.csproj", "{D80320DD-9F6E-439B-BB3F-32B7CD615968}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamenPGG", "ExamenPGG\ExamenPGG.csproj", "{79D34F58-094F-40D9-8D4C-2FB384C56D85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{D80320DD-9F6E-439B-BB3F-32B7CD615968}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D80320DD-9F6E-439B-BB3F-32B7CD615968}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D80320DD-9F6E-439B-BB3F-32B7CD615968}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{79D34F58-094F-40D9-8D4C-2FB384C56D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79D34F58-094F-40D9-8D4C-2FB384C56D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79D34F58-094F-40D9-8D4C-2FB384C56D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79D34F58-094F-40D9-8D4C-2FB384C56D85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
