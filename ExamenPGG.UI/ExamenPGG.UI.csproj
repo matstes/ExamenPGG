@@ -68,6 +68,9 @@
 	  <MauiXaml Update="View\GameControlView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\GameRulesView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\InformationView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
