@@ -12,7 +12,7 @@
                HorizontalOptions="Center"
                Margin="10"
                WidthRequest="100" 
-               Scale="2.75"
+               Scale="2.00"
                Grid.Row="1"/>
         <VerticalStackLayout Grid.Row="2" Grid.RowSpan="2" Margin="15,0">
             <Label Text="Players" TextColor="#8e53e0" FontSize="64" Padding="10" FontFamily="Mistral"/>
@@ -43,7 +43,7 @@
                     VerticalOptions="End"
                     Padding="10,10,10,10"
                     Margin="20,20,30,20"
-                    Command="GoToRulesCommand"
+                    Command="{Binding GoToRulesCommand}"
                     />
             <Button Text="GoBack" 
                     BackgroundColor="Black"
