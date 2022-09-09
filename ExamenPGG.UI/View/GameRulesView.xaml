@@ -82,7 +82,7 @@
             </Image>
 
             <Label Text="Just start the game, add your players and/or bots, and enjoy!"
-               FontSize="Body"
+               FontSize="Small"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Center"
                Margin="0,25,0,50" />
@@ -97,7 +97,7 @@
                 <!--Candle-->
 
                 <Image Source="candle.png"
-               Margin="25">
+               Margin="15">
 
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
@@ -121,9 +121,16 @@
 
                 <Image Source="normal.png"
                    Grid.Row="1"
-                   Grid.Column="0" />
+                   Grid.Column="0"
+                   Margin="15">
 
-                <Label Text="Normal"
+                    <Image.Shadow>
+                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                    </Image.Shadow>
+
+                </Image>
+
+                    <Label Text="Normal"
                    Grid.Row="1"
                    Grid.Column="1"
                    HorizontalOptions="Start"
@@ -139,7 +146,14 @@
 
                 <Image Source="spider.png"
                    Grid.Row="2"
-                   Grid.Column="0" />
+                   Grid.Column="0"
+                       Margin="15">
+
+                    <Image.Shadow>
+                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                    </Image.Shadow>
+
+                </Image>
 
                 <Label Text="Spider"
                    Grid.Row="2"
@@ -154,10 +168,130 @@
                    VerticalTextAlignment="Center" />
 
                 <!--Bat-->
+
+                <Image Source="bat.png"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                       Margin="15">
+
+                    <Image.Shadow>
+                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                    </Image.Shadow>
+
+                </Image>
+
+                <Label Text="Bat"
+                   Grid.Row="3"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <Label Text="The bat helps you reach the end of the board quicker. You will move further with the amount you've rolled. "
+                   Grid.Row="3"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
                 <!--Ladder-->
+
+                <Image Source="ladder.png"
+                   Grid.Row="4"
+                   Grid.Column="0"
+                       Margin="15">
+
+                    <Image.Shadow>
+                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                    </Image.Shadow>
+
+                </Image>
+
+                <Label Text="Ladder"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <Label Text="Lucky you, you can immediately move up a floor in the castle!"
+                   Grid.Row="4"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
                 <!--Special-->
+
+                <Image Source="special.png"
+                   Grid.Row="5"
+                   Grid.Column="0"
+                       Margin="15">
+
+                    <Image.Shadow>
+                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                    </Image.Shadow>
+
+                </Image>
+
+                <Label Text="Special"
+                   Grid.Row="5"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <Label Text="This is a special mystery square. You'll likely receive an extra die, but there is also a 20% chance that you will actually die! "
+                   Grid.Row="5"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+                
                 <!--Fall-->
+
+                <Image Source="fall.png"
+                   Grid.Row="6"
+                   Grid.Column="0"
+                       Margin="15">
+
+                    <Image.Shadow>
+                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                    </Image.Shadow>
+
+                </Image>
+
+                <Label Text="Fall"
+                   Grid.Row="6"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <Label Text="Whoops, you will fall down a floor of the Castle! "
+                   Grid.Row="6"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
                 <!--Endboss-->
+
+                <Image Source="endboss.png"
+                   Grid.Row="7"
+                   Grid.Column="0"
+                       Margin="15">
+
+                    <Image.Shadow>
+                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
+                    </Image.Shadow>
+
+                </Image>
+
+                <Label Text="EndBoss"
+                   Grid.Row="7"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
+                <Label Text="Congratulations, you reached the end boss on the last square first, and you win the game! "
+                   Grid.Row="7"
+                   Grid.Column="2"
+                   HorizontalOptions="Start"
+                   VerticalTextAlignment="Center" />
+
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
