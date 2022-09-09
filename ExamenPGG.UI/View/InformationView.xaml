@@ -33,8 +33,13 @@
         <HorizontalStackLayout Grid.Row="4"
                                HorizontalOptions="Center">
 
-            <Button Text="Rules" Margin="10,0"/>
-            <Button Text="GoBack" Command="{Binding GoBackCommand}"/>
+            <Button Text="Rules" 
+                    TextColor="Gold" 
+                    Margin="10,0" 
+                    Command="{Binding GoToRulesCommand}"/>
+            <Button Text="GoBack"
+                    TextColor="Gold"
+                    Command="{Binding GoBackCommand}"/>
 
         </HorizontalStackLayout>
 
