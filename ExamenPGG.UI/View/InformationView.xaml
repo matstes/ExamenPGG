@@ -9,18 +9,19 @@
     <Grid RowDefinitions = "20,*,*,*,auto,20" BackgroundColor="#151928">
         
         <Image Source="Logo.png"
-               HorizontalOptions="Start"
+               HorizontalOptions="Center"
                Margin="10"
                WidthRequest="100" 
+               Scale="2.75"
                Grid.Row="1"/>
         <VerticalStackLayout Grid.Row="2" Grid.RowSpan="2" Margin="15,0">
-            <Label Text="Players" TextColor="#8e53e0" FontSize="Large" Padding="10"/>
+            <Label Text="Players" TextColor="#8e53e0" FontSize="64" Padding="10" FontFamily="Mistral"/>
 
             <CollectionView ItemsSource="{Binding Game.PlayerList}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="playerobject:Player">
                         <HorizontalStackLayout>
-                            <Label Text="{Binding Name}" Margin="20,0" VerticalOptions="Center"/>
+                            <Label Text="{Binding Name}" FontSize="32" Margin="20,0" VerticalOptions="Center" FontFamily="Mistral" TextColor="Gold"/>
                             <Image Source="{Binding IconPath}" HorizontalOptions="End"/>
                         </HorizontalStackLayout>
                     </DataTemplate>
