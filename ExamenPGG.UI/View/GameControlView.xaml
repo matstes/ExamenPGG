@@ -18,18 +18,22 @@
                TextColor="#8e53e0"
                Padding="10" />
 
-            <Editor
-                x:Name="logScreen"
+            <ScrollView 
                 Grid.Column="2"
+                x:Name="logScreenScrollView"
+                MaximumHeightRequest="250"
+                Padding="10">
+
+                <Label
+                    x:Name="logScreenLabel"
+                    SizeChanged="ScrollView_SizeChanged"
                     Text="{Binding Logger.LogData}"
                     TextColor="Gold"
-                    VerticalTextAlignment="Start"
-                    HeightRequest="200"
-                    CursorPosition="{Binding Logger.LogDataLength}">
+                    VerticalTextAlignment="End"
+                    MinimumWidthRequest="600"/>
+                    
                 
-            </Editor>
-
-
+            </ScrollView>
 
             <Button
                 Padding="10,10,10,10"
