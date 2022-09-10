@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.UI.View;
+using Plugin.Maui.Audio;
 
 namespace ExamenPGG.UI.ViewModel
 {
@@ -21,14 +22,17 @@ namespace ExamenPGG.UI.ViewModel
             GameBoardView = gameBoardView;
             Game = game;
             Game.StartGame();
+            IAudioManager audio = new AudioManager();
         }
 
         [RelayCommand]
         private async Task StartGame()
         {
             Game.StartGame();
+
             await Shell.Current.GoToAsync($"{nameof(GameBoardView)}");
             
         }
+       
     }
 }

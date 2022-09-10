@@ -155,6 +155,9 @@
                    Grid.Row    ="{Binding CurrentGame.PlayerList[0].PositionY}"
                    Style="{StaticResource Key=playericon}"
                    TranslationX="-34"
+                   TranslationY="-5"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[0].ScaleXplayer}"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[1].IconPath}"
@@ -162,6 +165,9 @@
                    Grid.Row    ="{Binding CurrentGame.PlayerList[1].PositionY}"
                    Style="{StaticResource Key=playericon}"
                    TranslationX="-20"
+                   TranslationY="-5"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[1].ScaleXplayer}"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[2].IconPath}"
@@ -169,6 +175,9 @@
                    Grid.Row    ="{Binding CurrentGame.PlayerList[2].PositionY}"
                    Style="{StaticResource Key=playericon}"
                    TranslationX="-4"
+                   TranslationY="-5"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[2].ScaleXplayer}"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[3].IconPath}"
@@ -176,6 +185,9 @@
                    Grid.Row    ="{Binding CurrentGame.PlayerList[3].PositionY}"
                    Style="{StaticResource Key=playericon}"
                    TranslationX="12"
+                   TranslationY="-5"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[3].ScaleXplayer}"
                    VerticalOptions="End"/>
 
             <Image Source      ="{Binding CurrentGame.PlayerList[4].IconPath}"
@@ -183,6 +195,9 @@
                    Grid.Row    ="{Binding CurrentGame.PlayerList[4].PositionY}"
                    Style="{StaticResource Key=playericon}"
                    TranslationX="28"
+                   TranslationY="-5"
+                   ScaleY="1.25"
+                   ScaleX="{Binding CurrentGame.PlayerList[4].ScaleXplayer}"
                    VerticalOptions="End"/>
         </Grid>
 

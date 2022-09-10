@@ -4,6 +4,8 @@ using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
+using ExamenPGG.Business.DiceObject;
+using Plugin.Maui.Audio;
 using ExamenPGG.Data.Repository;
 using ExamenPGG.Data.Data;
 using Microsoft.EntityFrameworkCore;
@@ -22,10 +24,11 @@ namespace ExamenPGG.UI
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Mistral.ttf", "Mistral");
                 });
 
             //business layer dependencies
-            builder.Services.AddTransient<ILogger, Logger>();
+            builder.Services.AddSingleton<ILogger, FileLogger>();
             builder.Services.AddTransient<IBootstrapper, Bootstrapper>();
             builder.Services.AddTransient<IBootup, Bootup>();
             builder.Services.AddTransient<ISquareFactory, SquareFactory>();
@@ -57,6 +60,10 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<GameBoardView>();
             builder.Services.AddTransient<PlayerSelectionView>();
             builder.Services.AddTransient<LeaderBoardView>();
+
+            //audio
+            builder.Services.AddSingleton(AudioManager.Current);
+            builder.Services.AddTransient<MainPage>();
 
             return builder.Build();
         }

@@ -1,11 +1,16 @@
 ﻿using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.PlayerObject;
 using ExamenPGG.Business.Squares;
+using System.Text;
 
 namespace ExamenPGG.Business.Logging
 {
     public class Logger : ILogger
     {
+        public StringBuilder Sb { get; set; }
+        public string LogData { get; set; }
+        public int LogDataLength { get; set; }
+
         public void LogDiceRoll(IPlayer player, int rollAmount)
         {
             Console.WriteLine($"{DateTime.Now}: {player.Name} rolled the dice and got {rollAmount}!");

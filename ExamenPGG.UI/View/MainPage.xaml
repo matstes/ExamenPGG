@@ -8,11 +8,11 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="768"></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="180"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -30,12 +30,14 @@
                      Grid.Row ="2"
                      Grid.Column ="4"
                      HorizontalOptions="Center"
+                Scale="1.00"
             >
         </Border>
 
         <ContentView Content="{Binding InformationView}"
                      Grid.Row ="2"
                      Grid.Column ="2"
+                     Scale="1.00"
             >
         </ContentView>
 
@@ -43,6 +45,7 @@
                      Grid.Row="4"
                      Grid.Column ="2"
                      Grid.ColumnSpan="3"
+                     Scale="1.00"
             >
         </ContentView>
 

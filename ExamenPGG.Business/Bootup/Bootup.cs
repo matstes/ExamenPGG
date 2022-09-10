@@ -19,6 +19,7 @@ namespace ExamenPGG.Business.Bootup
         private ILogger _logger;
         private IPlayerFactory _playerFactory;
 
+
         public Bootup(IGameBoard gameBoard, IPlayerFactory factory, ILogger logger)
         {
             _gameBoard = gameBoard;
