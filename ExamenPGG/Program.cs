@@ -38,41 +38,46 @@ namespace ExamenPGG
     {
         static async Task Main(string[] args)
         {
-            if (!File.Exists("GameOfBatsDB"))
-            {
-                File.Create("GameOfBatsDB");
-            }
-
             DBGameRepo _dBGameRepo = new();
             DBPlayerRepo _dBPlayerRepo = new();
 
             List<DBPlayer> dbList = new List<DBPlayer>();
 
-                dbList.Add(new DBPlayer()
-                {
-                    Name =  "Jef",
-                    IconPath = "Whocares"
-                });
-
             dbList.Add(new DBPlayer()
             {
-                Name = "Jof",
+                Name =  "P1",
                 IconPath = "Whocares"
             });
 
             dbList.Add(new DBPlayer()
             {
-                Name = "Jaf",
+                Name = "P2",
                 IconPath = "Whocares"
             });
 
-            DBPlayer winner = dbList[1];
+            dbList.Add(new DBPlayer()
+            {
+                Name = "P3",
+                IconPath = "Whocares"
+            });
+
+            dbList.Add(new DBPlayer()
+            {
+                Name = "P4",
+                IconPath = "Whocares"
+            });
+
+            dbList.Add(new DBPlayer()
+            {
+                Name = "Jeffrey Beezos",
+                IconPath = "Whocares"
+            });
 
             var game = new DBGame()
             {
                 StartTime = DateTime.Now,
                 EndTime = DateTime.Now,
-                ThrowsToWin = 12
+                ThrowsToWin = 4
             };
 
             await _dBGameRepo.AddGame(game);
@@ -86,6 +91,9 @@ namespace ExamenPGG
             game.PlayerList = dbList;
 
             _dBGameRepo.UpdateGame(game);
+
+            List<DBGame> top10 = _dBGameRepo.GetTop10().Result;
+            Console.ReadKey();
         }
     }
 }

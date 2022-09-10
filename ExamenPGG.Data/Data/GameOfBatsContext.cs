@@ -10,7 +10,7 @@ namespace ExamenPGG.Data.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(connectionString: "FileName=GameOfBatsDB");
+            optionsBuilder.UseSqlite(connectionString: "FileName=GameOfBatsDB.db");
             base.OnConfiguring(optionsBuilder);
         }
     }

@@ -18,7 +18,7 @@ namespace ExamenPGG.Data.Migrations
                     StartTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     EndTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     ThrowsToWin = table.Column<int>(type: "INTEGER", nullable: false),
-                    WinnerID = table.Column<int>(type: "INTEGER", nullable: false)
+                    WinnerID = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {

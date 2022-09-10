@@ -10,6 +10,7 @@ namespace ExamenPGG.Data.Repository
         public DBGameRepo()
         {
             dbContext = new GameOfBatsContext();
+            dbContext.Database.Migrate();
         }
 
         public async Task AddGame(DBGame game)
@@ -37,6 +38,7 @@ namespace ExamenPGG.Data.Repository
             var top10 = new List<DBGame>();
             top10 = await dbContext.Games
                           .OrderBy(p => p.ThrowsToWin)
+                          .Include(p => p.Player)
                           .Take(10).ToListAsync();
             return top10;
         }

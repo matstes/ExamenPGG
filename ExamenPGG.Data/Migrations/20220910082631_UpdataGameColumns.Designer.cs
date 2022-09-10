@@ -3,6 +3,7 @@ using System;
 using ExamenPGG.Data.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExamenPGG.Data.Migrations
 {
     [DbContext(typeof(GameOfBatsContext))]
-    partial class GameOfBatsContextModelSnapshot : ModelSnapshot
+    [Migration("20220910082631_UpdataGameColumns")]
+    partial class UpdataGameColumns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
@@ -26,7 +28,7 @@ namespace ExamenPGG.Data.Migrations
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("PlayerID")
+                    b.Property<int>("PlayerID")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("StartTime")
@@ -70,7 +72,9 @@ namespace ExamenPGG.Data.Migrations
                 {
                     b.HasOne("ExamenPGG.Data.Entities.DBPlayer", "Player")
                         .WithMany()
-                        .HasForeignKey("PlayerID");
+                        .HasForeignKey("PlayerID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Player");
                 });
