@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.PlayerObject;
+using ExamenPGG.UI.View;
 
 namespace ExamenPGG.UI.ViewModel
 {
@@ -18,6 +19,12 @@ namespace ExamenPGG.UI.ViewModel
         private async Task GoToRulesAsync()
         {
             await Shell.Current.GoToAsync($"{nameof(MainPage)}");
+        }
+
+        [RelayCommand]
+        private async Task GoToLeaderBoardAsync()
+        {
+            await Shell.Current.GoToAsync($"{nameof(LeaderBoardView)}");
         }
     }
 }
