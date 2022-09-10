@@ -29,6 +29,7 @@
 //    services.AddSingleton<IGameBoard, GameBoard>();
 //}
 
+using ExamenPGG.Data.Data;
 using ExamenPGG.Data.Entities;
 using ExamenPGG.Data.Repository;
 
@@ -38,8 +39,10 @@ namespace ExamenPGG
     {
         static async Task Main(string[] args)
         {
-            DBGameRepo _dBGameRepo = new();
-            DBPlayerRepo _dBPlayerRepo = new();
+            GameOfBatsContext context = new GameOfBatsContext();
+
+            DBGameRepo _dBGameRepo = new(context);
+            DBPlayerRepo _dBPlayerRepo = new(context);
 
             List<DBPlayer> dbList = new List<DBPlayer>();
 
@@ -84,7 +87,7 @@ namespace ExamenPGG
 
             foreach (var player in dbList)
             {
-                await _dBPlayerRepo.AddPlayer(player);
+                await _dBPlayerRepo.AddPlayerAsync(player);
             }
 
             game.Player = dbList[1];

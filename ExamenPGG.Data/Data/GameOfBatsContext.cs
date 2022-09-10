@@ -1,5 +1,6 @@
 ﻿using ExamenPGG.Data.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace ExamenPGG.Data.Data
 {
@@ -8,9 +9,13 @@ namespace ExamenPGG.Data.Data
         public DbSet<DBGame> Games { get; set; }
         public DbSet<DBPlayer> Players { get; set; }
 
+        public GameOfBatsContext(DbContextOptions<GameOfBatsContext> options): base(options)
+        {
+            this.Database.Migrate();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(connectionString: "FileName=GameOfBatsDB.db");
             base.OnConfiguring(optionsBuilder);
         }
     }

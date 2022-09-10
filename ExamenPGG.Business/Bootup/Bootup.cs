@@ -92,33 +92,38 @@ namespace ExamenPGG.Business.Bootup
 
         public IGame CreateGame(List<IPlayer> inputList)
         {
-            while (isReady == false)
-            {
-                //Input player number
-                InitialPlayerNumber();
-                Console.WriteLine(AskPlayerNames());
-                InputPlayerNames();
-
-                //TODO: This does not yet include a choice for player icons! Player NAME input ONLY for now!
-            }
-            //Finalize boot sequence and create game instance:
-            bool isHumans = true;
-            if (playerNumber == 0)
-            {
-                isHumans = false;
-            }
-
-            for (int i = 0; i < activePlayers.Count; i++)
-            {
-                //Create list of player instances from the bootlist of player names:
-                string newPlayerName = activePlayers[i];
-                IPlayer newPlayer = _playerFactory.CreatePlayer(newPlayerName, "testicon1.png", isHumans);
-                inputList.Add(newPlayer);
-            }
-            IDiceFactory diceFactory = new DiceFactory(); //TODO COLLECTIOON OF DICE -=> SEE FACTORIES
-            IDBGameRepo repo = new DBGameRepo();
-
-            return new Game(_gameBoard, _logger, diceFactory, repo);
+            throw new NotImplementedException();
         }
+
+        //public IGame CreateGame(List<IPlayer> inputList)
+        //{
+        //    while (isReady == false)
+        //    {
+        //        //Input player number
+        //        InitialPlayerNumber();
+        //        Console.WriteLine(AskPlayerNames());
+        //        InputPlayerNames();
+
+        //        //TODO: This does not yet include a choice for player icons! Player NAME input ONLY for now!
+        //    }
+        //    //Finalize boot sequence and create game instance:
+        //    bool isHumans = true;
+        //    if (playerNumber == 0)
+        //    {
+        //        isHumans = false;
+        //    }
+
+        //    for (int i = 0; i < activePlayers.Count; i++)
+        //    {
+        //        //Create list of player instances from the bootlist of player names:
+        //        string newPlayerName = activePlayers[i];
+        //        IPlayer newPlayer = _playerFactory.CreatePlayer(newPlayerName, "testicon1.png", isHumans);
+        //        inputList.Add(newPlayer);
+        //    }
+        //    IDiceFactory diceFactory = new DiceFactory(); //TODO COLLECTIOON OF DICE -=> SEE FACTORIES
+        //    IDBGameRepo repo = new DBGameRepo();
+
+        //    return new Game(_gameBoard, _logger, diceFactory, repo);
+        //}
     }
 }

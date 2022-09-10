@@ -5,6 +5,7 @@ namespace ExamenPGG.Data.Repository
 {
     public interface IDBPlayerRepo
     {
-        Task AddPlayer(DBPlayer player);
+        Task AddPlayerAsync(DBPlayer player);
+        Task AddPlayerRangeAsync(List<DBPlayer> players);
     }
 }

@@ -7,15 +7,20 @@ namespace ExamenPGG.Data.Repository
     public class DBPlayerRepo : IDBPlayerRepo
     {
         private GameOfBatsContext dbContext;
-        public DBPlayerRepo()
+        public DBPlayerRepo(GameOfBatsContext context)
         {
-            dbContext = new();
-            dbContext.Database.Migrate();
+            dbContext = context;
         }
 
-        public async Task AddPlayer(DBPlayer player)
+        public async Task AddPlayerAsync(DBPlayer player)
         {
             await dbContext.Players.AddAsync(player);
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task AddPlayerRangeAsync(List<DBPlayer> players)
+        {
+            await dbContext.Players.AddRangeAsync(players);
             await dbContext.SaveChangesAsync();
         }
     }

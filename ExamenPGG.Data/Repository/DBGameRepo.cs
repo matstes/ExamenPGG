@@ -7,10 +7,9 @@ namespace ExamenPGG.Data.Repository
     public class DBGameRepo : IDBGameRepo
     {
         private GameOfBatsContext dbContext;
-        public DBGameRepo()
+        public DBGameRepo(GameOfBatsContext context)
         {
-            dbContext = new GameOfBatsContext();
-            dbContext.Database.Migrate();
+            dbContext = context;
         }
 
         public async Task AddGame(DBGame game)
@@ -43,10 +42,10 @@ namespace ExamenPGG.Data.Repository
             return top10;
         }
 
-        public void UpdateGame(DBGame game)
+        public async Task UpdateGame(DBGame game)
         {
             dbContext.Games.Update(game);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
     }
 }

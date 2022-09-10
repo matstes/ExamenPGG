@@ -25,6 +25,7 @@ namespace ExamenPGG.Business.GameObject
         private ILogger _logger;
         private IDiceFactory _diceFactory;
         private IDBGameRepo _dBGameRepo;
+        private IDBPlayerRepo _dbPlayerRepo;
 
         private bool isDiceButtonEnabled = false;
         public bool IsDiceButtonEnabled 
@@ -42,12 +43,13 @@ namespace ExamenPGG.Business.GameObject
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public Game(IGameBoard gameBoard, ILogger logger, IDiceFactory diceFactory, IDBGameRepo repo)
+        public Game(IGameBoard gameBoard, ILogger logger, IDiceFactory diceFactory, IDBGameRepo repo, IDBPlayerRepo dbPlayerRepo)
         {
             _gameBoard = gameBoard;
             _logger = logger;
             _diceFactory = diceFactory;
             _dBGameRepo = repo;
+            _dbPlayerRepo = dbPlayerRepo;
             DiceBag = new List<IDice>();
             FillDiceBag();
         }
@@ -210,11 +212,14 @@ namespace ExamenPGG.Business.GameObject
             {
                 StartTime = this.StartTime,
                 EndTime = this.EndTime,
-                Player = winner,
-                PlayerList = dbList,
                 ThrowsToWin = RoundNumber
             };
             _dBGameRepo.AddGame(game);
+            _dbPlayerRepo.AddPlayerRangeAsync(dbList);
+
+            game.PlayerList = dbList;
+            game.Player = dbList[CurrentplayerID];
+            _dBGameRepo.UpdateGame(game);
         }
 
         private void RaisePropertyChanged([CallerMemberName]string? propertyName=null)
