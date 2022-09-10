@@ -32,6 +32,7 @@
 using ExamenPGG.Data.Data;
 using ExamenPGG.Data.Entities;
 using ExamenPGG.Data.Repository;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExamenPGG
 {
@@ -39,7 +40,8 @@ namespace ExamenPGG
     {
         static async Task Main(string[] args)
         {
-            GameOfBatsContext context = new GameOfBatsContext();
+            DbContextOptions<GameOfBatsContext> options = new DbContextOptions<GameOfBatsContext>();
+            GameOfBatsContext context = new GameOfBatsContext(options);
 
             DBGameRepo _dBGameRepo = new(context);
             DBPlayerRepo _dBPlayerRepo = new(context);

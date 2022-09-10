@@ -10,6 +10,7 @@ using ExamenPGG.Business.DiceObject;
 using ExamenPGG.Data.Repository;
 using ExamenPGG.Data.Data;
 using Microsoft.EntityFrameworkCore;
+using ExamenPGG.Business.Services;
 
 namespace ExamenPGG.UI
 {
@@ -43,6 +44,7 @@ namespace ExamenPGG.UI
             builder.Services.AddDbContext<GameOfBatsContext>(options => options.UseSqlite($"Filename={dbPath}"));
             builder.Services.AddTransient<IDBGameRepo, DBGameRepo>();
             builder.Services.AddTransient<IDBPlayerRepo, DBPlayerRepo>();
+            builder.Services.AddTransient<IGameService, GameService>();
 
 
             //pages

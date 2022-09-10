@@ -1,6 +1,5 @@
 ﻿using ExamenPGG.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace ExamenPGG.Data.Data
 {

@@ -2,8 +2,7 @@
 using ExamenPGG.Business.Factory;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
-using ExamenPGG.Data.Entities;
-using ExamenPGG.Data.Repository;
+using ExamenPGG.Business.Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -21,11 +20,9 @@ namespace ExamenPGG.Business.GameObject
         public int RoundNumber { get; set; }
         public int CurrentplayerID { get; private set; }
 
-        private IGameBoard _gameBoard;
         private ILogger _logger;
         private IDiceFactory _diceFactory;
-        private IDBGameRepo _dBGameRepo;
-        private IDBPlayerRepo _dbPlayerRepo;
+        private IGameService _gameService;
 
         private bool isDiceButtonEnabled = false;
         public bool IsDiceButtonEnabled 
@@ -43,13 +40,11 @@ namespace ExamenPGG.Business.GameObject
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public Game(IGameBoard gameBoard, ILogger logger, IDiceFactory diceFactory, IDBGameRepo repo, IDBPlayerRepo dbPlayerRepo)
+        public Game(ILogger logger, IDiceFactory diceFactory, IGameService service)
         {
-            _gameBoard = gameBoard;
             _logger = logger;
             _diceFactory = diceFactory;
-            _dBGameRepo = repo;
-            _dbPlayerRepo = dbPlayerRepo;
+            _gameService = service;
             DiceBag = new List<IDice>();
             FillDiceBag();
         }
@@ -190,36 +185,7 @@ namespace ExamenPGG.Business.GameObject
             WinningPlayer = CurrentPlayer;
             EndTime = DateTime.Now;
             _logger.LogGameEnd(this);
-            WriteToDB();
-        }
-
-        private void WriteToDB()
-        {
-            List<DBPlayer> dbList = new List<DBPlayer>();
-
-            foreach (var player in PlayerList)
-            {
-                dbList.Add(new DBPlayer()
-                {
-                    Name = player.Name,
-                    IconPath = player.IconPath
-                });
-            }
-
-            DBPlayer winner = dbList[CurrentplayerID];
-
-            var game = new DBGame()
-            {
-                StartTime = this.StartTime,
-                EndTime = this.EndTime,
-                ThrowsToWin = RoundNumber
-            };
-            _dBGameRepo.AddGame(game);
-            _dbPlayerRepo.AddPlayerRangeAsync(dbList);
-
-            game.PlayerList = dbList;
-            game.Player = dbList[CurrentplayerID];
-            _dBGameRepo.UpdateGame(game);
+            _gameService.LogGameToDB(this);
         }
 
         private void RaisePropertyChanged([CallerMemberName]string? propertyName=null)
