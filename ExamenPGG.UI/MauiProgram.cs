@@ -1,12 +1,9 @@
-﻿using ExamenPGG.Business;
-using ExamenPGG.Business.Bootup;
+﻿using ExamenPGG.Business.Bootup;
 using ExamenPGG.Business.GameObject;
-using ExamenPGG.Business.LeaderBoard;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
-using ExamenPGG.Business.DiceObject;
 using ExamenPGG.Data.Repository;
 using ExamenPGG.Data.Data;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +28,6 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<ILogger, Logger>();
             builder.Services.AddTransient<IBootstrapper, Bootstrapper>();
             builder.Services.AddTransient<IBootup, Bootup>();
-            builder.Services.AddTransient<ILeaderBoard, LeaderBoard>();
             builder.Services.AddTransient<ISquareFactory, SquareFactory>();
             builder.Services.AddTransient<IPlayerFactory, PlayerFactory>();
             builder.Services.AddTransient<IDiceFactory, DiceFactory>();
@@ -53,12 +49,14 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<GameControlViewModel>();
             builder.Services.AddTransient<GameBoardViewModel>();
             builder.Services.AddTransient<PlayerSelectionViewModel>();
+            builder.Services.AddTransient<LeaderBoardViewModel>();
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<InformationView>();
             builder.Services.AddTransient<GameControlView>();
             builder.Services.AddTransient<GameBoardView>();
             builder.Services.AddTransient<PlayerSelectionView>();
+            builder.Services.AddTransient<LeaderBoardView>();
 
             return builder.Build();
         }

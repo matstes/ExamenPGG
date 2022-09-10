@@ -10,6 +10,7 @@ namespace ExamenPGG.UI
 
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(GameBoardView), typeof(GameBoardView));
+            Routing.RegisterRoute(nameof(LeaderBoardView), typeof(LeaderBoardView));
         }
     }
 }

@@ -4,6 +4,7 @@ using ExamenPGG.Business.LeaderBoard;
 using ExamenPGG.Business.PlayerObject;
 using ExamenPGG.Data.Entities;
 using ExamenPGG.Data.Repository;
+using System.Collections.ObjectModel;
 
 namespace ExamenPGG.Business.Services
 {
@@ -60,9 +61,24 @@ namespace ExamenPGG.Business.Services
             await _dBGameRepo.UpdateGame(dbGame);
         }
 
-        public Task<List<ILeaderBoardPlayer>> GetTop10()
+        public async Task<ObservableCollection<ILeaderBoardPlayer>> GetTop10()
         {
-            throw new NotImplementedException();
+            List<DBGame> dBGames = await _dBGameRepo.GetTop10();
+
+            ObservableCollection<ILeaderBoardPlayer> result = new ObservableCollection<ILeaderBoardPlayer>();
+
+            foreach (var game in dBGames)
+            {
+                result.Add(new LeaderBoardPlayer()
+                {
+                    LeaderName = game.Player.Name,
+                    LeaderScore = game.ThrowsToWin,
+                    LeaderDate = game.EndTime,
+                    Icon = game.Player.IconPath
+                });
+            }
+
+            return result;
         }
     }
 }

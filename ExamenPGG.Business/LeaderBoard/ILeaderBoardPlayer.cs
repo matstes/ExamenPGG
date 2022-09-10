@@ -4,7 +4,7 @@
     {
         string LeaderName { get; set; }
         int LeaderScore { get; set; }
-        int Icon { get; set; }
+        string Icon { get; set; }
         DateTime LeaderDate { get; set; }
     }
 }
