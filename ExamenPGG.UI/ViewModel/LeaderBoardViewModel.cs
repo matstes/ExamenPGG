@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.LeaderBoard;
 using ExamenPGG.Business.Services;
 using System.Collections.ObjectModel;
@@ -26,6 +27,12 @@ namespace ExamenPGG.UI.ViewModel
             {
                 EmptyDB = "No data found, play a game!";
             }
+        }
+
+        [RelayCommand]
+        private async Task GoBackAsync()
+        {
+            await Shell.Current.GoToAsync($"..");
         }
     }
 }
