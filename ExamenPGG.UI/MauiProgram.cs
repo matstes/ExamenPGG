@@ -51,13 +51,18 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<GameControlViewModel>();
             builder.Services.AddTransient<GameBoardViewModel>();
             builder.Services.AddTransient<PlayerSelectionViewModel>();
+            builder.Services.AddTransient<GameRulesViewModel>();
+            builder.Services.AddTransient<EndGameViewModel>();
             builder.Services.AddTransient<LeaderBoardViewModel>();
+
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<InformationView>();
             builder.Services.AddTransient<GameControlView>();
             builder.Services.AddTransient<GameBoardView>();
             builder.Services.AddTransient<PlayerSelectionView>();
+            builder.Services.AddTransient<GameRulesView>();
+            builder.Services.AddTransient<EndGameView>();
             builder.Services.AddTransient<LeaderBoardView>();
 
             //audio
