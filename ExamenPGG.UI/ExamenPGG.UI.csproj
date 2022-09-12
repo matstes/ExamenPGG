@@ -52,18 +52,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\GameBoard\grid1.png" />
-	  <None Remove="Resources\Images\GameBoard\grid2.png" />
+	  <None Remove="Resources\Fonts\MISTRAL.TTF" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\villager1.png" />
 	  <None Remove="Resources\Images\villager2.png" />
 	  <None Remove="Resources\Images\villager3.png" />
 	  <None Remove="Resources\Images\villager4.png" />
 	  <None Remove="Resources\Images\villager5.png" />
+	  <None Remove="Resources\Raw\bloop.wav" />
+	  <None Remove="Resources\Raw\calmmusic.wav" />
+	  <None Remove="Resources\Raw\longmusic.wav" />
+	  <None Remove="Resources\Raw\luigismansion.wav" />
+	  <None Remove="Resources\Raw\shortmusic.wav" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	  <PackageReference Include="Plugin.Maui.Audio" Version="0.1.0-preview1" />
 	</ItemGroup>
 
 	<ItemGroup>

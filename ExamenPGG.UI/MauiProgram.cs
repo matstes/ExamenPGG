@@ -7,6 +7,7 @@ using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
 using ExamenPGG.Business.DiceObject;
+using Plugin.Maui.Audio;
 
 namespace ExamenPGG.UI
 {
@@ -21,6 +22,7 @@ namespace ExamenPGG.UI
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Mistral.ttf", "Mistral");
                 });
 
             //business layer dependencies
@@ -54,6 +56,10 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<PlayerSelectionView>();
             builder.Services.AddTransient<GameRulesView>();
             builder.Services.AddTransient<EndGameView>();
+
+            //audio
+            builder.Services.AddSingleton(AudioManager.Current);
+            builder.Services.AddTransient<MainPage>();
 
             return builder.Build();
         }
