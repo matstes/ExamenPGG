@@ -29,77 +29,24 @@
         <Border Content="{Binding GameBoardView}"
                      Grid.Row ="2"
                      Grid.Column ="4"
-                     HorizontalOptions="Center"
-                Scale="1.00"
-            >
+                StrokeThickness="1"
+                Stroke="Gold">
         </Border>
 
-        <ContentView Content="{Binding InformationView}"
+        <Border Content="{Binding InformationView}"
                      Grid.Row ="2"
                      Grid.Column ="2"
-                     Scale="1.00"
-            >
-        </ContentView>
+                     StrokeThickness="1"
+                                Stroke="Gold">
+        </Border>
 
-        <ContentView Content="{Binding GameControlView}"
+        <Border Content="{Binding GameControlView}"
                      Grid.Row="4"
                      Grid.Column ="2"
                      Grid.ColumnSpan="3"
-                     Scale="1.00"
-            >
-        </ContentView>
-
-        <Image Grid.Row="0" Grid.Column="0" Background="Black"></Image>
-        <Image Grid.Row="0" Grid.Column="1" Background="Black"></Image>
-        <Image Grid.Row="0" Grid.Column="2" Background="Black"></Image>
-        <Image Grid.Row="0" Grid.Column="3" Background="Black"></Image>
-        <Image Grid.Row="0" Grid.Column="4" Background="Black"></Image>
-        <Image Grid.Row="0" Grid.Column="5" Background="Black"></Image>
-        <Image Grid.Row="0" Grid.Column="6" Background="Black"></Image>
-
-        <Image Grid.Row="1" Grid.Column="0" Background="Black"></Image>
-        <Image Grid.Row="1" Grid.Column="1" Background="#150818"></Image>
-        <Image Grid.Row="1" Grid.Column="2" Background="#150818"></Image>
-        <Image Grid.Row="1" Grid.Column="3" Background="#150818"></Image>
-        <Image Grid.Row="1" Grid.Column="4" Background="#150818"></Image>
-        <Image Grid.Row="1" Grid.Column="5" Background="#150818"></Image>
-        <Image Grid.Row="1" Grid.Column="6" Background="Black"></Image>
-
-        <Image Grid.Row="2" Grid.Column="0" Background="Black"></Image>
-        <Image Grid.Row="2" Grid.Column="1" Background="#150818"></Image>
-        <Image Grid.Row="2" Grid.Column="3" Background="#150818"></Image>
-        <Image Grid.Row="2" Grid.Column="5" Background="#150818"></Image>
-        <Image Grid.Row="2" Grid.Column="6" Background="Black"></Image>
-
-        <Image Grid.Row="3" Grid.Column="0" Background="Black"></Image>
-        <Image Grid.Row="3" Grid.Column="1" Background="#150818"></Image>
-        <Image Grid.Row="3" Grid.Column="2" Background="#150818"></Image>
-        <Image Grid.Row="3" Grid.Column="3" Background="#150818"></Image>
-        <Image Grid.Row="3" Grid.Column="4" Background="#150818"></Image>
-        <Image Grid.Row="3" Grid.Column="5" Background="#150818"></Image>
-        <Image Grid.Row="3" Grid.Column="6" Background="Black"></Image>
-
-        <Image Grid.Row="4" Grid.Column="0" Background="Black"></Image>
-        <Image Grid.Row="4" Grid.Column="1" Background="#150818"></Image>
-        <Image Grid.Row="4" Grid.Column="5" Background="#150818"></Image>
-        <Image Grid.Row="4" Grid.Column="6" Background="Black"></Image>
-
-        <Image Grid.Row="5" Grid.Column="0" Background="Black"></Image>
-        <Image Grid.Row="5" Grid.Column="1" Background="#150818"></Image>
-        <Image Grid.Row="5" Grid.Column="2" Background="#150818"></Image>
-        <Image Grid.Row="5" Grid.Column="3" Background="#150818"></Image>
-        <Image Grid.Row="5" Grid.Column="4" Background="#150818"></Image>
-        <Image Grid.Row="5" Grid.Column="5" Background="#150818"></Image>
-        <Image Grid.Row="5" Grid.Column="6" Background="Black"></Image>
-
-        <Image Grid.Row="6" Grid.Column="0" Background="Black"></Image>
-        <Image Grid.Row="6" Grid.Column="1" Background="Black"></Image>
-        <Image Grid.Row="6" Grid.Column="2" Background="Black"></Image>
-        <Image Grid.Row="6" Grid.Column="3" Background="Black"></Image>
-        <Image Grid.Row="6" Grid.Column="4" Background="Black"></Image>
-        <Image Grid.Row="6" Grid.Column="5" Background="Black"></Image>
-        <Image Grid.Row="6" Grid.Column="6" Background="Black"></Image>
-
+                     StrokeThickness="1"
+                                Stroke="Gold">
+        </Border>
     </Grid>
     
 </ContentPage>
