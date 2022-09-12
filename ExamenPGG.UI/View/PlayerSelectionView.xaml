@@ -91,7 +91,7 @@
                        FontFamily="Mistral" TextColor="Gold" FontSize="30"
                        VerticalTextAlignment="Center" />
 
-                <Button Text="-" FontFamily="Mistral" TextColor="Gold" FontSize="42" Background="Black"
+                <Button Text="-"
                         Command="{Binding RemovePlayerCommand}" />
 
                 <Label Text="{Binding PlayerCount}"
@@ -99,15 +99,16 @@
                        FontFamily="Mistral" TextColor="Gold" FontSize="30"
                        VerticalTextAlignment="Center" />
 
-                <Button Text="+" FontFamily="Mistral" TextColor="Gold" FontSize="42" Background="Black"
+                <Button Text="+"
                         Command="{Binding AddPlayerCommand}" />
 
-                <Button Text="Start game" Background="Black"
-                        FontFamily="Mistral" TextColor="Gold" FontSize="30"
+                <Button Text="Start game"
                         Margin="200,0,0,0"
                         Clicked="StartMusic"
                         Command="{Binding StartGameCommand}" />
+                
             </HorizontalStackLayout>
+            
         </Grid>
     </ScrollView>
 </ContentPage>

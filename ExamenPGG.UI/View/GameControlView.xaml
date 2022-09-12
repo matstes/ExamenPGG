@@ -33,25 +33,22 @@
                     VerticalTextAlignment="End"
                     MinimumWidthRequest="600"/>
                     
-                
             </ScrollView>
 
             <Button
+                x:Name="RollDiceButton"
                 Scale="0.65"
-                Padding="10,25,10,25"
+                Padding="30"
                 Text="ROLL"
                 Clicked="GiveBloop"
-                BackgroundColor="Black"
-                BorderColor="Gold"
-                BorderWidth="5"
                 ImageSource="dice6.png"
                 Grid.Column="3"
-                FontSize="70"
                 FontFamily="Mistral"
                 Command="{Binding RollDiceCommand}"
                 IsEnabled="{Binding Game.IsDiceButtonEnabled}"
-                TextColor="Gold">
+                Style="{StaticResource RollDiceButton}">
             </Button>
+            
         </Grid>
     </HorizontalStackLayout>
 </ContentView>
