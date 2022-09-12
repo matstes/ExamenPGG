@@ -8,14 +8,15 @@
     <ContentPage.Resources>
 
         <ResourceDictionary>
-            <Style TargetType="Label">
+            <Style TargetType="Label" x:Key="GridText">
                 <Setter Property="TextColor" Value="Gold" />
                 <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
             </Style>
             <Style TargetType="Image">
                 <Setter Property="WidthRequest" Value="96" />
                 <Setter Property="HeightRequest" Value="96" />
-
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -28,7 +29,7 @@
 
                 <Button Text="Go Back"
                     TextColor="Gold"
-                        Grid.Column="0"
+                    Grid.Column="0"
                     Margin="25"
                     FontFamily="Mistral"
                     FontSize="24"
@@ -51,8 +52,8 @@
                     <Label
                 Text="Rules of the Game"
                 FontSize="Header"
-                VerticalOptions="Center"/>
-                    
+                VerticalOptions="Center"
+                        TextColor="Gold" />
                 </HorizontalStackLayout>
             </Grid>
 
@@ -61,6 +62,7 @@
                WidthRequest="600"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Start"
+                   TextColor="Gold"
                Margin="0,25" />
 
             <Label Text="The aim of the game is to reach the last square first, while trying to avoid obstacles. Careful, when you reach a position higher than the amount of squares on the board, you'll move backwards on the board."
@@ -68,6 +70,7 @@
                WidthRequest="600"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Start"
+                   TextColor="Gold"
                Margin="0,0,0,25" />
 
             <Image Source="grid2.png"
@@ -85,14 +88,14 @@
                FontSize="Small"
                HorizontalOptions="Center"
                HorizontalTextAlignment="Center"
+                   TextColor="Gold"
                Margin="0,25,0,50" />
 
             <Grid ColumnDefinitions="*,*,3*"
 
               RowDefinitions="*,*,*,*,*,*,*,*"
               WidthRequest="800"
-              RowSpacing="10"
-                 >
+              RowSpacing="10">
 
                 <!--Candle-->
 
@@ -102,20 +105,17 @@
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
                     </Image.Shadow>
-                    
                 </Image>
 
                 <Label Text="Candle"
                    Grid.Row="0"
                    Grid.Column="1"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <Label Text="Your adventure starts here, on square 0."
                    Grid.Row="0"
                    Grid.Column="2"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <!--Normal-->
 
@@ -127,20 +127,17 @@
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
                     </Image.Shadow>
-
                 </Image>
 
-                    <Label Text="Normal"
+                <Label Text="Normal"
                    Grid.Row="1"
                    Grid.Column="1"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <Label Text="I guess you're lucky, nothing (bad) happens here. Just wait for your next turn."
                    Grid.Row="1"
                    Grid.Column="2"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <!--Spider-->
 
@@ -152,20 +149,17 @@
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
                     </Image.Shadow>
-
                 </Image>
 
                 <Label Text="Spider"
                    Grid.Row="2"
                    Grid.Column="1"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <Label Text="Too bad, you encountered a spider! This means you'll have to skip your next turn. "
                    Grid.Row="2"
                    Grid.Column="2"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <!--Bat-->
 
@@ -177,20 +171,17 @@
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
                     </Image.Shadow>
-
                 </Image>
 
                 <Label Text="Bat"
                    Grid.Row="3"
                    Grid.Column="1"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <Label Text="The bat helps you reach the end of the board quicker. You will move further with the amount you've rolled. "
                    Grid.Row="3"
                    Grid.Column="2"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <!--Ladder-->
 
@@ -202,20 +193,17 @@
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
                     </Image.Shadow>
-
                 </Image>
 
                 <Label Text="Ladder"
                    Grid.Row="4"
                    Grid.Column="1"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <Label Text="Lucky you, you can immediately move up a floor in the castle!"
                    Grid.Row="4"
                    Grid.Column="2"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <!--Special-->
 
@@ -227,21 +215,18 @@
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
                     </Image.Shadow>
-
                 </Image>
 
                 <Label Text="Special"
                    Grid.Row="5"
                    Grid.Column="1"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <Label Text="This is a special mystery square. You'll likely receive an extra die, but there is also a 20% chance that you will actually die! "
                    Grid.Row="5"
                    Grid.Column="2"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
-                
+                   Style="{StaticResource GridText}" />
+
                 <!--Fall-->
 
                 <Image Source="fall.png"
@@ -252,20 +237,17 @@
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
                     </Image.Shadow>
-
                 </Image>
 
                 <Label Text="Fall"
                    Grid.Row="6"
                    Grid.Column="1"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <Label Text="Whoops, you will fall down a floor of the Castle! "
                    Grid.Row="6"
                    Grid.Column="2"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
                 <!--Endboss-->
 
@@ -277,21 +259,17 @@
                     <Image.Shadow>
                         <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
                     </Image.Shadow>
-
                 </Image>
 
                 <Label Text="EndBoss"
                    Grid.Row="7"
                    Grid.Column="1"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
+                   Style="{StaticResource GridText}" />
 
-                <Label Text="Congratulations, you reached the end boss on the last square first, and you win the game! "
+                <Label Text="Congratulations, you reached the end boss on the last square first. You win the game! "
                    Grid.Row="7"
                    Grid.Column="2"
-                   HorizontalOptions="Start"
-                   VerticalTextAlignment="Center" />
-
+                   Style="{StaticResource GridText}" />
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
