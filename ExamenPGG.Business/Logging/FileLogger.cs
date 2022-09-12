@@ -65,10 +65,10 @@ namespace ExamenPGG.Business.Logging
             string filePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string fileName = "GameData" + DateTime.Now.ToString("yyyy-dd-M-HH-mm") + ".txt";
 
-            using (StreamWriter StreamWriter = new StreamWriter(filePath + fileName))
-            {
-                StreamWriter.Write(sb.ToString());
-            }
+            //using (StreamWriter StreamWriter = new StreamWriter(filePath + fileName))
+            //{
+            //    StreamWriter.Write(sb.ToString());
+            //}
         }
 
         public void LogMessage(string message)

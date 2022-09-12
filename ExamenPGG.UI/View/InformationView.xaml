@@ -55,6 +55,7 @@
                     VerticalOptions="End"
                     Padding="10,10,10,10"
                     Margin="30,20,20,20"
+                    Command="{Binding GoBackCommand}"
                     />
 
         </HorizontalStackLayout>
