@@ -47,9 +47,9 @@ namespace ExamenPGG.Business.Logging
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public void LogDiceRoll(IPlayer player, int rollAmount)
+        public void LogDiceRoll(IPlayer player, List<int> rollAmount)
         {
-            sb.AppendLine($"{DateTime.Now}: {player.Name} rolled the dice and got {rollAmount}!");
+            sb.AppendLine($"{DateTime.Now}: {player.Name} rolled the dice and got {rollAmount[0]} + {rollAmount[1]}, for a total of: {rollAmount.Sum()}!");
             LogData = sb.ToString();
         }
 
@@ -73,7 +73,7 @@ namespace ExamenPGG.Business.Logging
 
         public void LogMessage(string message)
         {
-            sb.Append(message);
+            sb.AppendLine($"{DateTime.Now}: " + message);
             LogData = sb.ToString();
         }
 
@@ -99,6 +99,33 @@ namespace ExamenPGG.Business.Logging
         public void LogSpecialSquare(ISquare squareHit, IPlayer player)
         {
             sb.AppendLine($"{DateTime.Now}: Player {player.Name} entered squareID: {squareHit.ID}, {squareHit.SquareType}");
+            LogData = sb.ToString();
+        }
+
+        public void LogMysteryDeath(IPlayer player)
+        {
+            sb.AppendLine($"{DateTime.Now}: Player {player.Name} has died! Go back to square 0.");
+            LogData = sb.ToString();
+        }
+
+        public void LogMysteryMove(IPlayer player, int rollAmount)
+        {
+            sb.AppendLine($"{DateTime.Now}: Player {player.Name} gets an extra dice roll! You got {rollAmount}");
+            LogData = sb.ToString();
+        }
+
+        public void LogGameStart(DateTime startTime, List<IPlayer> playerlist)
+        {
+            sb.Clear();
+            sb.AppendLine("----------------------------------");
+            sb.AppendLine($"A new game has started on {startTime} with the following players:");
+            int i = 1;
+            foreach (var player in playerlist)
+            {
+                sb.AppendLine($"\t{i}) {player.Name}");
+                i++;
+            }
+            sb.AppendLine("----------------------------------");
             LogData = sb.ToString();
         }
     }

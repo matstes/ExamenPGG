@@ -73,7 +73,7 @@ namespace ExamenPGG.Business.GameObject
             {
                 return;
             }
-
+            _logger.LogGameStart(StartTime, PlayerList);
             IncrementScore();
         }
 
@@ -126,7 +126,7 @@ namespace ExamenPGG.Business.GameObject
                 rollAmount.Add(dice.RollDice());
             }
             CurrentPlayer.LastThrow = rollAmount.Sum();
-            _logger.LogDiceRoll(CurrentPlayer, rollAmount.Sum());
+            _logger.LogDiceRoll(CurrentPlayer, rollAmount);
             CheckRoll(rollAmount);
             HasReachedEnd();
         }

@@ -11,9 +11,9 @@ namespace ExamenPGG.Business.Logging
         public string LogData { get; set; }
         public int LogDataLength { get; set; }
 
-        public void LogDiceRoll(IPlayer player, int rollAmount)
+        public void LogDiceRoll(IPlayer player, List<int> rollAmount)
         {
-            Console.WriteLine($"{DateTime.Now}: {player.Name} rolled the dice and got {rollAmount}!");
+            Console.WriteLine($"{DateTime.Now}: {player.Name} rolled the dice and got {rollAmount.Sum()}!");
         }
 
         public void LogGameEnd(IGame game)
@@ -25,9 +25,31 @@ namespace ExamenPGG.Business.Logging
             Console.WriteLine("----------------------------------");
         }
 
+        public void LogGameStart(DateTime startTime, List<IPlayer> playerlist)
+        {
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine($"A new game has started on {startTime} with the following players:");
+            foreach (var player in playerlist)
+            {
+                Console.WriteLine($"\t{player.Name}");
+            }
+            Console.WriteLine("----------------------------------");
+        }
+
         public void LogMessage(string message)
         {
             Console.WriteLine(message);
+        }
+
+        public void LogMysteryDeath(IPlayer player)
+        {
+            Console.WriteLine($"{DateTime.Now}: Player {player.Name} has died! Go back to square 0.");
+        }
+
+        public void LogMysteryMove(IPlayer player, int rollAmount)
+        {
+            Console.WriteLine($"{DateTime.Now}: Player {player.Name} gets an extra dice roll!");
+            Console.WriteLine($"{DateTime.Now}: Player {player.Name} rolled the dice and got {rollAmount}!");
         }
 
         public void LogNewLine()
