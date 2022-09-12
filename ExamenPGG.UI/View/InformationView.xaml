@@ -45,11 +45,8 @@
                     BorderColor="Gold"
                     TextColor="Gold"
                     FontFamily="Mistral"
-                    Scale="2"
                     HorizontalOptions="Start"
                     VerticalOptions="End"
-                    Padding="10,10,10,10"
-                    Margin="20,20,30,20"
                     Command="{Binding GoToRulesCommand}"
                     />
                 
@@ -58,11 +55,8 @@
                     BorderColor="Gold"   
                     TextColor="Gold"
                     FontFamily="Mistral"
-                    Scale="2"
                     HorizontalOptions="End"
                     VerticalOptions="End"
-                    Padding="10,10,10,10"
-                    Margin="30,20,20,20"
                     Command="{Binding GoBackCommand}"
                     />
 
