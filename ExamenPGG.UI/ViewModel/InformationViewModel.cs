@@ -25,5 +25,11 @@ namespace ExamenPGG.UI.ViewModel
         {
             await Shell.Current.GoToAsync($"..");
         }
+
+        [RelayCommand]
+        private async Task GoToLeaderBoardAsync()
+        {
+            await Shell.Current.GoToAsync($"{nameof(LeaderBoardView)}");
+        }
     }
 }
