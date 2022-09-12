@@ -12,6 +12,7 @@ namespace ExamenPGG.UI
             Routing.RegisterRoute(nameof(GameRulesView), typeof(GameRulesView));
             Routing.RegisterRoute(nameof(EndGameView), typeof(EndGameView));
             Routing.RegisterRoute(nameof(PlayerSelectionView), typeof(PlayerSelectionView));
+            Routing.RegisterRoute(nameof(LeaderBoardView), typeof(LeaderBoardView));
         }
     }
 }

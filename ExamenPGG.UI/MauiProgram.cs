@@ -1,13 +1,14 @@
-﻿using ExamenPGG.Business;
-using ExamenPGG.Business.Bootup;
+﻿using ExamenPGG.Business.Bootup;
 using ExamenPGG.Business.GameObject;
-using ExamenPGG.Business.LeaderBoard;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
-using ExamenPGG.Business.DiceObject;
 using Plugin.Maui.Audio;
+using ExamenPGG.Data.Repository;
+using ExamenPGG.Data.Data;
+using Microsoft.EntityFrameworkCore;
+using ExamenPGG.Business.Services;
 
 namespace ExamenPGG.UI
 {
@@ -29,13 +30,20 @@ namespace ExamenPGG.UI
             builder.Services.AddSingleton<ILogger, FileLogger>();
             builder.Services.AddTransient<IBootstrapper, Bootstrapper>();
             builder.Services.AddTransient<IBootup, Bootup>();
-            builder.Services.AddTransient<ILeaderBoard, LeaderBoard>();
             builder.Services.AddTransient<ISquareFactory, SquareFactory>();
             builder.Services.AddTransient<IPlayerFactory, PlayerFactory>();
             builder.Services.AddTransient<IDiceFactory, DiceFactory>();
 
             builder.Services.AddSingleton<IGameBoard, GameBoard>();
             builder.Services.AddSingleton<IGame, Game>();
+
+            //Database
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "GameOfBatsDB.db");
+            builder.Services.AddDbContext<GameOfBatsContext>(options => options.UseSqlite($"Filename={dbPath}"));
+            builder.Services.AddTransient<IDBGameRepo, DBGameRepo>();
+            builder.Services.AddTransient<IDBPlayerRepo, DBPlayerRepo>();
+            builder.Services.AddTransient<IGameService, GameService>();
+
 
             //pages
             builder.Services.AddTransient<MainViewModel>();
@@ -45,8 +53,7 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<PlayerSelectionViewModel>();
             builder.Services.AddTransient<GameRulesViewModel>();
             builder.Services.AddTransient<EndGameViewModel>();
-
-
+            builder.Services.AddTransient<LeaderBoardViewModel>();
 
 
             builder.Services.AddTransient<MainPage>();
@@ -56,6 +63,7 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<PlayerSelectionView>();
             builder.Services.AddTransient<GameRulesView>();
             builder.Services.AddTransient<EndGameView>();
+            builder.Services.AddTransient<LeaderBoardView>();
 
             //audio
             builder.Services.AddSingleton(AudioManager.Current);
