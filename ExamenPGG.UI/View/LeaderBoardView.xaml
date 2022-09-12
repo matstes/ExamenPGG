@@ -9,8 +9,6 @@
     <ScrollView>
         <Grid>
             <Button Text="Go back"
-                    WidthRequest="150"
-                    HeightRequest="50"
                     VerticalOptions="Start"
                     HorizontalOptions="Start"
                     Margin="25"
