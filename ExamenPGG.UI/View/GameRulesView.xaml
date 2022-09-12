@@ -5,37 +5,15 @@
              xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
              x:DataType="viewmodel:GameRulesViewModel">
 
-    <ContentPage.Resources>
-
-        <ResourceDictionary>
-            <Style TargetType="Label" x:Key="GridText">
-                <Setter Property="TextColor" Value="Gold" />
-                <Setter Property="FontSize" Value="Medium" />
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="VerticalTextAlignment" Value="Center" />
-            </Style>
-            <Style TargetType="Image">
-                <Setter Property="WidthRequest" Value="96" />
-                <Setter Property="HeightRequest" Value="96" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <ScrollView BackgroundColor="#1a0022">
 
         <VerticalStackLayout>
 
-            <Grid ColumnDefinitions="100,*">
+            <Grid ColumnDefinitions="auto,*">
 
                 <Button Text="Go Back"
-                    TextColor="Gold"
                     Grid.Column="0"
-                    Margin="25"
-                    FontFamily="Mistral"
-                    FontSize="24"
-                    WidthRequest="150"
-                    Background="Black"
-                    HorizontalOptions="Start"
+                    HeightRequest="80"
                     VerticalOptions="Start"
                     Command="{Binding GoBackCommand}" />
 
@@ -100,176 +78,144 @@
                 <!--Candle-->
 
                 <Image Source="candle.png"
-               Margin="15">
-
-                    <Image.Shadow>
-                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
-                    </Image.Shadow>
+                       Style="{StaticResource RulesPageThumbs}">
                 </Image>
 
                 <Label Text="Candle"
                    Grid.Row="0"
                    Grid.Column="1"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <Label Text="Your adventure starts here, on square 0."
                    Grid.Row="0"
                    Grid.Column="2"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <!--Normal-->
 
                 <Image Source="normal.png"
                    Grid.Row="1"
                    Grid.Column="0"
-                   Margin="15">
-
-                    <Image.Shadow>
-                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
-                    </Image.Shadow>
+                   Style="{StaticResource RulesPageThumbs}">
                 </Image>
 
                 <Label Text="Normal"
                    Grid.Row="1"
                    Grid.Column="1"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <Label Text="I guess you're lucky, nothing (bad) happens here. Just wait for your next turn."
                    Grid.Row="1"
                    Grid.Column="2"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <!--Spider-->
 
                 <Image Source="spider.png"
                    Grid.Row="2"
                    Grid.Column="0"
-                       Margin="15">
-
-                    <Image.Shadow>
-                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
-                    </Image.Shadow>
+                   Style="{StaticResource RulesPageThumbs}">
                 </Image>
 
                 <Label Text="Spider"
                    Grid.Row="2"
                    Grid.Column="1"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <Label Text="Too bad, you encountered a spider! This means you'll have to skip your next turn. "
                    Grid.Row="2"
                    Grid.Column="2"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <!--Bat-->
 
                 <Image Source="bat.png"
                    Grid.Row="3"
                    Grid.Column="0"
-                       Margin="15">
-
-                    <Image.Shadow>
-                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
-                    </Image.Shadow>
+                   Style="{StaticResource RulesPageThumbs}">
                 </Image>
 
                 <Label Text="Bat"
                    Grid.Row="3"
                    Grid.Column="1"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <Label Text="The bat helps you reach the end of the board quicker. You will move further with the amount you've rolled. "
                    Grid.Row="3"
                    Grid.Column="2"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <!--Ladder-->
 
                 <Image Source="ladder.png"
                    Grid.Row="4"
                    Grid.Column="0"
-                       Margin="15">
-
-                    <Image.Shadow>
-                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
-                    </Image.Shadow>
+                   Style="{StaticResource RulesPageThumbs}">
                 </Image>
 
                 <Label Text="Ladder"
                    Grid.Row="4"
                    Grid.Column="1"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <Label Text="Lucky you, you can immediately move up a floor in the castle!"
                    Grid.Row="4"
                    Grid.Column="2"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <!--Special-->
 
                 <Image Source="special.png"
                    Grid.Row="5"
                    Grid.Column="0"
-                       Margin="15">
-
-                    <Image.Shadow>
-                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
-                    </Image.Shadow>
+                   Style="{StaticResource RulesPageThumbs}">
                 </Image>
 
                 <Label Text="Special"
                    Grid.Row="5"
                    Grid.Column="1"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <Label Text="This is a special mystery square. You'll likely receive an extra die, but there is also a 20% chance that you will actually die! "
                    Grid.Row="5"
                    Grid.Column="2"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <!--Fall-->
 
                 <Image Source="fall.png"
                    Grid.Row="6"
                    Grid.Column="0"
-                       Margin="15">
-
-                    <Image.Shadow>
-                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
-                    </Image.Shadow>
+                   Style="{StaticResource RulesPageThumbs}">
                 </Image>
 
                 <Label Text="Fall"
                    Grid.Row="6"
                    Grid.Column="1"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <Label Text="Whoops, you will fall down a floor of the Castle! "
                    Grid.Row="6"
                    Grid.Column="2"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <!--Endboss-->
 
                 <Image Source="endboss.png"
                    Grid.Row="7"
                    Grid.Column="0"
-                       Margin="15">
-
-                    <Image.Shadow>
-                        <Shadow Brush="Black" Offset="10,15" Radius="25" Opacity="0.6" />
-                    </Image.Shadow>
+                   Style="{StaticResource RulesPageThumbs}">
                 </Image>
 
                 <Label Text="EndBoss"
                    Grid.Row="7"
                    Grid.Column="1"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
 
                 <Label Text="Congratulations, you reached the end boss on the last square first. You win the game! "
                    Grid.Row="7"
                    Grid.Column="2"
-                   Style="{StaticResource GridText}" />
+                   Style="{StaticResource RulesGridText}" />
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
