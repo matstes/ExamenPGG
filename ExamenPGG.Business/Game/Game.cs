@@ -107,6 +107,7 @@ namespace ExamenPGG.Business.GameObject
             }
             else
             {
+                await Task.Delay(1000);
                 await ExecuteDiceRoll();
             }
         }
@@ -128,7 +129,7 @@ namespace ExamenPGG.Business.GameObject
             CurrentPlayer.LastThrow = rollAmount.Sum();
             _logger.LogDiceRoll(CurrentPlayer, rollAmount);
             await CheckRoll(rollAmount);
-            HasReachedEnd();
+            await HasReachedEnd();
         }
 
         private async Task CheckRoll(List<int> rollAmount)
@@ -138,12 +139,12 @@ namespace ExamenPGG.Business.GameObject
                 if ((rollAmount.Contains(4)) & (rollAmount.Contains(5)))
                 {
                     _logger.LogMessage("Wow, special case: go straight to square 28!");
-                    CurrentPlayer.MoveToSquare(28);
+                    await CurrentPlayer.MovePlayerVisualy(28);
                 }
                 else if ((rollAmount.Contains(6)) & (rollAmount.Contains(3)))
                 {
                     _logger.LogMessage("Wow, special case: go straight to square 52!");
-                    CurrentPlayer.MoveToSquare(52);
+                    await CurrentPlayer.MovePlayerVisualy(52);
                 }
                 else
                 {
