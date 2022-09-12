@@ -99,6 +99,26 @@ namespace ExamenPGG.Business.PlayerObject
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public async Task<ISquare> MovePlayerVisualy(int moveAmount)
+        {
+            for (int i = 0; i < moveAmount; i++)
+            {
+                destination += direction;
+                if (destination == 63)
+                {
+                    direction = -1;
+                }
+
+                PositionY = GetYPosition(destination);
+                PositionX = GetXPosition(PositionY, destination);
+                ScaleXplayer = GetXScale();   //Wrong placement?
+
+                await Task.Delay(250);
+            }
+
+            return HandlePlayer(destination);
+        }
+
         public ISquare MovePlayer(int moveAmount)
         {
             destination += moveAmount;
@@ -123,17 +143,15 @@ namespace ExamenPGG.Business.PlayerObject
             return square;
         }
 
-        private int GetYPosition()
+        private int GetYPosition(int dest)
         {
-
-            double yY = 8.0 - (double)((CurrentSquare.ID + 1.0) / 8.0);
+            double yY = 8.0 - (double)((dest + 1.0) / 8.0);
             return (int)yY;
-            
         }
-        private int GetXPosition(int yy)
+        private int GetXPosition(int yy, int dest)
         {
             int xX;
-            int id = CurrentSquare.ID;
+            int id = dest;
             if (yy % 2 == 0)
             {
                 while (id >= 8)
@@ -158,8 +176,8 @@ namespace ExamenPGG.Business.PlayerObject
         {
             PreviousSquare = CurrentSquare;
             CurrentSquare = GetSquare(destination);
-            PositionY = GetYPosition();
-            PositionX = GetXPosition(PositionY);
+            PositionY = GetYPosition(destination);
+            PositionX = GetXPosition(PositionY, destination);
             ScaleXplayer = GetXScale();   //Wrong placement?
             CurrentSquare.HandlePlayer(this);
 

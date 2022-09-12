@@ -65,6 +65,8 @@ namespace ExamenPGG.UI.ViewModel
             }
 
             _game.InitializeNewGame(playerList);
+
+            await _game.StartGame();
             await GoToMainViewAsync();
         }
 

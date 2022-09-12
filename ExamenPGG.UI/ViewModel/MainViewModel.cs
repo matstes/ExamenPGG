@@ -21,18 +21,7 @@ namespace ExamenPGG.UI.ViewModel
             InformationView = informationView;
             GameBoardView = gameBoardView;
             Game = game;
-            Game.StartGame();
             IAudioManager audio = new AudioManager();
         }
-
-        [RelayCommand]
-        private async Task StartGame()
-        {
-            Game.StartGame();
-
-            await Shell.Current.GoToAsync($"{nameof(GameBoardView)}");
-            
-        }
-       
     }
 }

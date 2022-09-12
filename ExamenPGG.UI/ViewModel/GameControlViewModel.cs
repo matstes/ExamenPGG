@@ -21,9 +21,9 @@ namespace ExamenPGG.UI.ViewModel
         }
 
         [RelayCommand]
-        private void RollDice()
+        private async Task RollDiceAsync()
         {
-            Game.ExecuteDiceRoll();
+            await Game.ExecuteDiceRoll();
         }
     }
 }

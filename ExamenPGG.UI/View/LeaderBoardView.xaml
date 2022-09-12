@@ -4,8 +4,7 @@
              xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
              xmlns:leaderboard="clr-namespace:ExamenPGG.Business.LeaderBoard;assembly=ExamenPGG.Business"
              x:Class="ExamenPGG.UI.View.LeaderBoardView"
-             x:DataType="viewmodel:LeaderBoardViewModel"
-             Title="LeaderBoardView">
+             x:DataType="viewmodel:LeaderBoardViewModel">
     <ScrollView>
         <Grid>
             <Button Text="Go back"

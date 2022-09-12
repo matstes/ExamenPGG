@@ -17,6 +17,8 @@ namespace ExamenPGG.Business.PlayerObject
         public int Direction { get; set; }
         public int LastThrow { get; set; }
 
+        Task<ISquare> MovePlayerVisualy(int moveAmount);
+
         ISquare MovePlayer(int moveAmount);
 
         ISquare MoveToSquare(int squareID);
