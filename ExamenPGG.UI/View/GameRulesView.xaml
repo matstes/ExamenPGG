@@ -13,6 +13,8 @@
 
                 <Button Text="Go Back"
                     Grid.Column="0"
+                    HeightRequest="80"
+                    VerticalOptions="Start"
                     Command="{Binding GoBackCommand}" />
 
                 <HorizontalStackLayout HorizontalOptions="Center"

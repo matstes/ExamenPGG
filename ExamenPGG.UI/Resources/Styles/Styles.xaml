@@ -45,11 +45,12 @@
         <Setter Property="BorderWidth" Value="3" />
         <Setter Property="BorderColor" Value="Gold" />
         <Setter Property="Padding" Value="10" />
-        <Setter Property="Margin" Value="25" />
+        <Setter Property="Margin" Value="10" />
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="14,10" />
         <Setter Property="FontFamily" Value="Mistral" />
         <Setter Property="FontSize" Value="42" />
+        <Setter Property="MaximumHeightRequest" Value="80" />
     </Style>
 
     <Style TargetType="Button" x:Key="RollDiceButton">
