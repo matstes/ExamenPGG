@@ -42,7 +42,7 @@
     <Style TargetType="Button">
         <Setter Property="TextColor" Value="Gold" />
         <Setter Property="Background" Value="Black" />
-        <Setter Property="BorderWidth" Value="3" />
+        <Setter Property="BorderWidth" Value="2" />
         <Setter Property="BorderColor" Value="Gold" />
         <Setter Property="Padding" Value="10" />
         <Setter Property="Margin" Value="10" />
@@ -50,17 +50,16 @@
         <Setter Property="Padding" Value="14,10" />
         <Setter Property="FontFamily" Value="Mistral" />
         <Setter Property="FontSize" Value="42" />
-        <Setter Property="MaximumHeightRequest" Value="80" />
     </Style>
 
     <Style TargetType="Button" x:Key="RollDiceButton">
         <Setter Property="TextColor" Value="Gold" />
         <Setter Property="Background" Value="Black" />
-        <Setter Property="BorderWidth" Value="8" />
+        <Setter Property="BorderWidth" Value="5" />
         <Setter Property="BorderColor" Value="Gold" />
         <Setter Property="Padding" Value="30" />
         <Setter Property="Margin" Value="25" />
-        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="CornerRadius" Value="10"/>
         <Setter Property="Padding" Value="14,10"/>
         <Setter Property="FontSize" Value="72" />
         <Setter Property="VisualStateManager.VisualStateGroups">
@@ -78,14 +77,14 @@
     </Style>
 
     <Style TargetType="CheckBox">
-        <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
+        <Setter Property="Color" Value="Gold" />
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
                     <VisualState x:Name="Normal" />
                     <VisualState x:Name="Disabled">
                         <VisualState.Setters>
-                            <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}" />
+                            <Setter Property="Color" Value="Black" />
                         </VisualState.Setters>
                     </VisualState>
                 </VisualStateGroup>
@@ -178,9 +177,9 @@
     </Style>
 
     <Style TargetType="Label">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
-        <Setter Property="FontFamily" Value="OpenSansRegular" />
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="gold" />
+        <Setter Property="FontFamily" Value="Mistral" />
+        <Setter Property="FontSize" Value="Medium" />
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
@@ -384,7 +383,7 @@
 
     <Style TargetType="Page" ApplyToDerivedTypes="True">
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray600}}" />
+        <Setter Property="BackgroundColor" Value="#1a0022" />
     </Style>
 
     <Style TargetType="Shell" ApplyToDerivedTypes="True">
