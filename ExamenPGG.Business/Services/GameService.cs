@@ -14,6 +14,7 @@ namespace ExamenPGG.Business.Services
         private IDBPlayerRepo _dbPlayerRepo;
         private Mapper gameToDBMapper;
         private Mapper PlayerToDBMapper;
+        private Mapper DBGameToLeaderBoardPlayerMapper;
 
         public GameService(IDBGameRepo repo, IDBPlayerRepo dbPlayerRepo)
         {
@@ -21,6 +22,18 @@ namespace ExamenPGG.Business.Services
             _dbPlayerRepo = dbPlayerRepo;
             ConfigureGameToDB();
             ConfigurePlayerToDB();
+            ConfigureDBGameToLeaderBoardPlayer();
+        }
+
+        private void ConfigureDBGameToLeaderBoardPlayer()
+        {
+            var config = new MapperConfiguration(cfg => 
+                cfg.CreateMap<DBGame, LeaderBoardPlayer>()
+                .ForMember(dest => dest.LeaderName, act => act.MapFrom(src => src.Player.Name))
+                .ForMember(dest => dest.Icon, act => act.MapFrom(src => src.Player.IconPath))
+                .ForMember(dest => dest.LeaderDate, act => act.MapFrom(src => src.EndTime))
+                .ForMember(dest => dest.LeaderScore, act => act.MapFrom(src => src.ThrowsToWin)));
+            DBGameToLeaderBoardPlayerMapper = new Mapper(config);
         }
 
         private void ConfigurePlayerToDB()
@@ -66,16 +79,13 @@ namespace ExamenPGG.Business.Services
             List<DBGame> dBGames = await _dBGameRepo.GetTop10();
 
             ObservableCollection<ILeaderBoardPlayer> result = new ObservableCollection<ILeaderBoardPlayer>();
+            int i = 1;
 
             foreach (var game in dBGames)
             {
-                result.Add(new LeaderBoardPlayer()
-                {
-                    LeaderName = game.Player.Name,
-                    LeaderScore = game.ThrowsToWin,
-                    LeaderDate = game.EndTime,
-                    Icon = game.Player.IconPath
-                });
+                result.Add(DBGameToLeaderBoardPlayerMapper.Map<LeaderBoardPlayer>(game));
+                result[i - 1].Index = i;
+                i++;
             }
 
             return result;

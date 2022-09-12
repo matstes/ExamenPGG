@@ -1,13 +1,17 @@
-﻿using ExamenPGG.Business.LeaderBoard;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ExamenPGG.Business.LeaderBoard;
 using ExamenPGG.Business.Services;
 using System.Collections.ObjectModel;
 
 namespace ExamenPGG.UI.ViewModel
 {
-    public class LeaderBoardViewModel
+    public partial class LeaderBoardViewModel: ObservableObject
     {
         public ObservableCollection<ILeaderBoardPlayer> Top10 { get; set; }
         private IGameService _gameService;
+
+        [ObservableProperty]
+        private string emptyDB = null;
 
         public LeaderBoardViewModel(IGameService service)
         {
@@ -15,9 +19,13 @@ namespace ExamenPGG.UI.ViewModel
             UpdateLeaderBoard();
         }
 
-        private async Task UpdateLeaderBoard()
+        private void UpdateLeaderBoard()
         {
-            Top10 = await _gameService.GetTop10();
+            Top10 = _gameService.GetTop10().Result;
+            if (Top10.Count == 0)
+            {
+                EmptyDB = "No data found, play a game!";
+            }
         }
     }
 }

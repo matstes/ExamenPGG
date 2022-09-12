@@ -4,7 +4,6 @@ using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
-using ExamenPGG.Business.DiceObject;
 using Plugin.Maui.Audio;
 using ExamenPGG.Data.Repository;
 using ExamenPGG.Data.Data;
