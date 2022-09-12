@@ -28,8 +28,8 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="leaderboard:LeaderBoardPlayer">
-                        <Grid ColumnDefinitions="0.15*, 0.1*, 0.3*, 0.05*, 0.25*, 0.15*"
-                          RowDefinitions="auto">
+                        <Grid ColumnDefinitions="0.20*, 0.1*, 0.3*, 0.05*, 0.2*, 0.15*"
+                              RowDefinitions="auto">
                             <Label Text="{Binding Index}"
                                    HorizontalOptions="End"
                                    VerticalOptions="Center"/>
@@ -38,6 +38,7 @@
                                Grid.Column="1"/>
                             <Label Text="{Binding LeaderName}"
                                Grid.Column="2"
+                               HorizontalOptions="Center"
                                VerticalOptions="Center"/>
                             <Label Text="{Binding LeaderScore}"
                                Grid.Column="3"
