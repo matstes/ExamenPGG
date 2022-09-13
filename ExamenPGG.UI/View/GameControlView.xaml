@@ -18,7 +18,8 @@
                TextColor="#8e53e0"
                Padding="10" />
 
-            <ScrollView 
+            <ScrollView
+
                 Grid.Column="2"
                 x:Name="logScreenScrollView"
                 MaximumHeightRequest="250"
@@ -29,27 +30,24 @@
                     x:Name="logScreenLabel"
                     SizeChanged="ScrollView_SizeChanged"
                     Text="{Binding Logger.LogData}"
-                    TextColor="Gold"
                     VerticalTextAlignment="End"
                     MinimumWidthRequest="600"
                     FontFamily="Regular"
-                    FontSize="16"/>
-                    
+                    FontSize="Micro"
+                    FontAttributes="Italic"
+                    CharacterSpacing="1.5" />
             </ScrollView>
 
             <Button
                 x:Name="RollDiceButton"
-                Padding="30"
                 Text="ROLL"
                 Clicked="GiveBloop"
                 ImageSource="dice6.png"
                 Grid.Column="3"
-                FontFamily="Mistral"
                 Command="{Binding RollDiceCommand}"
                 IsEnabled="{Binding Game.IsDiceButtonEnabled}"
                 Style="{StaticResource RollDiceButton}">
             </Button>
-            
         </Grid>
     </HorizontalStackLayout>
 </ContentView>

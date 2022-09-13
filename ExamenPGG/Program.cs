@@ -36,9 +36,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExamenPGG
 {
-    class Program
+    internal class Program
     {
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             DbContextOptions<GameOfBatsContext> options = new DbContextOptions<GameOfBatsContext>();
             GameOfBatsContext context = new GameOfBatsContext(options);
@@ -50,7 +50,7 @@ namespace ExamenPGG
 
             dbList.Add(new DBPlayer()
             {
-                Name =  "P1",
+                Name = "P1",
                 IconPath = "Whocares"
             });
 
@@ -102,4 +102,3 @@ namespace ExamenPGG
         }
     }
 }
-

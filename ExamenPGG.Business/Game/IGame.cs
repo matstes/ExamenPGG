@@ -1,5 +1,4 @@
 ﻿using ExamenPGG.Business.DiceObject;
-using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.GameObject
@@ -17,6 +16,7 @@ namespace ExamenPGG.Business.GameObject
         public int CurrentplayerID { get; }
 
         void InitializeNewGame(List<IPlayer> playerList);
+
         void StartGame();
 
         void CanPlayerMove();

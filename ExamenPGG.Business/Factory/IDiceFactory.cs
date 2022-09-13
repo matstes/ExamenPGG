@@ -4,6 +4,6 @@ namespace ExamenPGG.Business.Factory
 {
     public interface IDiceFactory
     {
-        IDice CreateDice(); 
+        IDice CreateDice();
     }
 }

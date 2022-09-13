@@ -1,9 +1,7 @@
-﻿using ExamenPGG.Business.DiceObject;
-using ExamenPGG.Business.Factory;
+﻿using ExamenPGG.Business.Factory;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
-using ExamenPGG.Data.Repository;
 
 namespace ExamenPGG.Business.Bootup
 {
@@ -18,7 +16,6 @@ namespace ExamenPGG.Business.Bootup
         private IGameBoard _gameBoard;
         private ILogger _logger;
         private IPlayerFactory _playerFactory;
-
 
         public Bootup(IGameBoard gameBoard, IPlayerFactory factory, ILogger logger)
         {

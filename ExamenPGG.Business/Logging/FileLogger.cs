@@ -10,35 +10,38 @@ namespace ExamenPGG.Business.Logging
     public class FileLogger : ILogger, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
+
         private StringBuilder sb;
 
         public FileLogger()
         {
             sb = new StringBuilder();
         }
+
         private string logData = "";
+
         public string LogData
         {
             get { return logData; }
-            set 
+            set
             {
                 logData = value;
                 LogDataLength = logData.Length;
                 RaisePropertyChanged();
             }
         }
+
         private int logDataLength;
 
         public int LogDataLength
         {
             get { return logDataLength; }
-            set 
+            set
             {
                 logDataLength = value;
                 RaisePropertyChanged();
             }
         }
-
 
         public StringBuilder Sb { get; set; }
 

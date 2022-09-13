@@ -25,15 +25,16 @@ namespace ExamenPGG.Business.GameObject
         private IGameService _gameService;
 
         private bool isDiceButtonEnabled = false;
-        public bool IsDiceButtonEnabled 
-        { 
+
+        public bool IsDiceButtonEnabled
+        {
             get
             {
                 return isDiceButtonEnabled;
             }
             set
             {
-                isDiceButtonEnabled=value;
+                isDiceButtonEnabled = value;
                 RaisePropertyChanged();
             }
         }
@@ -188,7 +189,7 @@ namespace ExamenPGG.Business.GameObject
             _gameService.LogGameToDB(this);
         }
 
-        private void RaisePropertyChanged([CallerMemberName]string? propertyName=null)
+        private void RaisePropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

@@ -1,5 +1,4 @@
 ﻿using ExamenPGG.UI.ViewModel;
-using Plugin.Maui.Audio;
 
 namespace ExamenPGG.UI
 {

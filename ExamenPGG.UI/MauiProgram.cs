@@ -1,14 +1,14 @@
 ﻿using ExamenPGG.Business.Bootup;
+using ExamenPGG.Business.Factory;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Logging;
-using ExamenPGG.Business.Factory;
+using ExamenPGG.Business.Services;
+using ExamenPGG.Data.Data;
+using ExamenPGG.Data.Repository;
 using ExamenPGG.UI.View;
 using ExamenPGG.UI.ViewModel;
-using Plugin.Maui.Audio;
-using ExamenPGG.Data.Repository;
-using ExamenPGG.Data.Data;
 using Microsoft.EntityFrameworkCore;
-using ExamenPGG.Business.Services;
+using Plugin.Maui.Audio;
 
 namespace ExamenPGG.UI
 {
@@ -44,7 +44,6 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<IDBPlayerRepo, DBPlayerRepo>();
             builder.Services.AddTransient<IGameService, GameService>();
 
-
             //pages
             builder.Services.AddTransient<MainViewModel>();
             builder.Services.AddTransient<InformationViewModel>();
@@ -54,7 +53,7 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<GameRulesViewModel>();
             builder.Services.AddTransient<EndGameViewModel>();
             builder.Services.AddTransient<LeaderBoardViewModel>();
-
+            builder.Services.AddTransient<StartupViewModel>();
 
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<InformationView>();
@@ -64,10 +63,10 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<GameRulesView>();
             builder.Services.AddTransient<EndGameView>();
             builder.Services.AddTransient<LeaderBoardView>();
+            builder.Services.AddTransient<StartupView>();
 
             //audio
             builder.Services.AddSingleton(AudioManager.Current);
-            builder.Services.AddTransient<MainPage>();
 
             return builder.Build();
         }

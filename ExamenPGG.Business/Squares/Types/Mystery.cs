@@ -34,9 +34,7 @@ namespace ExamenPGG.Business.Squares
                 rollAmount = MysteryDice.RollDice();
                 _logger.LogDiceRoll(player, rollAmount);
                 player.MovePlayer(rollAmount);
-
             }
-
         }
     }
 }

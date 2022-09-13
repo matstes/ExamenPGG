@@ -5,7 +5,7 @@
              xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
              x:DataType="viewmodel:GameRulesViewModel">
 
-    <ScrollView BackgroundColor="#1a0022">
+    <ScrollView>
 
         <VerticalStackLayout>
 

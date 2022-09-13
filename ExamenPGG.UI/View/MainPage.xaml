@@ -23,30 +23,45 @@
             <ColumnDefinition Width="1200"></ColumnDefinition>
             <ColumnDefinition Width="20"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
-
         </Grid.ColumnDefinitions>
 
         <Border Content="{Binding GameBoardView}"
                      Grid.Row ="2"
-                     Grid.Column ="4"
-                StrokeThickness="1"
-                Stroke="Gold">
+                     Grid.Column ="4">
+
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                Offset="50,25"
+                Radius="100"
+                Opacity="0.8" />
+            </Border.Shadow>
+
         </Border>
 
         <Border Content="{Binding InformationView}"
                      Grid.Row ="2"
-                     Grid.Column ="2"
-                     StrokeThickness="1"
-                                Stroke="Gold">
+                     Grid.Column ="2">
+
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                Offset="50,25"
+                Radius="100"
+                Opacity="0.8" />
+            </Border.Shadow>
         </Border>
 
         <Border Content="{Binding GameControlView}"
                      Grid.Row="4"
                      Grid.Column ="2"
-                     Grid.ColumnSpan="3"
-                     StrokeThickness="1"
-                                Stroke="Gold">
+                     Grid.ColumnSpan="3">
+
+            <Border.Shadow>
+                <Shadow Brush="Black"
+                Offset="50,25"
+                Radius="100"
+                Opacity="0.8"/>
+            </Border.Shadow>
+            
         </Border>
     </Grid>
-    
 </ContentPage>
