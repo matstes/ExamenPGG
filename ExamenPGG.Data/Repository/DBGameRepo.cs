@@ -7,6 +7,7 @@ namespace ExamenPGG.Data.Repository
     public class DBGameRepo : IDBGameRepo
     {
         private GameOfBatsContext dbContext;
+
         public DBGameRepo(GameOfBatsContext context)
         {
             dbContext = context;

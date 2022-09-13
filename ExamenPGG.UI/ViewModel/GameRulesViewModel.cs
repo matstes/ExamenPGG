@@ -6,7 +6,7 @@ namespace ExamenPGG.UI.ViewModel
     public partial class GameRulesViewModel : ObservableObject
     {
         [RelayCommand]
-        async Task GoBack()
+        private async Task GoBackAsync()
         {
             await Shell.Current.GoToAsync($"..");
         }

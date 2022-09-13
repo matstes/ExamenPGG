@@ -7,7 +7,6 @@ namespace ExamenPGG.Business.PlayerObject
 {
     public class Player : IPlayer, INotifyPropertyChanged
     {
-
         public string Name { get; set; }
         public string IconPath { get; set; }
         public ISquare PreviousSquare { get; set; }
@@ -22,16 +21,19 @@ namespace ExamenPGG.Business.PlayerObject
         private IGameBoard _gameBoard;
 
         private int positionX = 0;
-        public int PositionX 
+
+        public int PositionX
         {
             get { return positionX; }
-            set 
+            set
             {
                 positionX = value;
                 RaisePropertyChanged();
             }
         }
+
         private int positionY = 7;
+
         public int PositionY
         {
             get { return positionY; }
@@ -42,8 +44,8 @@ namespace ExamenPGG.Business.PlayerObject
             }
         }
 
-
         private double scaleXplayer = 1.25;
+
         public double ScaleXplayer
         {
             get { return scaleXplayer; }
@@ -53,19 +55,20 @@ namespace ExamenPGG.Business.PlayerObject
                 RaisePropertyChanged();
             }
         }
+
         public double GetXScale()
         {
-            if      (PositionY == 7) { return   1.25; }
-            else if (PositionY == 6) { return  -1.25; }
-            else if (PositionY == 5) { return   1.25; }
-            else if (PositionY == 4) { return  -1.25; }
-            else if (PositionY == 3) { return   1.25; }
-            else if (PositionY == 2) { return  -1.25; }
-            else if (PositionY == 1) { return   1.25; }
-            else                     { return  -1.25; }
+            if (PositionY == 7) { return 1.25; }
+            else if (PositionY == 6) { return -1.25; }
+            else if (PositionY == 5) { return 1.25; }
+            else if (PositionY == 4) { return -1.25; }
+            else if (PositionY == 3) { return 1.25; }
+            else if (PositionY == 2) { return -1.25; }
+            else if (PositionY == 1) { return 1.25; }
+            else { return -1.25; }
         }
 
-        public Player(string name,string iconPath, bool isHuman, IGameBoard gameBoard)
+        public Player(string name, string iconPath, bool isHuman, IGameBoard gameBoard)
         {
             Name = name;
             IconPath = iconPath;
@@ -125,11 +128,10 @@ namespace ExamenPGG.Business.PlayerObject
 
         private int GetYPosition()
         {
-
             double yY = 8.0 - (double)((CurrentSquare.ID + 1.0) / 8.0);
             return (int)yY;
-            
         }
+
         private int GetXPosition(int yy)
         {
             int xX;

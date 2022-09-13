@@ -4,9 +4,9 @@ namespace ExamenPGG.UI.View;
 
 public partial class InformationView : ContentView
 {
-	public InformationView(InformationViewModel vm)
-	{
-		InitializeComponent();
-		BindingContext = vm;
+    public InformationView(InformationViewModel vm)
+    {
+        InitializeComponent();
+        BindingContext = vm;
     }
 }

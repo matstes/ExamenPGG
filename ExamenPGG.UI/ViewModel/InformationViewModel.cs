@@ -9,19 +9,20 @@ namespace ExamenPGG.UI.ViewModel
     {
         [ObservableProperty]
         private IGame game;
+
         public InformationViewModel(IGame game)
         {
             Game = game;
         }
 
         [RelayCommand]
-        async Task GoToRules()
+        private async Task GoToRules()
         {
             await Shell.Current.GoToAsync($"{nameof(GameRulesView)}");
         }
 
         [RelayCommand]
-        async Task GoBack()
+        private async Task GoBack()
         {
             await Shell.Current.GoToAsync($"..");
         }

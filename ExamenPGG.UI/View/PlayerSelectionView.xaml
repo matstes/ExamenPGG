@@ -18,8 +18,7 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Scale="3.00"
-                Aspect="Center"
-                >
+                Aspect="Center">
             </Image>
             <Image
                 Grid.Column="4"
@@ -28,10 +27,9 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Scale="3.00"
-                Aspect="Center"
-                >
+                Aspect="Center">
             </Image>
-            <HorizontalStackLayout 
+            <HorizontalStackLayout
                                Grid.Row="1"
                                Grid.Column="1"
                                HorizontalOptions="Start">
@@ -40,13 +38,13 @@
                 <Label Text="Icon" FontFamily="Mistral" TextColor="Gold" FontSize ="64"
                        Margin="30,0,90,0" />
 
-                <Label Text="IsBot" FontFamily="Mistral" TextColor="Gold" FontSize ="64"/>
+                <Label Text="IsBot" FontFamily="Mistral" TextColor="Gold" FontSize ="64" />
             </HorizontalStackLayout>
 
             <CollectionView Grid.Row="2"
                             Grid.Column="1"
-                            ItemsSource="{Binding PlayerChoices}" >
-                            
+                            ItemsSource="{Binding PlayerChoices}">
+
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout ItemSpacing="10"
                                        Orientation="Vertical" />
@@ -54,12 +52,11 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:PlayerChoice">
-                        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,28" >
-                            
+                        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,28">
+
                             <Entry MinimumWidthRequest="320"
-                                   Text="{Binding Name}" 
-                                   FontFamily="Mistral"  FontSize="30" TextColor="Gold"
-                                   />
+                                   Text="{Binding Name}"
+                                   FontFamily="Mistral"  FontSize="30" TextColor="Gold" />
 
                             <Picker Margin="10,0"
                                     WidthRequest="95"
@@ -68,8 +65,7 @@
                                     FontFamily="Mistral"
                                     TextColor="Black"
                                     Background="Purple"
-                                    VerticalOptions="Center"
-                                    >
+                                    VerticalOptions="Center">
                             </Picker>
 
                             <Image Source="{Binding Icon}"
@@ -106,9 +102,7 @@
                         Margin="200,0,0,0"
                         Clicked="StartMusic"
                         Command="{Binding StartGameCommand}" />
-                
             </HorizontalStackLayout>
-            
         </Grid>
     </ScrollView>
 </ContentPage>

@@ -8,7 +8,7 @@ namespace ExamenPGG.Data.Data
         public DbSet<DBGame> Games { get; set; }
         public DbSet<DBPlayer> Players { get; set; }
 
-        public GameOfBatsContext(DbContextOptions<GameOfBatsContext> options): base(options)
+        public GameOfBatsContext(DbContextOptions<GameOfBatsContext> options) : base(options)
         {
             this.Database.Migrate();
         }

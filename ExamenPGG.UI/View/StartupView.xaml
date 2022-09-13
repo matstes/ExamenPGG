@@ -2,11 +2,99 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.StartupView"
-             Title="StartupView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
+             x:DataType="viewmodel:StartupViewModel">
+
+    <Grid RowDefinitions="20, auto, auto, auto, auto, auto, auto, 20"
+          ColumnDefinitions="20, *, auto, *, 20">
+
+        <Image Source="logo.png"
+               Grid.Row="1"
+               Grid.Column="2"
+               Margin="20"
+               Style="{StaticResource RulesPageThumbs}"
+               Scale="1.5" />
+
+        <HorizontalStackLayout Grid.Row="2"
+                               Grid.Column="2"
+                               Spacing="50"
+                               Margin="25">
+
+            <Image Source="bat.png"
+                   Style="{StaticResource RulesPageThumbs}" />
+            <Image Source="candle.png"
+                   Style="{StaticResource RulesPageThumbs}" />
+            <Image Source="fall.png"
+                   Style="{StaticResource RulesPageThumbs}" />
+            <Image Source="endboss.png"
+                   Style="{StaticResource RulesPageThumbs}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="3"
+                               Grid.Column="2"
+                               Spacing="50"
+                               HorizontalOptions="Center">
+
+            <Image Source="villager5.png"
+                   Style="{StaticResource StartVillagers}" />
+            <Image Source="villager4.png"
+                   Style="{StaticResource StartVillagers}" />
+            <Image Source="villager3.png"
+                   Style="{StaticResource StartVillagers}" />
+            <Image Source="villager2.png"
+                   Style="{StaticResource StartVillagers}" />
+            <Image Source="villager1.png"
+                   Style="{StaticResource StartVillagers}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout
+                Grid.Row="4"
+                Grid.Column="2"
+                Margin="100"
+            Spacing="100"
+            HorizontalOptions="Center">
+
+            <Button Text="Start Game"
+                    Command="{Binding GoToPlayerSelectionCommand}" />
+            <Button Text="Leaderboard"
+                    Command="{Binding GoToLeaderBoardCommand}" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="5"
+                               Grid.Column="2"
+                               Spacing="50"
+                               HorizontalOptions="Center">
+
+            <Image Source="villager1.png"
+                   Style="{StaticResource StartVillagers}"
+                                      ScaleX="-1" />
+            <Image Source="villager2.png"
+                   Style="{StaticResource StartVillagers}"
+                                      ScaleX="-1" />
+            <Image Source="villager3.png"
+                   Style="{StaticResource StartVillagers}"
+                                      ScaleX="-1" />
+            <Image Source="villager4.png"
+                   Style="{StaticResource StartVillagers}"
+                                      ScaleX="-1" />
+            <Image Source="villager5.png"
+                   Style="{StaticResource StartVillagers}"
+                                      ScaleX="-1" />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="6"
+                               Grid.Column="2"
+                               Spacing="50"
+                               Margin="25">
+
+            <Image Source="ladder.png"
+                   Style="{StaticResource RulesPageThumbs}" />
+            <Image Source="normal.png"
+                   Style="{StaticResource RulesPageThumbs}" />
+            <Image Source="special.png"
+                   Style="{StaticResource RulesPageThumbs}" />
+            <Image Source="spider.png"
+                   Style="{StaticResource RulesPageThumbs}" />
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>

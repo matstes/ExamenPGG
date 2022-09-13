@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 
 namespace ExamenPGG.UI.ViewModel
 {
-    public partial class LeaderBoardViewModel: ObservableObject
+    public partial class LeaderBoardViewModel : ObservableObject
     {
         public ObservableCollection<ILeaderBoardPlayer> Top10 { get; set; }
         private IGameService _gameService;

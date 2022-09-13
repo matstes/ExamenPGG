@@ -15,7 +15,7 @@ namespace ExamenPGG.Business.Squares
         {
             _logger.LogSpecialSquare(this, player);
             //player.MovePlayer(15 - 2 * (ID - (ID / 8) * 8));
-            player.MovePlayer(-(15-2*(8-(ID - (ID / 8) * 8 + 1))));
+            player.MovePlayer(-(15 - 2 * (8 - (ID - (ID / 8) * 8 + 1))));
         }
     }
 }
