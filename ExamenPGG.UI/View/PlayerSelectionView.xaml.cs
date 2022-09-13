@@ -6,7 +6,7 @@ namespace ExamenPGG.UI.View;
 public partial class PlayerSelectionView : ContentPage
 {
     private readonly IAudioManager audioManager;
-    private bool isPlayingMusic = false;
+    public bool isPlayingMusic = false;
 
     public PlayerSelectionView(PlayerSelectionViewModel vm, IAudioManager audioManager)
     {
@@ -16,14 +16,15 @@ public partial class PlayerSelectionView : ContentPage
         this.audioManager = audioManager;
     }
 
-    private async void StartMusic(object sender, EventArgs e)
+    public async void StartMusic(object sender, EventArgs e)
     {
-        var playerMusic = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("luigismansion.wav"));
-        if (isPlayingMusic == false)
-        {
-            isPlayingMusic = true;
-            playerMusic.Play();
-            playerMusic.Loop = true;
-        }
+        //BUGGED: ONLY AFTER END SCREEN HAS BEEN SEEN: game gets played twice and overlaps on new game
+       if (isPlayingMusic == false)
+       {
+           var playerMusic = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("luigismansion.wav"));
+           isPlayingMusic = true;
+           playerMusic.Play();
+           playerMusic.Loop = true;
+       }
     }
 }

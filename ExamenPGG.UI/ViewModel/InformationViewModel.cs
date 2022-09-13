@@ -24,6 +24,11 @@ namespace ExamenPGG.UI.ViewModel
         [RelayCommand]
         private async Task GoBack()
         {
+            //BUGGED: if computer is playing ang you go back - start again - go back ...
+            //the game speeds up dramatically each time and eventually crashes.
+
+            //BUGGED: When RAPIDLY pressing go back -> start new game (with bot in test)
+            //not only does the game speed up like crazy, it eventually gets completely frozen
             await Shell.Current.GoToAsync($"..");
         }
 

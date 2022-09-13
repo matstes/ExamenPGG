@@ -55,6 +55,9 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<LeaderBoardViewModel>();
             builder.Services.AddTransient<StartupViewModel>();
 
+            //audio
+            builder.Services.AddSingleton(AudioManager.Current);
+
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<InformationView>();
             builder.Services.AddTransient<GameControlView>();
@@ -65,8 +68,6 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<LeaderBoardView>();
             builder.Services.AddTransient<StartupView>();
 
-            //audio
-            builder.Services.AddSingleton(AudioManager.Current);
 
             return builder.Build();
         }
