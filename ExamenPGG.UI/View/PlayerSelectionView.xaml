@@ -7,7 +7,7 @@
              x:DataType="viewmodel:PlayerSelectionViewModel"
              Title="Player Selection">
 
-    <ScrollView Background="#1a0022">
+    <ScrollView>
         <Grid ColumnDefinitions="*,550,*"
           RowDefinitions="50,auto,*,auto,50"
           RowSpacing="25">

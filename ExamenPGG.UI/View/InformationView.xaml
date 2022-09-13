@@ -47,7 +47,7 @@
                     FontFamily="Mistral"
                     HorizontalOptions="Start"
                     VerticalOptions="End"
-                    Command="{Binding GoToRulesCommand}" />
+                    Command="{Binding GoToRulesCommand}"/>
 
                 <Button Text="GoBack"
                     BackgroundColor="Black"
@@ -56,7 +56,8 @@
                     FontFamily="Mistral"
                     HorizontalOptions="End"
                     VerticalOptions="End"
-                    Command="{Binding GoBackCommand}" />
+                    Command="{Binding GoBackCommand}"/>
+
             </HorizontalStackLayout>
         </VerticalStackLayout>
     </Grid>

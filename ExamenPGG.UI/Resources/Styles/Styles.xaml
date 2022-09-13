@@ -60,6 +60,9 @@
         <Setter Property="Padding" Value="14,10" />
         <Setter Property="FontFamily" Value="Mistral" />
         <Setter Property="FontSize" Value="42" />
+        <Setter Property="Shadow">
+            <Shadow Brush="Black" Offset="5,5" Radius="10" Opacity="0.5"/>
+        </Setter>
         <Setter Property="VisualStateManager.VisualStateGroups">
             <VisualStateGroupList>
                 <VisualStateGroup x:Name="CommonStates">
@@ -407,7 +410,15 @@
 
     <Style TargetType="Page" ApplyToDerivedTypes="True">
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="#1a0022" />
+        <!--<Setter Property="BackgroundColor" Value="#1a0022" />-->
+        <Setter Property="Background">
+            <LinearGradientBrush>
+                <GradientStop Color="#1a0022"
+                    Offset="0" />
+                <GradientStop Color="#131339"
+                    Offset="1" />
+            </LinearGradientBrush>
+        </Setter>
     </Style>
 
     <Style TargetType="Shell" ApplyToDerivedTypes="True">
