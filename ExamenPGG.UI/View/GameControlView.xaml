@@ -38,21 +38,16 @@
             </ScrollView>
 
             <Button
-                Scale           = "0.65"
-                Padding         = "10,25,10,25"
-                Text            = "ROLL"
-                Clicked         = "GiveBloop"
-                BackgroundColor = "Black"
-                BorderWidth     = "5"
-                ImageSource     = "dice6.png"
-                Grid.Column     = "3"
-                FontSize        = "70"
-                FontFamily      = "Mistral"
-                Command         = "{Binding RollDiceCommand}"
-                IsEnabled       = "{Binding Game.IsDiceButtonEnabled}"
-                
-                BorderColor = "Gold"                
-                TextColor   = "Gold">
+                x:Name="RollDiceButton"
+                Padding="30"
+                Text="ROLL"
+                Clicked="GiveBloop"
+                ImageSource="dice6.png"
+                Grid.Column="3"
+                FontFamily="Mistral"
+                Command="{Binding RollDiceCommand}"
+                IsEnabled="{Binding Game.IsDiceButtonEnabled}"
+                Style="{StaticResource RollDiceButton}">
             </Button>
             
         </Grid>

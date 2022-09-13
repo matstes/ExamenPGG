@@ -90,12 +90,8 @@
                         TextColor            = "Gold" 
                         Background           = "Black"/>
 
-                <Label Text                  = "{Binding PlayerCount}"
-                       Margin                = "10,0"
-                       FontFamily            = "Mistral" 
-                       FontSize              = "30" 
-                       VerticalTextAlignment = "Center"                        
-                       TextColor             = "Gold"/>
+                <Button Text="-"
+                        Command="{Binding RemovePlayerCommand}" />
 
                 <Button Text                 = "+" 
                         FontFamily           = "Mistral" 
@@ -104,14 +100,13 @@
                         TextColor            = "Gold" 
                         Background           = "Black"/>
 
-                <Button Text                 = "Start game" 
-                        FontFamily           = "Mistral" 
-                        FontSize             = "30"
-                        Margin               = "200,0,0,0"
-                        Clicked              = "StartMusic"
-                        Command              = "{Binding StartGameCommand}" 
-                        TextColor            = "Gold" 
-                        Background           = "Black"/>
+                <Button Text="+"
+                        Command="{Binding AddPlayerCommand}" />
+
+                <Button Text="Start game"
+                        Margin="200,0,0,0"
+                        Clicked="StartMusic"
+                        Command="{Binding StartGameCommand}" />
                 
             </HorizontalStackLayout>
             
