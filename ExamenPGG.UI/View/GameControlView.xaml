@@ -18,7 +18,7 @@
                FontSize            = "20"
                Padding             = "10" 
                 
-               TextColor="#8e53e0"/>
+               TextColor = "#8e53e0"/>
 
             <ScrollView 
                 x:Name               = "logScreenScrollView"
@@ -34,20 +34,20 @@
                     VerticalTextAlignment = "End"
                     MinimumWidthRequest   = "600"
                     
-                    TextColor="Gold"/>
+                    TextColor = "Gold"/>
             </ScrollView>
 
             <Button
-                x:Name="RollDiceButton"
-                Padding="30"
-                Text="ROLL"
-                Clicked="GiveBloop"
-                ImageSource="dice6.png"
-                Grid.Column="3"
-                FontFamily="Mistral"
-                Command="{Binding RollDiceCommand}"
-                IsEnabled="{Binding Game.IsDiceButtonEnabled}"
-                Style="{StaticResource RollDiceButton}">
+                x:Name     = "RollDiceButton"
+                Padding    = "30"
+                Text       = "ROLL"
+                Clicked    = "GiveBloop"
+                ImageSource= "dice6.png"
+                Grid.Column= "3"
+                FontFamily = "Mistral"
+                Command    = "{Binding RollDiceCommand}"
+                IsEnabled  = "{Binding Game.IsDiceButtonEnabled}"
+                Style      = "{StaticResource RollDiceButton}">
             </Button>
             
         </Grid>

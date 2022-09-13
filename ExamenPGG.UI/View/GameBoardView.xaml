@@ -9,15 +9,13 @@
     <ContentView.Resources>
         <ResourceDictionary>
             
-            <Style      TargetType = "Image" 
-                        x:Key = "playericon">
+            <Style TargetType = "Image" x:Key = "playericon">
                 <Setter Property = "HeightRequest" Value="32"/>
                 <Setter Property = "WidthRequest"  Value="32"/>
                 <Setter Property = "Margin"        Value="5" />
             </Style>
             
-            <Style TargetType="Label"
-                   x:Key="boardText">
+            <Style TargetType = "Label" x:Key = "boardText">
                 <Setter Property = "Padding"                 Value = "0,14,0,0"/>
                 <Setter Property = "FontSize"                Value = "14"      />
                 <Setter Property = "FontFamily"              Value = "Georgia" />
