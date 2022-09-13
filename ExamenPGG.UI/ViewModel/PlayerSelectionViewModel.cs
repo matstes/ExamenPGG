@@ -13,6 +13,9 @@ namespace ExamenPGG.UI.ViewModel
         [ObservableProperty]
         private int playerCount = 1;
 
+        [ObservableProperty]
+        private string errorMessage = string.Empty;
+
         public ObservableCollection<PlayerChoice> PlayerChoices { get; set; } = new();
         public IList<String> IconList { get; set; }
 
@@ -82,8 +85,9 @@ namespace ExamenPGG.UI.ViewModel
 
             foreach (var choice in PlayerChoices)
             {
-                if (string.IsNullOrEmpty(choice.Name))
+                if ((string.IsNullOrEmpty(choice.Name)) || (choice.Name.Count() > 17))
                 {
+                    ErrorMessage = "Please enter a name between 1 and 17 characters long for every player";
                     return null;
                 }
                 else
@@ -92,6 +96,7 @@ namespace ExamenPGG.UI.ViewModel
                     playerList.Add(newPlayer);
                 }
             }
+            ErrorMessage = string.Empty;
             return playerList;
         }
     }

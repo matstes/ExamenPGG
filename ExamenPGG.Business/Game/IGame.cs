@@ -25,7 +25,7 @@ namespace ExamenPGG.Business.GameObject
 
         Task IncrementScore();
 
-        void EndGame();
+        Task EndGame();
 
         Task ExecuteDiceRoll();
     }

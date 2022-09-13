@@ -66,10 +66,10 @@ namespace ExamenPGG.Business.Services
                 dbPlayers.Add(PlayerToDBMapper.Map<DBPlayer>(player));
             }
 
-            await _dBGameRepo.AddGame(dbGame);
-            await _dbPlayerRepo.AddPlayerRangeAsync(dbPlayers);
-
             dbGame.PlayerList = dbPlayers;
+
+            await _dBGameRepo.AddGame(dbGame);
+
             dbGame.Player = dbPlayers[game.CurrentplayerID];
             await _dBGameRepo.UpdateGame(dbGame);
         }

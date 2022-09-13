@@ -161,7 +161,7 @@ namespace ExamenPGG.Business.GameObject
         {
             if (CurrentPlayer.CurrentSquare.ID == 63)
             {
-                EndGame();
+                await EndGame();
             }
             else
             {
@@ -181,12 +181,12 @@ namespace ExamenPGG.Business.GameObject
             await IncrementScore();
         }
 
-        public void EndGame()
+        public async Task EndGame()
         {
             WinningPlayer = CurrentPlayer;
             EndTime = DateTime.Now;
             _logger.LogGameEnd(this);
-            _gameService.LogGameToDB(this);
+            await _gameService.LogGameToDB(this);
         }
 
         private void RaisePropertyChanged([CallerMemberName]string? propertyName=null)
