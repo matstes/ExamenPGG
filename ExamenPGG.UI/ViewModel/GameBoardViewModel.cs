@@ -3,10 +3,11 @@ using ExamenPGG.Business.GameObject;
 
 namespace ExamenPGG.UI.ViewModel
 {
-    public partial class GameBoardViewModel:ObservableObject
+    public partial class GameBoardViewModel : ObservableObject
     {
         [ObservableProperty]
         private IGame currentGame;
+
         public GameBoardViewModel(IGame game)
         {
             CurrentGame = game;

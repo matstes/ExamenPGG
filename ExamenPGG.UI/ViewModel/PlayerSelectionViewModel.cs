@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using ExamenPGG.Business.Factory;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.PlayerObject;
-using ExamenPGG.Business.Factory;
 using ExamenPGG.UI.Model;
 using System.Collections.ObjectModel;
 

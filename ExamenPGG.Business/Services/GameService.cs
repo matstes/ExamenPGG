@@ -27,7 +27,7 @@ namespace ExamenPGG.Business.Services
 
         private void ConfigureDBGameToLeaderBoardPlayer()
         {
-            var config = new MapperConfiguration(cfg => 
+            var config = new MapperConfiguration(cfg =>
                 cfg.CreateMap<DBGame, LeaderBoardPlayer>()
                 .ForMember(dest => dest.LeaderName, act => act.MapFrom(src => src.Player.Name))
                 .ForMember(dest => dest.Icon, act => act.MapFrom(src => src.Player.IconPath))

@@ -1,5 +1,4 @@
 ﻿using ExamenPGG.Business.DiceObject;
-using ExamenPGG.Business.Logging;
 using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.GameObject

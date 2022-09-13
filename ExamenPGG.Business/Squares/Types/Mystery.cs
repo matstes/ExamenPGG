@@ -36,7 +36,6 @@ namespace ExamenPGG.Business.Squares
                 _logger.LogMysteryMove(player, rollAmount);
                 player.MovePlayer(rollAmount);
             }
-
         }
     }
 }

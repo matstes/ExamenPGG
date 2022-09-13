@@ -1,12 +1,12 @@
 ﻿using ExamenPGG.Data.Data;
 using ExamenPGG.Data.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace ExamenPGG.Data.Repository
 {
     public class DBPlayerRepo : IDBPlayerRepo
     {
         private GameOfBatsContext dbContext;
+
         public DBPlayerRepo(GameOfBatsContext context)
         {
             dbContext = context;

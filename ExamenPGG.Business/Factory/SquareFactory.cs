@@ -16,6 +16,7 @@ namespace ExamenPGG.Business.Factory
             _logger = logger;
             MysteryDice = _diceFactory.CreateDice();
         }
+
         public ISquare CreateSquare(int id, SquareType SquareType)
         {
             switch (SquareType)

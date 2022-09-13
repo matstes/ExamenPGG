@@ -8,7 +8,6 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        ContentTemplate="{DataTemplate view:PlayerSelectionView}"
-        Route="PlayerSelection" />
-
+        ContentTemplate="{DataTemplate view:StartupView}"
+        Route="StartupView" />
 </Shell>
