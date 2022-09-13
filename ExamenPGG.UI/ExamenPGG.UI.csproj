@@ -60,8 +60,6 @@
 	  <None Remove="Resources\Images\villager4.png" />
 	  <None Remove="Resources\Images\villager5.png" />
 	  <None Remove="Resources\Raw\bloop.wav" />
-	  <None Remove="Resources\Raw\calmmusic.wav" />
-	  <None Remove="Resources\Raw\longmusic.wav" />
 	  <None Remove="Resources\Raw\luigismansion.wav" />
 	  <None Remove="Resources\Raw\shortmusic.wav" />
 	</ItemGroup>

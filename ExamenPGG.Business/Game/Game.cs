@@ -82,6 +82,7 @@ namespace ExamenPGG.Business.GameObject
 
         public async Task StartGame()
         {
+            GameIsBusy = true;
             //some start logic?
             if (PlayerList is null)
             {
