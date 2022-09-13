@@ -4,8 +4,7 @@
              x:Class="ExamenPGG.UI.View.PlayerSelectionView"
              xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
              xmlns:model="clr-namespace:ExamenPGG.UI.Model"
-             x:DataType="viewmodel:PlayerSelectionViewModel"
-             Title="Player Selection">
+             x:DataType="viewmodel:PlayerSelectionViewModel">
 
     <ScrollView>
         <Grid ColumnDefinitions="*,550,*"

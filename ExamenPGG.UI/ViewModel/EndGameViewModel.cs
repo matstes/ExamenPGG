@@ -1,6 +1,9 @@
-﻿namespace ExamenPGG.UI.ViewModel
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace ExamenPGG.UI.ViewModel
 {
-    public class EndGameViewModel
+    public class EndGameViewModel : ObservableObject
     {
+
     }
 }
