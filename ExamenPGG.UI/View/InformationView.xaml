@@ -1,76 +1,88 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamenPGG.UI.View.InformationView"
-             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
-             xmlns:playerobject="clr-namespace:ExamenPGG.Business.PlayerObject;assembly=ExamenPGG.Business"
-             x:DataType="viewmodel:InformationViewModel">
+<ContentView xmlns              = "http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x            = "http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class            = "ExamenPGG.UI.View.InformationView"
+             xmlns:viewmodel    = "clr-namespace:ExamenPGG.UI.ViewModel"
+             xmlns:playerobject = "clr-namespace:ExamenPGG.Business.PlayerObject;assembly=ExamenPGG.Business"
+             x:DataType         = "viewmodel:InformationViewModel">
 
     <Grid RowDefinitions = "20,*,*,*,auto,20" BackgroundColor="#151928">
         
-        <Image Source="Logo.png"
-               HorizontalOptions="Center"
-               Margin="10"
-               WidthRequest="100" 
-               Scale="2.00"
-               Grid.Row="1"/>
+        <Image Source            = "Logo.png"
+               HorizontalOptions = "Center"
+               Margin            = "10"
+               WidthRequest      = "100" 
+               Scale             = "2.00"
+               Grid.Row          = "1"/>
+
         <VerticalStackLayout Grid.Row="2" Grid.RowSpan="2" Margin="15,0">
+            
             <Label Text="Players" TextColor="#8e53e0" FontSize="64" Padding="10" FontFamily="Mistral"/>
 
             <CollectionView ItemsSource="{Binding Game.PlayerList}">
+                
                 <CollectionView.ItemTemplate>
+                    
                     <DataTemplate x:DataType="playerobject:Player">
+                        
                         <HorizontalStackLayout>
-                            <Label Text="{Binding Name}" FontSize="32" Margin="20,0" VerticalOptions="Center" FontFamily="Mistral" TextColor="Gold"/>
-                            <Image Source="{Binding IconPath}" HorizontalOptions="End"/>
+                            <Label Text   = "{Binding Name}"     FontSize = "32" Margin = "20,0" VerticalOptions = "Center" FontFamily = "Mistral" TextColor = "Gold"/>
+                            <Image Source = "{Binding IconPath}" HorizontalOptions = "End"/>
                         </HorizontalStackLayout>
+                        
                     </DataTemplate>
+                    
                 </CollectionView.ItemTemplate>
+                
             </CollectionView>
+            
         </VerticalStackLayout>
 
-        <VerticalStackLayout Grid.Row="4">
-            <Button Text="LeaderBoard"
-                    WidthRequest="200"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    Command="{Binding GoToLeaderBoardCommand}"
+        <VerticalStackLayout Grid.Row = "4">
+            
+            <Button Text              = "LeaderBoard"
+                    WidthRequest      = "200"
+                    HorizontalOptions = "Center"
+                    VerticalOptions   = "End"
+                    Command           = "{Binding GoToLeaderBoardCommand}"
                     />
             
-            <HorizontalStackLayout HorizontalOptions="Center"
-                                   Margin="0,10">
+            <HorizontalStackLayout HorizontalOptions= "Center" Margin = "0,10">
 
-                <Button Text="Rules"
-                    BackgroundColor="Black"
-                    BorderColor="Gold"
-                    TextColor="Gold"
-                    FontFamily="Mistral"
-                    Scale="2"
-                    HorizontalOptions="Start"
-                    VerticalOptions="End"
-                    Padding="10,10,10,10"
-                    Margin="20,20,30,20"
-                    Command="{Binding GoToRulesCommand}"
+                <Button 
+                    Text              = "Rules"
+                    FontFamily        = "Mistral"
+                    Scale             = "2"
+                    HorizontalOptions = "Start"
+                    VerticalOptions   = "End"
+                    Padding           = "10,10,10,10"
+                    Margin            = "20,20,30,20"
+                    Command           = "{Binding GoToRulesCommand}"
+                    
+                    BackgroundColor = "Black"
+                    BorderColor     = "Gold"
+                    TextColor       = "Gold"                    
                     />
                 
-                <Button Text="GoBack" 
-                    BackgroundColor="Black"
-                    BorderColor="Gold"   
-                    TextColor="Gold"
-                    FontFamily="Mistral"
-                    Scale="2"
-                    HorizontalOptions="End"
-                    VerticalOptions="End"
-                    Padding="10,10,10,10"
-                    Margin="30,20,20,20"
-                    Command="{Binding GoBackCommand}"
+                <Button 
+                    Text              = "GoBack" 
+                    FontFamily        = "Mistral"
+                    Scale             = "2"
+                    HorizontalOptions = "End"
+                    VerticalOptions   = "End"
+                    Padding           = "10,10,10,10"
+                    Margin            = "30,20,20,20"
+                    Command           = "{Binding GoBackCommand}"
+                    
+                    BackgroundColor = "Black"
+                    BorderColor     = "Gold"   
+                    TextColor       = "Gold"                    
                     />
 
             </HorizontalStackLayout>
+            
         </VerticalStackLayout>
-
-        
-
+     
     </Grid>
 
 </ContentView>

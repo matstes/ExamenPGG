@@ -2,8 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using ExamenPGG.Business.GameObject;
 using ExamenPGG.Business.Logging;
-using ExamenPGG.UI.View;
-using System.Text;
 
 namespace ExamenPGG.UI.ViewModel
 {
@@ -16,7 +14,7 @@ namespace ExamenPGG.UI.ViewModel
         
         public GameControlViewModel(IGame game, ILogger logger)
         {
-            Game = game;
+            Game   = game;
             Logger = logger;
         }
 

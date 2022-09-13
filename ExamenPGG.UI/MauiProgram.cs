@@ -27,22 +27,22 @@ namespace ExamenPGG.UI
                 });
 
             //business layer dependencies
-            builder.Services.AddSingleton<ILogger, FileLogger>();
-            builder.Services.AddTransient<IBootstrapper, Bootstrapper>();
-            builder.Services.AddTransient<IBootup, Bootup>();
+            builder.Services.AddSingleton<ILogger       , FileLogger>();
+            builder.Services.AddTransient<IBootstrapper , Bootstrapper>();
+            builder.Services.AddTransient<IBootup       , Bootup>();
             builder.Services.AddTransient<ISquareFactory, SquareFactory>();
             builder.Services.AddTransient<IPlayerFactory, PlayerFactory>();
-            builder.Services.AddTransient<IDiceFactory, DiceFactory>();
+            builder.Services.AddTransient<IDiceFactory  , DiceFactory>();
 
             builder.Services.AddSingleton<IGameBoard, GameBoard>();
-            builder.Services.AddSingleton<IGame, Game>();
+            builder.Services.AddSingleton<IGame     , Game>();
 
             //Database
             string dbPath = Path.Combine(FileSystem.AppDataDirectory, "GameOfBatsDB.db");
             builder.Services.AddDbContext<GameOfBatsContext>(options => options.UseSqlite($"Filename={dbPath}"));
-            builder.Services.AddTransient<IDBGameRepo, DBGameRepo>();
+            builder.Services.AddTransient<IDBGameRepo,   DBGameRepo>();
             builder.Services.AddTransient<IDBPlayerRepo, DBPlayerRepo>();
-            builder.Services.AddTransient<IGameService, GameService>();
+            builder.Services.AddTransient<IGameService,  GameService>();
 
 
             //pages

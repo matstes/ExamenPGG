@@ -7,6 +7,7 @@ namespace ExamenPGG.UI.ViewModel
     {
         [ObservableProperty]
         private IGame currentGame;
+
         public GameBoardViewModel(IGame game)
         {
             CurrentGame = game;

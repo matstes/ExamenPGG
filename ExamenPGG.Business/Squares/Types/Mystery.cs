@@ -19,8 +19,6 @@ namespace ExamenPGG.Business.Squares
         {
             _logger.LogSpecialSquare(this, player);
 
-            //20% death square, 80% extra dobbelsteen
-
             Random success = new Random();
             int random = success.Next(1, 6);
             int rollAmount = 0;
@@ -34,9 +32,7 @@ namespace ExamenPGG.Business.Squares
                 rollAmount = MysteryDice.RollDice();
                 _logger.LogDiceRoll(player, rollAmount);
                 player.MovePlayer(rollAmount);
-
             }
-
         }
     }
 }

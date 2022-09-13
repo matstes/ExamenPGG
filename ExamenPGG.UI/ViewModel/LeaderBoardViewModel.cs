@@ -23,6 +23,7 @@ namespace ExamenPGG.UI.ViewModel
         private void UpdateLeaderBoard()
         {
             Top10 = _gameService.GetTop10().Result;
+
             if (Top10.Count == 0)
             {
                 EmptyDB = "No data found, play a game!";

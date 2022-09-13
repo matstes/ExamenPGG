@@ -17,8 +17,6 @@ namespace ExamenPGG.Business.PlayerObject
         public bool IsHuman { get; private set; }
         public int LastThrow { get; set; } = 0;
 
-        private int direction = 1;
-
         private IGameBoard _gameBoard;
 
         private int positionX = 0;
@@ -74,6 +72,7 @@ namespace ExamenPGG.Business.PlayerObject
             CurrentSquare = _gameBoard.GetSquare(0);
         }
 
+        private int direction = 1;
         public int Direction
         {
             get { return direction; }
@@ -157,10 +156,10 @@ namespace ExamenPGG.Business.PlayerObject
         private ISquare HandlePlayer(int destination)
         {
             PreviousSquare = CurrentSquare;
-            CurrentSquare = GetSquare(destination);
-            PositionY = GetYPosition();
-            PositionX = GetXPosition(PositionY);
-            ScaleXplayer = GetXScale();   //Wrong placement?
+            CurrentSquare  = GetSquare(destination);
+            PositionY      = GetYPosition();
+            PositionX      = GetXPosition(PositionY);
+            ScaleXplayer   = GetXScale(); 
             CurrentSquare.HandlePlayer(this);
 
             return CurrentSquare;

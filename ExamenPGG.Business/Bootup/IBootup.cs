@@ -6,11 +6,8 @@ namespace ExamenPGG.Business.Bootup
     public interface IBootup
     {
         string AskPlayerNumber();
-
         void InitialPlayerNumber();
-
         string AskPlayerNames();
-
         void InputPlayerNames();
 
         IGame CreateGame(List<IPlayer> inputList);

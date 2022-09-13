@@ -1,18 +1,17 @@
 using ExamenPGG.UI.ViewModel;
-using Microsoft.Maui.Controls;
 using Plugin.Maui.Audio;
 
 namespace ExamenPGG.UI.View;
 
 public partial class GameControlView : ContentView
 {
-    private readonly IAudioManager audioManager;
     private bool isPlayingEffect = false;
+    private readonly IAudioManager audioManager;
+
     public GameControlView(GameControlViewModel gcVM, IAudioManager audioManager)
 	{
 		InitializeComponent();
-		BindingContext = gcVM;
-
+		BindingContext    = gcVM;
         this.audioManager = audioManager;
     }
 

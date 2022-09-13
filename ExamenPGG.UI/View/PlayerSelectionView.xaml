@@ -1,113 +1,122 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ExamenPGG.UI.View.PlayerSelectionView"
-             xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
-             xmlns:model="clr-namespace:ExamenPGG.UI.Model"
-             x:DataType="viewmodel:PlayerSelectionViewModel"
-             Title="Player Selection">
+<ContentPage xmlns           = "http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x         = "http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class         = "ExamenPGG.UI.View.PlayerSelectionView"
+             xmlns:viewmodel = "clr-namespace:ExamenPGG.UI.ViewModel"
+             xmlns:model     = "clr-namespace:ExamenPGG.UI.Model"
+             x:DataType      = "viewmodel:PlayerSelectionViewModel"
+             Title           = "Player Selection">
 
     <ScrollView Background="#1a0022">
-        <Grid ColumnDefinitions="*,550,*"
-          RowDefinitions="50,auto,*,auto,50"
-          RowSpacing="25">
+        
+        <Grid ColumnDefinitions = "*,550,*" RowDefinitions = "50,auto,*,auto,50" RowSpacing = "25">
+            
             <Image
-                Grid.Column="0"
-                Grid.Row="2"
-                Source="logo.png"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Scale="3.00"
-                Aspect="Center"
-                >
+                Grid.Column       = "0"
+                Grid.Row          = "2"
+                Source            = "logo.png"
+                HorizontalOptions = "Center"
+                VerticalOptions   = "Center"
+                Scale             = "3.00"
+                Aspect            = "Center">
             </Image>
+            
             <Image
-                Grid.Column="4"
-                Grid.Row="2"
-                Source="logo.png"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Scale="3.00"
-                Aspect="Center"
-                >
+                Grid.Column       = "4"
+                Grid.Row          = "2"
+                Source            = "logo.png"
+                HorizontalOptions = "Center"
+                VerticalOptions   = "Center"
+                Scale             = "3.00"
+                Aspect            = "Center">
             </Image>
-            <HorizontalStackLayout 
-                               Grid.Row="1"
-                               Grid.Column="1"
-                               HorizontalOptions="Start">
-                <Label Text="PlayerName" FontFamily="Mistral" TextColor="Gold" FontSize ="64" />
+            
+            <HorizontalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="Start">
 
-                <Label Text="Icon" FontFamily="Mistral" TextColor="Gold" FontSize ="64"
-                       Margin="30,0,90,0" />
-
-                <Label Text="IsBot" FontFamily="Mistral" TextColor="Gold" FontSize ="64"/>
+                <Label Text ="PlayerName" FontFamily = "Mistral" TextColor = "Gold" FontSize = "64"/>
+                <Label Text ="Icon"       FontFamily = "Mistral" TextColor = "Gold" FontSize = "64" Margin = "30,0,90,0"/>
+                <Label Text = "IsBot"     FontFamily = "Mistral" TextColor = "Gold" FontSize = "64"/>
             </HorizontalStackLayout>
 
-            <CollectionView Grid.Row="2"
-                            Grid.Column="1"
-                            ItemsSource="{Binding PlayerChoices}" >
+            <CollectionView Grid.Row = "2" Grid.Column = "1" ItemsSource = "{Binding PlayerChoices}">
                             
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout ItemSpacing="10"
-                                       Orientation="Vertical" />
+                    <LinearItemsLayout ItemSpacing = "10" Orientation = "Vertical" />
                 </CollectionView.ItemsLayout>
 
                 <CollectionView.ItemTemplate>
+                    
                     <DataTemplate x:DataType="model:PlayerChoice">
+                        
                         <HorizontalStackLayout HorizontalOptions="Center" Margin="0,28" >
                             
-                            <Entry MinimumWidthRequest="320"
-                                   Text="{Binding Name}" 
-                                   FontFamily="Mistral"  FontSize="30" TextColor="Gold"
-                                   />
+                            <Entry MinimumWidthRequest="320" Text="{Binding Name}" FontFamily="Mistral"  FontSize="30" TextColor="Gold"/>
 
-                            <Picker Margin="10,0"
-                                    WidthRequest="95"
-                                    ItemsSource="{Binding IconList}"
-                                    SelectedItem="{Binding Icon}"
-                                    FontFamily="Mistral"
-                                    TextColor="Black"
-                                    Background="Purple"
-                                    VerticalOptions="Center"
-                                    >
+                            <Picker Margin          = "10,0"
+                                    WidthRequest    = "95"
+                                    ItemsSource     = "{Binding IconList}"
+                                    SelectedItem    = "{Binding Icon}"
+                                    FontFamily      = "Mistral"
+                                    VerticalOptions = "Center"
+                                    
+                                    TextColor  = "Black"
+                                    Background = "Purple">
                             </Picker>
 
-                            <Image Source="{Binding Icon}"
-                                   WidthRequest="32"
-                                   HeightRequest="32" />
-
-                            <CheckBox IsChecked="{Binding IsBot}"
-                                      Margin="40,0" />
+                            <Image    Source    = "{Binding Icon}"  WidthRequest = "32" HeightRequest = "32"/>
+                            <CheckBox IsChecked = "{Binding IsBot}" Margin = "40,0"/>
+                            
                         </HorizontalStackLayout>
+                        
                     </DataTemplate>
+                    
                 </CollectionView.ItemTemplate>
+                
             </CollectionView>
 
-            <HorizontalStackLayout Grid.Row="3"
-                                   Grid.Column="1"
-                                   HorizontalOptions="Start">
-                <Label Text="Player count:"
-                       Margin="0,0,10,0"
-                       FontFamily="Mistral" TextColor="Gold" FontSize="30"
-                       VerticalTextAlignment="Center" />
+            <HorizontalStackLayout Grid.Row="3" Grid.Column="1" HorizontalOptions="Start">
+                
+                <Label Text                  = "Player count:"
+                       Margin                = "0,0,10,0"
+                       FontFamily            = "Mistral" 
+                       FontSize              = "30"
+                       VerticalTextAlignment = "Center"                        
+                       TextColor             = "Gold"/>
 
-                <Button Text="-" FontFamily="Mistral" TextColor="Gold" FontSize="42" Background="Black"
-                        Command="{Binding RemovePlayerCommand}" />
+                <Button Text                 = "-" 
+                        FontFamily           = "Mistral" 
+                        FontSize             = "42" 
+                        Command              = "{Binding RemovePlayerCommand}"                                                
+                        TextColor            = "Gold" 
+                        Background           = "Black"/>
 
-                <Label Text="{Binding PlayerCount}"
-                       Margin="10,0"
-                       FontFamily="Mistral" TextColor="Gold" FontSize="30"
-                       VerticalTextAlignment="Center" />
+                <Label Text                  = "{Binding PlayerCount}"
+                       Margin                = "10,0"
+                       FontFamily            = "Mistral" 
+                       FontSize              = "30" 
+                       VerticalTextAlignment = "Center"                        
+                       TextColor             = "Gold"/>
 
-                <Button Text="+" FontFamily="Mistral" TextColor="Gold" FontSize="42" Background="Black"
-                        Command="{Binding AddPlayerCommand}" />
+                <Button Text                 = "+" 
+                        FontFamily           = "Mistral" 
+                        FontSize             = "42" 
+                        Command              = "{Binding AddPlayerCommand}" 
+                        TextColor            = "Gold" 
+                        Background           = "Black"/>
 
-                <Button Text="Start game" Background="Black"
-                        FontFamily="Mistral" TextColor="Gold" FontSize="30"
-                        Margin="200,0,0,0"
-                        Clicked="StartMusic"
-                        Command="{Binding StartGameCommand}" />
+                <Button Text                 = "Start game" 
+                        FontFamily           = "Mistral" 
+                        FontSize             = "30"
+                        Margin               = "200,0,0,0"
+                        Clicked              = "StartMusic"
+                        Command              = "{Binding StartGameCommand}" 
+                        TextColor            = "Gold" 
+                        Background           = "Black"/>
+                
             </HorizontalStackLayout>
+            
         </Grid>
+        
     </ScrollView>
+    
 </ContentPage>
