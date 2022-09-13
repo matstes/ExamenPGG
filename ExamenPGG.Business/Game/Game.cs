@@ -67,40 +67,40 @@ namespace ExamenPGG.Business.GameObject
             CurrentplayerID = 0;
         }
 
-        public void StartGame()
+        public async Task StartGame()
         {
             //some start logic?
             if (PlayerList is null)
             {
                 return;
             }
-
-            IncrementScore();
+            _logger.LogGameStart(StartTime, PlayerList);
+            await IncrementScore();
         }
 
-        public void IncrementScore()
+        public async Task IncrementScore()
         {
             CurrentPlayer.TurnAmount++;
             CurrentPlayer.Direction = 1;
             _logger.LogPlayerTurn(CurrentPlayer);
-            CanPlayerMove();
+            await CanPlayerMove();
         }
 
-        public void CanPlayerMove() //removed the currentplayer parameter since this is available inside the game class
+        public async Task CanPlayerMove() //removed the currentplayer parameter since this is available inside the game class
         {
             if (CurrentPlayer.InActiveTurns == 0)
             {
-                IsHumanCheck();
+                await IsHumanCheck();
             }
             else
             {
                 CurrentPlayer.InActiveTurns -= 1;
                 _logger.LogSkipTurn(CurrentPlayer);
-                ChangeCurrentPlayer();
+                await ChangeCurrentPlayer();
             }
         }
 
-        private void IsHumanCheck()
+        private async Task IsHumanCheck()
         {
             if (CurrentPlayer.IsHuman)
             {
@@ -108,7 +108,8 @@ namespace ExamenPGG.Business.GameObject
             }
             else
             {
-                ExecuteDiceRoll();
+                await Task.Delay(1000);
+                await ExecuteDiceRoll();
             }
         }
 
@@ -117,7 +118,7 @@ namespace ExamenPGG.Business.GameObject
             IsDiceButtonEnabled = true;
         }
 
-        public void ExecuteDiceRoll()
+        public async Task ExecuteDiceRoll()
         {
             IsDiceButtonEnabled = false;
 
@@ -127,49 +128,49 @@ namespace ExamenPGG.Business.GameObject
                 rollAmount.Add(dice.RollDice());
             }
             CurrentPlayer.LastThrow = rollAmount.Sum();
-            _logger.LogDiceRoll(CurrentPlayer, rollAmount.Sum());
-            CheckRoll(rollAmount);
-            HasReachedEnd();
+            _logger.LogDiceRoll(CurrentPlayer, rollAmount);
+            await CheckRoll(rollAmount);
+            await HasReachedEnd();
         }
 
-        private void CheckRoll(List<int> rollAmount)
+        private async Task CheckRoll(List<int> rollAmount)
         {
             if (CurrentPlayer.CurrentSquare.SquareType is Squares.SquareType.Start)
             {
                 if ((rollAmount.Contains(4)) & (rollAmount.Contains(5)))
                 {
                     _logger.LogMessage("Wow, special case: go straight to square 28!");
-                    CurrentPlayer.MoveToSquare(28);
+                    await CurrentPlayer.MovePlayerVisualy(28);
                 }
                 else if ((rollAmount.Contains(6)) & (rollAmount.Contains(3)))
                 {
                     _logger.LogMessage("Wow, special case: go straight to square 52!");
-                    CurrentPlayer.MoveToSquare(52);
+                    await CurrentPlayer.MovePlayerVisualy(52);
                 }
                 else
                 {
-                    CurrentPlayer.MovePlayer(rollAmount.Sum());
+                    await CurrentPlayer.MovePlayerVisualy(rollAmount.Sum());
                 }
             }
             else
             {
-                CurrentPlayer.MovePlayer(rollAmount.Sum());
+                await CurrentPlayer.MovePlayerVisualy(rollAmount.Sum());
             }
         }
 
-        private void HasReachedEnd()
+        private async Task HasReachedEnd()
         {
             if (CurrentPlayer.CurrentSquare.ID == 63)
             {
-                EndGame();
+                await EndGame();
             }
             else
             {
-                ChangeCurrentPlayer();
+                await ChangeCurrentPlayer();
             }
         }
 
-        public void ChangeCurrentPlayer()
+        public async Task ChangeCurrentPlayer()
         {
             CurrentplayerID++;
             if (CurrentplayerID == PlayerList.Count)
@@ -178,15 +179,15 @@ namespace ExamenPGG.Business.GameObject
                 RoundNumber++;
             }
             CurrentPlayer = PlayerList[CurrentplayerID];
-            IncrementScore();
+            await IncrementScore();
         }
 
-        public void EndGame()
+        public async Task EndGame()
         {
             WinningPlayer = CurrentPlayer;
             EndTime = DateTime.Now;
             _logger.LogGameEnd(this);
-            _gameService.LogGameToDB(this);
+            await _gameService.LogGameToDB(this);
         }
 
         private void RaisePropertyChanged([CallerMemberName] string? propertyName = null)

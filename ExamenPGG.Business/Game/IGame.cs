@@ -16,17 +16,16 @@ namespace ExamenPGG.Business.GameObject
         public int CurrentplayerID { get; }
 
         void InitializeNewGame(List<IPlayer> playerList);
+        Task StartGame();
 
-        void StartGame();
+        Task CanPlayerMove();
 
-        void CanPlayerMove();
+        Task ChangeCurrentPlayer();
 
-        void ChangeCurrentPlayer();
+        Task IncrementScore();
 
-        void IncrementScore();
+        Task EndGame();
 
-        void EndGame();
-
-        void ExecuteDiceRoll();
+        Task ExecuteDiceRoll();
     }
 }
