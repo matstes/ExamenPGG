@@ -57,7 +57,7 @@
                 </HorizontalStackLayout>
             </Grid>
 
-            <Label Text="This is Game of Bats, a spooky version of the all familiar Game of Goose. In summary, a board game where two or more players move forward a grid by rolling two dice, each taking turns."
+            <Label Text="This is Game of Bats, a spooky version of the all familiar Game of Goose. In summary, a board game where two or more players move forward on a grid by rolling two dice, each taking turns."
                FontSize="Medium"
                WidthRequest="600"
                HorizontalOptions="Center"
@@ -222,7 +222,7 @@
                    Grid.Column="1"
                    Style="{StaticResource GridText}" />
 
-                <Label Text="This is a special mystery square. You'll likely receive an extra die, but there is also a 20% chance that you will actually die! "
+                <Label Text="This is a special mystery square. You'll likely receive an extra dice, but there is also a 20% chance that you will actually die and go back to start! "
                    Grid.Row="5"
                    Grid.Column="2"
                    Style="{StaticResource GridText}" />
@@ -244,7 +244,7 @@
                    Grid.Column="1"
                    Style="{StaticResource GridText}" />
 
-                <Label Text="Whoops, you will fall down a floor of the Castle! "
+                <Label Text="Whoops, you will fall down a floor of the castle! "
                    Grid.Row="6"
                    Grid.Column="2"
                    Style="{StaticResource GridText}" />
@@ -266,7 +266,7 @@
                    Grid.Column="1"
                    Style="{StaticResource GridText}" />
 
-                <Label Text="Congratulations, you reached the end boss on the last square first. You win the game! "
+                <Label Text="Congratulations, you reached the end boss on the last square. You defeated Dracula and win the game! "
                    Grid.Row="7"
                    Grid.Column="2"
                    Style="{StaticResource GridText}" />
