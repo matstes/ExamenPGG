@@ -14,6 +14,7 @@ namespace ExamenPGG.Business.GameObject
         List<IDice> DiceBag { get; set; }
         public bool IsDiceButtonEnabled { get; }
         public int CurrentplayerID { get; }
+        public bool GameIsBusy { get; set; }
 
         void InitializeNewGame(List<IPlayer> playerList);
         Task StartGame();

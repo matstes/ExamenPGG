@@ -61,7 +61,12 @@
                 Radius="100"
                 Opacity="0.8"/>
             </Border.Shadow>
-            
+
         </Border>
+
+        <Label x:Name="EndGameLabel" 
+            IsVisible= "{Binding Game.GameIsBusy}"
+               PropertyChanged="Label_PropertyChanged"/>
+
     </Grid>
 </ContentPage>

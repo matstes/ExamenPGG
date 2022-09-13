@@ -19,6 +19,19 @@ namespace ExamenPGG.Business.GameObject
         public int DiceAmount { get; set; } = 2;
         public int RoundNumber { get; set; }
         public int CurrentplayerID { get; private set; }
+        private bool _gameIsBusy = true;
+
+        public bool GameIsBusy
+        {
+            get { 
+                return _gameIsBusy;
+            }
+            set { 
+                _gameIsBusy = value;
+                RaisePropertyChanged();
+            }
+        }
+
 
         private ILogger _logger;
         private IDiceFactory _diceFactory;
@@ -185,6 +198,7 @@ namespace ExamenPGG.Business.GameObject
         public async Task EndGame()
         {
             WinningPlayer = CurrentPlayer;
+            GameIsBusy = false;
             EndTime = DateTime.Now;
             _logger.LogGameEnd(this);
             await _gameService.LogGameToDB(this);
