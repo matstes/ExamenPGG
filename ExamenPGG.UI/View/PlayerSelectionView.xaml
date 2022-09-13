@@ -6,7 +6,7 @@
              xmlns:model="clr-namespace:ExamenPGG.UI.Model"
              x:DataType="viewmodel:PlayerSelectionViewModel">
 
-    <ScrollView Background="#1a0022">
+    <ScrollView>
         <Grid ColumnDefinitions="0.2*,0.6*,0.2*"
           RowDefinitions="50,auto,*, auto, auto,50"
           RowSpacing="25">
