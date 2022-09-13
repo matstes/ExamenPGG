@@ -8,6 +8,6 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        ContentTemplate="{DataTemplate view:EndGameView}"
-        Route="EndGameView" />
+        ContentTemplate="{DataTemplate view:StartupView}"
+        Route="StartupView" />
 </Shell>

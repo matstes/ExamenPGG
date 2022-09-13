@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ExamenPGG.UI.View.EndGameView"
              xmlns:viewmodel="clr-namespace:ExamenPGG.UI.ViewModel"
-             x:DataType="viewmodel:PlayerSelectionViewModel">
+             x:DataType="viewmodel:EndGameViewModel">
 
     <Grid ColumnDefinitions="20,*,auto,*,20"
-          RowDefinitions="20,*,auto,*,20">
+          RowDefinitions="20,*,auto, auto, auto, *,20">
 
-        <HorizontalStackLayout Spacing="25" Grid.Column="1"
+        <HorizontalStackLayout Spacing="25" Grid.Column="2"
                                Grid.Row="1"
                                HorizontalOptions="Center">
 
@@ -20,7 +20,27 @@
                    Style="{StaticResource RulesPageThumbs}"/>
 
         </HorizontalStackLayout>
-        
+
+        <VerticalStackLayout Grid.Row="2"
+                             Grid.Column="2"
+                             HorizontalOptions="Center">
+            
+        <Label Text="Winning Player:" />
+        <Label Text="{Binding CurrentGame.WinningPlayer.Name}"/>
+            <Label Text="Turnamount:" />
+            <Label Text="{Binding CurrentGame.RoundNumber}"/>
+
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="3"
+                               Grid.Column="2">
+
+            <Button Text="Go to Startscreen!"
+                    Command="{Binding GoToStartViewCommand}"
+                    Margin="50"/>
+
+        </HorizontalStackLayout>
+
     </Grid>
     
 </ContentPage>
