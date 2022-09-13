@@ -39,13 +39,21 @@
             </ScrollView>
 
             <Button
+                Text="ROLL"
+                ImageSource="dice6.png"
+                TextColor="Gray"
+                Grid.Column="3"
+                Style="{StaticResource RollDiceButton}">
+            </Button>
+
+            <Button
                 x:Name="RollDiceButton"
                 Text="ROLL"
                 Clicked="GiveBloop"
                 ImageSource="dice6.png"
                 Grid.Column="3"
                 Command="{Binding RollDiceCommand}"
-                IsEnabled="{Binding Game.IsDiceButtonEnabled}"
+                IsVisible="{Binding Game.IsDiceButtonEnabled}"
                 Style="{StaticResource RollDiceButton}">
             </Button>
         </Grid>

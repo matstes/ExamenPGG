@@ -28,11 +28,12 @@ namespace ExamenPGG.Business.Squares
             if (random == 1)
             {
                 player.MoveToSquare(0);
+                _logger.LogMysteryDeath(player);
             }
             else
             {
                 rollAmount = MysteryDice.RollDice();
-                _logger.LogDiceRoll(player, rollAmount);
+                _logger.LogMysteryMove(player, rollAmount);
                 player.MovePlayer(rollAmount);
             }
         }
