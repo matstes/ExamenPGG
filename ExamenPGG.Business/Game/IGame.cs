@@ -14,9 +14,9 @@ namespace ExamenPGG.Business.GameObject
         List<IDice> DiceBag { get; set; }
         public bool IsDiceButtonEnabled { get; }
         public int CurrentplayerID { get; }
-        public bool GameIsBusy { get; set; }
+        public bool HasNoWinner { get; set; }
 
-        void InitializeNewGame(List<IPlayer> playerList);
+        Task InitializeNewGame(List<IPlayer> playerList);
         Task StartGame();
 
         Task CanPlayerMove();
@@ -28,5 +28,7 @@ namespace ExamenPGG.Business.GameObject
         Task EndGame();
 
         Task ExecuteDiceRoll();
+
+        void SendPauseRequest();
     }
 }

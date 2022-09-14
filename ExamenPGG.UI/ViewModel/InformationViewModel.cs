@@ -24,6 +24,7 @@ namespace ExamenPGG.UI.ViewModel
         [RelayCommand]
         private async Task GoBack()
         {
+            Game.SendPauseRequest();
             await Shell.Current.GoToAsync($"..");
         }
 

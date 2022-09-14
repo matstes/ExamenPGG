@@ -19,15 +19,18 @@ namespace ExamenPGG.Business.GameObject
         public int DiceAmount { get; set; } = 2;
         public int RoundNumber { get; set; }
         public int CurrentplayerID { get; private set; }
-        private bool _gameIsBusy = true;
 
-        public bool GameIsBusy
+        private bool isBusy = false;
+        private bool pauseRequest = false;
+        private bool _hasNoWinner = true;
+
+        public bool HasNoWinner
         {
             get { 
-                return _gameIsBusy;
+                return _hasNoWinner;
             }
             set { 
-                _gameIsBusy = value;
+                _hasNoWinner = value;
                 RaisePropertyChanged();
             }
         }
@@ -71,8 +74,16 @@ namespace ExamenPGG.Business.GameObject
             }
         }
 
-        public void InitializeNewGame(List<IPlayer> playerList)
+        public async Task InitializeNewGame(List<IPlayer> playerList)
         {
+            while (isBusy)
+            {
+                pauseRequest = true;
+                await Task.Delay(100);
+            }
+
+            isBusy = true;
+            HasNoWinner = true;
             PlayerList = playerList;
             CurrentPlayer = PlayerList[0];
             StartTime = DateTime.Now;
@@ -93,13 +104,26 @@ namespace ExamenPGG.Business.GameObject
 
         public async Task IncrementScore()
         {
+            if (pauseRequest)
+            {
+                InterruptGame();
+            }
+            else
+            {
             CurrentPlayer.TurnAmount++;
             CurrentPlayer.Direction = 1;
             _logger.LogPlayerTurn(CurrentPlayer);
             await CanPlayerMove();
+            }
         }
 
-        public async Task CanPlayerMove() //removed the currentplayer parameter since this is available inside the game class
+        private void InterruptGame()
+        {
+            pauseRequest = false;
+            isBusy = false;
+        }
+
+        public async Task CanPlayerMove()
         {
             if (CurrentPlayer.InActiveTurns == 0)
             {
@@ -129,10 +153,12 @@ namespace ExamenPGG.Business.GameObject
         private void EnableDiceButton()
         {
             IsDiceButtonEnabled = true;
+            isBusy = false;
         }
 
         public async Task ExecuteDiceRoll()
         {
+            isBusy = true;
             IsDiceButtonEnabled = false;
 
             List<int> rollAmount = new();
@@ -198,10 +224,19 @@ namespace ExamenPGG.Business.GameObject
         public async Task EndGame()
         {
             WinningPlayer = CurrentPlayer;
-            GameIsBusy = false;
+            isBusy = false;
+            HasNoWinner = false;
             EndTime = DateTime.Now;
             _logger.LogGameEnd(this);
             await _gameService.LogGameToDB(this);
+        }
+
+        public void SendPauseRequest()
+        {
+            if (isBusy)
+            {
+                pauseRequest = true;
+            }
         }
 
         private void RaisePropertyChanged([CallerMemberName] string? propertyName = null)
