@@ -82,7 +82,6 @@ namespace ExamenPGG.Business.GameObject
                 await Task.Delay(100);
             }
 
-            isBusy = true;
             HasNoWinner = true;
             PlayerList = playerList;
             CurrentPlayer = PlayerList[0];
@@ -93,12 +92,12 @@ namespace ExamenPGG.Business.GameObject
 
         public async Task StartGame()
         {
-            //some start logic?
-            if (PlayerList is null)
+            if ((PlayerList is null) || (isBusy))
             {
                 return;
             }
             _logger.LogGameStart(StartTime, PlayerList);
+            isBusy = true;
             await IncrementScore();
         }
 
