@@ -65,7 +65,7 @@
         </Border>
 
         <Label x:Name="EndGameLabel" 
-            IsVisible= "{Binding Game.GameIsBusy}"
+            IsVisible= "{Binding Game.HasNoWinner}"
                PropertyChanged="Label_PropertyChanged"/>
 
     </Grid>

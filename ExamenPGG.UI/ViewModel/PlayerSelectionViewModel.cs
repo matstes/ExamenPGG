@@ -67,7 +67,7 @@ namespace ExamenPGG.UI.ViewModel
                 return;
             }
 
-            _game.InitializeNewGame(playerList);
+            await _game.InitializeNewGame(playerList);
 
             _game.StartGame();
             await GoToMainViewAsync();
@@ -96,6 +96,7 @@ namespace ExamenPGG.UI.ViewModel
                     playerList.Add(newPlayer);
                 }
             }
+
             ErrorMessage = string.Empty;
             return playerList;
         }
