@@ -11,16 +11,32 @@ namespace ExamenPGG.UI
             BindingContext = vm;
         }
 
-        private async void Label_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        //private async void Label_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        //{
+        //    if (!(sender as Label).IsVisible)
+        //    {
+        //    await GoToEndGameAsync();
+        //    }
+        //}
+
+        private void Label_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (!(sender as Label).IsVisible)
             {
-            await GoToEndGameAsync();
+                GoToEndGameAsync();
             }
         }
-        private async Task GoToEndGameAsync()
+
+
+        //private async Task GoToEndGameAsync()
+        //{
+        //    await Shell.Current.GoToAsync($"{nameof(EndGameView)}");
+        //}
+
+        private void GoToEndGameAsync()
         {
-            await Shell.Current.GoToAsync($"{nameof(EndGameView)}");
+            // Async Navigation Causes Strange behaviour and crashes
+            Shell.Current.GoToAsync($"{nameof(EndGameView)}");
         }
 
 

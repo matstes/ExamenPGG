@@ -45,6 +45,7 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<IGameService, GameService>();
 
             //pages
+            
             builder.Services.AddTransient<MainViewModel>();
             builder.Services.AddTransient<InformationViewModel>();
             builder.Services.AddTransient<GameControlViewModel>();
@@ -54,7 +55,7 @@ namespace ExamenPGG.UI
             builder.Services.AddTransient<EndGameViewModel>();
             builder.Services.AddTransient<LeaderBoardViewModel>();
             builder.Services.AddTransient<StartupViewModel>();
-
+                                
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<InformationView>();
             builder.Services.AddTransient<GameControlView>();

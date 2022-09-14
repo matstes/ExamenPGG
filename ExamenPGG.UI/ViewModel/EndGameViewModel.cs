@@ -16,9 +16,10 @@ namespace ExamenPGG.UI.ViewModel
         }
 
         [RelayCommand]
-        private async Task GoToStartViewAsync()
+        private void GoToPlayerSelection()
         {
-            await Shell.Current.GoToAsync("../../..");
+            // Async Navigation Causes Strange behaviour and crashes
+            Shell.Current.GoToAsync("PlayerSelectionView");
         }
     }
 }

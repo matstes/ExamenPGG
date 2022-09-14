@@ -3,6 +3,7 @@ using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Bootup
 {
+    // This was only used for the console application
     public class Bootstrapper : IBootstrapper
     {
         private IBootup _boot;
