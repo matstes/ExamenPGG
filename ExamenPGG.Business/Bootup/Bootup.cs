@@ -5,6 +5,8 @@ using ExamenPGG.Business.PlayerObject;
 
 namespace ExamenPGG.Business.Bootup
 {
+
+    // This was only used for the console application
     public class Bootup : IBootup
     {
         public List<string> activePlayers = new List<string>();

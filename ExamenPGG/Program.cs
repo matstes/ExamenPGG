@@ -1,4 +1,6 @@
-﻿//using ExamenPGG.Business.Bootup;
+﻿// ORIGINAL CONSOLE APP
+
+//using ExamenPGG.Business.Bootup;
 //using ExamenPGG.Business.GameObject;
 //using Microsoft.Extensions.DependencyInjection;
 //using ExamenPGG.Business.Logging;
@@ -29,6 +31,9 @@
 //    services.AddSingleton<IGameBoard, GameBoard>();
 //}
 
+
+
+// DUMMYDATA TO TEST DATABASE (NOT USED ANYMORE)
 using ExamenPGG.Data.Data;
 using ExamenPGG.Data.Entities;
 using ExamenPGG.Data.Repository;

@@ -11,17 +11,10 @@ namespace ExamenPGG.UI.ViewModel
         [ObservableProperty]
         private IGame currentGame;
 
-        private IPlayer WinningPlayer;
-
         public GameBoardViewModel(IGame game)
         {
             CurrentGame = game;
 
         }
-        //[RelayCommand]
-        //private async Task GoToEndGameAsync()
-        //{
-        //    await Shell.Current.GoToAsync($"{nameof(EndGameView)}");
-        //}
     }
 }

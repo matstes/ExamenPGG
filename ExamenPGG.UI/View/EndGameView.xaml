@@ -36,7 +36,7 @@
                                Grid.Column="2">
 
             <Button Text="Go to Startscreen!"
-                    Command="{Binding GoToStartViewCommand}"
+                    Command="{Binding GoToPlayerSelectionCommand}"
                     Margin="50"/>
 
         </HorizontalStackLayout>
